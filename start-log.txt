@@ -1,0 +1,53 @@
+[92m
+ _       __     __    ____  ____  __  ___
+| |     / /__  / /_  / __ \/ __ \/  |/  /
+| | /| / / _ \/ __ \/ / / / / / / /|_/ / 
+| |/ |/ /  __/ /_/ / /_/ / /_/ / /  / /  
+|__/|__/\___/_.___/\____/_____/_/  /_/   
+
+[39m
+Checking python version... 3.x, good!
+Checking GDAL version... GDAL 3.4.3, released 2022/04/22, excellent!
+Running migrations
+Operations to perform:
+  Apply all migrations: admin, app, auth, contenttypes, guardian, nodeodm, sessions
+Running migrations:
+  No migrations to apply.
+Checking for celery...  [92m[1m OK[0m[39m
+[91mWO_BROKER environment variable is not set. Defaulting to redis://localhost[39m
+Scheduler is not running.
+INFO Booting WebODM 2.4.1
+WARNING Debug mode is ON (for development this is OK)
+INFO Registered [coreplugins.measure.plugin]
+INFO Registered [coreplugins.fullscreen.plugin]
+INFO Registered [coreplugins.diagnostic.plugin]
+INFO Registered [coreplugins.contours.plugin]
+INFO Registered [coreplugins.lightning.plugin]
+INFO Registered [coreplugins.posm-gcpi.plugin]
+
+Trying to establish communication...
+[92m
+Congratulations! └@(･◡･)@┐
+==========================
+[39m
+If there are no errors, WebODM should be up and running!
+[93m
+Open a web browser and navigate to http://localhost:8000
+[39m
+WARNING "GET /static/app/js/vendor/es6-shim.map HTTP/1.1" 404 1702
+WARNING "GET /static/app/js/vendor/potree/build/potree/potree.js.map HTTP/1.1" 404 1765
+WARNING "GET /static/app/js/vendor/metisMenu.js.map HTTP/1.1" 404 1714
+WARNING "GET /static/app/js/vendor/es6-shim.map HTTP/1.1" 404 1702
+WARNING "GET /static/app/js/vendor/metisMenu.js.map HTTP/1.1" 404 1714
+WARNING "GET /static/app/js/vendor/es6-shim.map HTTP/1.1" 404 1702
+WARNING "GET /static/app/js/vendor/potree/build/potree/potree.js.map HTTP/1.1" 404 1765
+WARNING "GET /static/app/js/vendor/metisMenu.js.map HTTP/1.1" 404 1714
+WARNING "GET /static/app/js/vendor/es6-shim.map HTTP/1.1" 404 1702
+WARNING "GET /static/app/js/vendor/metisMenu.js.map HTTP/1.1" 404 1714
+Performing system checks...
+
+System check identified no issues (0 silenced).
+January 31, 2024 - 14:40:06
+Django version 2.2.27, using settings 'webodm.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
