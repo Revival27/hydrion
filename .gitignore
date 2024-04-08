@@ -108,3 +108,4 @@ dpkg/deb
 
 nodeodm/external/NodeODM
 app/media/
+app/migrations/
