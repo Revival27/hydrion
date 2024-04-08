@@ -1,0 +1,21 @@
+{% extends "app/tpfm/tpfm.html" %}
+{% load i18n static settings %}
+
+
+{% block content %}
+    <ol>
+        <li>Upload Water / Surface Model</li>
+        <li>Select Turbine</li>
+    </ol><br>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="fluid_model">
+        <button type="submit">Upload fluid model</button>
+    </form>
+    {% if upload_success %}
+    <div class="alert alert-success" role="alert">
+    File uploaded successfully!
+    </div>
+    {% endif %}
+{% endblock %}
+            

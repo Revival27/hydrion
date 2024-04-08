@@ -23,6 +23,14 @@ urlpatterns = [
     url(r'^$', app_views.index, name='index'),
     url(r'^welcome/$', app_views.welcome, name='welcome'),
     url(r'^dashboard/$', app_views.dashboard, name='dashboard'),
+    url(r'^tpfm/$', app_views.tpfm_dashboard, name='turbine_planning_fluid_modelling'),
+    url(r'^tpfm/upload/$', app_views.tpfm_dashboard, name='turbine_planning_fluid_modelling'),
+    url(r'^tpfm/flow_simulation/$', app_views.flow_simulation, name='turbine_planning_fluid_modelling'),
+    url(r'^tpfm/turbine_efficiency_modelling/$', app_views.turbine_efficiency_modelling, name='turbine_planning_fluid_modelling'),
+    url(r'^tpfm/3d_modelling/$', app_views.threed_modelling, name='turbine_planning_fluid_modelling'),
+    url(r'^tpfm/planning_scenario_modelling/$', app_views.planning_scenario_modelling, name='turbine_planning_fluid_modelling'),
+    # url(r'^turbine-planner/$', app_views.turbine_planner, name='turbine_planner'),
+    url(r'^tpfm/pressure_analysis/$', app_views.pressure_analysis, name='turbine_planning_fluid_modelling'),
     url(r'^map/project/(?P<project_pk>[^/.]+)/task/(?P<task_pk>[^/.]+)/$', app_views.map, name='map'),
     url(r'^map/project/(?P<project_pk>[^/.]+)/$', app_views.map, name='map'),
     url(r'^3d/project/(?P<project_pk>[^/.]+)/task/(?P<task_pk>[^/.]+)/$', app_views.model_display, name='model_display'),
@@ -40,6 +48,7 @@ urlpatterns = [
     url(r'^plugins/(?P<plugin_name>[^/.]+)/(.*)$', app_view_handler),
 
     url(r'^about/$', app_views.about, name='about'),
+    
     url(r'^dev-tools/(?P<action>.*)$', dev_views.dev_tools, name='dev_tools'),
 
     # TODO: add caching: https://docs.djangoproject.com/en/3.1/topics/i18n/translation/#note-on-performance

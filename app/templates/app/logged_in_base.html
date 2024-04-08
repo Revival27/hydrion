@@ -78,25 +78,9 @@
                     </li>
                 {% endfor %}
 
-                {% if view_nodes %}
                 <li>
-                    <a href="#"><i class="fa fa-wrench fa-fw"></i> {% trans 'Processing Nodes' %}<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        {% for node in nodes %}
-                        <li>
-                            <a href="{% url 'processing_node' node.id %}"><span class="fa fa-laptop {% if not node.is_online %}theme-color-button-danger{% endif %}"></span> {{node}}</a>
-                        </li>
-                        {% endfor %}
-
-                        {% if add_nodes %}
-                        <li>
-                            <a href="{% url 'admin:nodeodm_processingnode_add' %}"><span class="fa fa-plus-circle"></span> {% trans 'Add New' %}</a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                    <!-- /.nav-second-level -->
+                    <a href="/tpfm/"><i class="far fa-hurricane"></i> {% trans 'Turbine Planner & Fluid Modelling' %}</a>
                 </li>
-                {% endif %}
 
                 {% if user.is_staff %}
                 <li>
@@ -134,6 +118,9 @@
                     <a href="/dev-tools/"><i class="fa fa-bug fa-fw"></i> {% trans 'Developer Tools' %}</a>
                 </li>
                 {% endif %}
+                <li id="turbine-planner">
+                    <a href="/turbine-planner/"><i class="fa fa-info-circle fa-fw"></i> {% trans 'Turbine Planner' %}</a>
+                </li>
                 <li id="about-menu">
                     <a href="/about/"><i class="fa fa-info-circle fa-fw"></i> {% trans 'About' %}</a>
                 </li>

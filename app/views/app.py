@@ -1,5 +1,5 @@
 import json
-
+import os
 from django.contrib.auth import login
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
@@ -48,7 +48,49 @@ def dashboard(request):
         'no_processingnodes': no_processingnodes,
         'no_tasks': no_tasks
     })
+@login_required
+def tpfm_dashboard(request):
+    if request.method == 'POST' and request.FILES['fluid_model']:
+        fluid_model_file = request.FILES['fluid_model']
+        # Define the directory where you want to save the file within MEDIA_ROOT
+        upload_directory = 'fluid_models'
+        # Construct the absolute path to the upload directory
+        upload_path = os.path.join(settings.MEDIA_ROOT, upload_directory)
+        # Create the directory if it doesn't exist
+        os.makedirs(upload_path, exist_ok=True)
+        # Construct the absolute file path
+        file_path = os.path.join(upload_path, fluid_model_file.name)
+        # Handle the uploaded file, for example, save it to the server
+        # (You may need to adjust the path to where you want to save the file)
+        with open(file_path, 'wb+') as destination:
+            for chunk in fluid_model_file.chunks():
+                destination.write(chunk)
+        # Optionally, you can redirect the user to another page after the upload
+        return render(request, 'app/tpfm/tpfm_dashboard.html', {'upload_success': True})
+    return render(request, 'app/tpfm/tpfm_dashboard.html', {'title': _('Turbine planner & Fluid modelling'),'upload_success': False})
 
+@login_required
+def flow_simulation(request):
+    return render(request, 'app/tpfm/flow_simulation.html', {'title': _('Flow Simulation')})
+
+@login_required
+def pressure_analysis(request):
+    return render(request, 'app/tpfm/pressure_analysis.html', {'title': _('Pressure Analysis')})
+
+@login_required
+def threed_modelling(request):
+    return render(request, 'app/tpfm/pressure_analysis.html', {'title': _('Pressure Analysis')})
+
+@login_required
+def planning_scenario_modelling(request):
+    return render(request, 'app/tpfm/3d_model_turbine.html', {'title': _('Turbine and waterflow planner'), 'version': settings.VERSION})
+
+@login_required
+def turbine_efficiency_modelling(request):
+    return render(request, 'app/tpfm/turbine_efficiency_modelling.html', {'title': _('Turbine Efficiency Modelling')})
+
+# def turbine_planner(request):
+#     return render(request, 'app/templates/app/public/3d_model_turbine.html', {'title': _('Turbine and waterflow planner'), 'version': settings.VERSION})
 
 @login_required
 def map(request, project_pk=None, task_pk=None):
@@ -77,7 +119,6 @@ def map(request, project_pk=None, task_pk=None):
             }.items()
         })
 
-
 @login_required
 def model_display(request, project_pk=None, task_pk=None):
     title = _("3D Model Display")
@@ -104,7 +145,7 @@ def model_display(request, project_pk=None, task_pk=None):
 
 def about(request):
     return render(request, 'app/about.html', {'title': _('About'), 'version': settings.VERSION})
-
+    
 @login_required
 def processing_node(request, processing_node_id):
     pn = get_object_or_404(ProcessingNode, pk=processing_node_id)
