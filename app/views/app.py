@@ -66,8 +66,12 @@ def tpfm_dashboard(request):
             for chunk in fluid_model_file.chunks():
                 destination.write(chunk)
         # Optionally, you can redirect the user to another page after the upload
-        return render(request, 'upload_success.html')
-    return render(request, 'app/tpfm_dashboard.html', {'title': _('Turbine planner & Fluid modelling')})
+        return render(request, 'app/tpfm_dashboard.html', {'upload_success': True})
+    return render(request, 'app/tpfm_dashboard.html', {'title': _('Turbine planner & Fluid modelling'),'upload_success': False})
+
+@login_required
+def flow_simulation(request):
+    return render(request, 'app/flow_simulation.html', {'title': _('Flow Simulation')})
 
 @login_required
 def map(request, project_pk=None, task_pk=None):
