@@ -66,12 +66,28 @@ def tpfm_dashboard(request):
             for chunk in fluid_model_file.chunks():
                 destination.write(chunk)
         # Optionally, you can redirect the user to another page after the upload
-        return render(request, 'app/tpfm_dashboard.html', {'upload_success': True})
-    return render(request, 'app/tpfm_dashboard.html', {'title': _('Turbine planner & Fluid modelling'),'upload_success': False})
+        return render(request, 'app/tpfm/tpfm_dashboard.html', {'upload_success': True})
+    return render(request, 'app/tpfm/tpfm_dashboard.html', {'title': _('Turbine planner & Fluid modelling'),'upload_success': False})
 
 @login_required
 def flow_simulation(request):
-    return render(request, 'app/flow_simulation.html', {'title': _('Flow Simulation')})
+    return render(request, 'app/tpfm/flow_simulation.html', {'title': _('Flow Simulation')})
+
+@login_required
+def pressure_analysis(request):
+    return render(request, 'app/tpfm/pressure_analysis.html', {'title': _('Pressure Analysis')})
+
+@login_required
+def threed_modelling(request):
+    return render(request, 'app/tpfm/pressure_analysis.html', {'title': _('Pressure Analysis')})
+
+@login_required
+def planning_scenario_modelling(request):
+    return render(request, 'app/tpfm/planning_scenario_modelling.html', {'title': _('Planning Scenario modelling')})
+
+@login_required
+def turbine_efficiency_modelling(request):
+    return render(request, 'app/tpfm/turbine_efficiency_modelling.html', {'title': _('Turbine Efficiency Modelling')})
 
 @login_required
 def map(request, project_pk=None, task_pk=None):
