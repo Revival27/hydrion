@@ -83,11 +83,14 @@ def threed_modelling(request):
 
 @login_required
 def planning_scenario_modelling(request):
-    return render(request, 'app/tpfm/planning_scenario_modelling.html', {'title': _('Planning Scenario modelling')})
+    return render(request, 'app/tpfm/3d_model_turbine.html', {'title': _('Turbine and waterflow planner'), 'version': settings.VERSION})
 
 @login_required
 def turbine_efficiency_modelling(request):
     return render(request, 'app/tpfm/turbine_efficiency_modelling.html', {'title': _('Turbine Efficiency Modelling')})
+
+# def turbine_planner(request):
+#     return render(request, 'app/templates/app/public/3d_model_turbine.html', {'title': _('Turbine and waterflow planner'), 'version': settings.VERSION})
 
 @login_required
 def map(request, project_pk=None, task_pk=None):
@@ -116,7 +119,6 @@ def map(request, project_pk=None, task_pk=None):
             }.items()
         })
 
-
 @login_required
 def model_display(request, project_pk=None, task_pk=None):
     title = _("3D Model Display")
@@ -143,9 +145,6 @@ def model_display(request, project_pk=None, task_pk=None):
 
 def about(request):
     return render(request, 'app/about.html', {'title': _('About'), 'version': settings.VERSION})
-
-def turbine_planner(request):
-    return render(request, 'app/templates/app/public/3d_model_turbine.html', {'title': _('Turbine and waterflow planner'), 'version': settings.VERSION})
     
 @login_required
 def processing_node(request, processing_node_id):
