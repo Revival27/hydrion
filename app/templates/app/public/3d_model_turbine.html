@@ -1,0 +1,101 @@
+{% extends "app/logged_in_base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+ <!-- 
+    {% load render_bundle from webpack_loader %}
+    {% render_bundle 'ModelView' attrs='async' %}
+   <script type="module" src="/static/app/js/vendor/potree/build/potree/ThreeSample.js"></script> -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.156.0/build/three.module.js",
+                "three/": "https://unpkg.com/three@0.156.0/",
+                "web-ifc": "https://cdn.jsdelivr.net/npm/web-ifc@0.0.36/web-ifc-api.js",
+                "web-ifc-three": "https://cdn.jsdelivr.net/npm/web-ifc-three@0.0.126/IFCLoader.js"
+            }
+        }
+    </script>
+
+    <script type="module">
+        
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+        import { IFCLoader } from 'web-ifc-three';
+        // Create a scene
+        var scene = new THREE.Scene();
+
+        // Create a camera
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 0, 5);
+
+        // Create a renderer
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementsByClassName('content')[0].appendChild(renderer.domElement);
+
+        // Create orbit controls
+        var controls = new OrbitControls(camera, renderer.domElement);
+
+        // Load IFC model
+        var loader = new IFCLoader();
+
+        loader.load('app/models/kaplan.ifc', function (ifcModel) {
+            scene.add(ifcModel);
+        });
+
+        // Add ambient light
+        var ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+
+        // Add directional light
+        var directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+        directionalLight.position.set(0, 1, 0);
+        scene.add(directionalLight);
+
+        // Render loop
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+    <!--
+    <script type="module">
+
+        import * as THREE from 'three';
+        import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
+        import { IFCLoader } from 'web-ifc-three';
+        import Stats from 'three/examples/jsm/libs/stats.module.js';
+    
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        //var IFC_URL = "{% static 'app/models/kaplan.ifc' %}";
+        document.getElementsByClassName('content')[0].appendChild(renderer.domElement);
+
+        const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+        const cube = new THREE.Mesh( geometry, material );
+        scene.add( cube );
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame( animate );
+
+            cube.rotation.x += 0.01;
+            cube.rotation.y += 0.01;
+
+            renderer.render( scene, camera );
+        }
+
+        animate();
+
+
+    </script>
+-->
+{% endblock %}
