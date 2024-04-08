@@ -105,6 +105,9 @@ def model_display(request, project_pk=None, task_pk=None):
 def about(request):
     return render(request, 'app/about.html', {'title': _('About'), 'version': settings.VERSION})
 
+def turbine_planner(request):
+    return render(request, 'app/templates/app/public/3d_model_turbine.html', {'title': _('Turbine and waterflow planner'), 'version': settings.VERSION})
+    
 @login_required
 def processing_node(request, processing_node_id):
     pn = get_object_or_404(ProcessingNode, pk=processing_node_id)
