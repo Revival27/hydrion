@@ -79,7 +79,10 @@
                 {% endfor %}
 
                 <li>
-                    <a href="/tpfm/"><i class="far fa-hurricane"></i> {% trans 'Turbine Planner & Fluid Modelling' %}</a>
+                    <a href="/tpfm/"><i class="fa-solid fa-tornado"></i> {% trans 'Turbine Planner & Fluid Modelling' %}</a>
+                </li>
+                <li>
+                    <a href="/psm/"><i class="far fa-hurricane"></i> {% trans 'Planning Scenario Modelling' %}</a>
                 </li>
 
                 {% if user.is_staff %}
@@ -118,9 +121,6 @@
                     <a href="/dev-tools/"><i class="fa fa-bug fa-fw"></i> {% trans 'Developer Tools' %}</a>
                 </li>
                 {% endif %}
-                <li id="turbine-planner">
-                    <a href="/turbine-planner/"><i class="fa fa-info-circle fa-fw"></i> {% trans 'Turbine Planner' %}</a>
-                </li>
                 <li id="about-menu">
                     <a href="/about/"><i class="fa fa-info-circle fa-fw"></i> {% trans 'About' %}</a>
                 </li>

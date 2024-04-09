@@ -78,16 +78,16 @@ def pressure_analysis(request):
     return render(request, 'app/tpfm/pressure_analysis.html', {'title': _('Pressure Analysis')})
 
 @login_required
+def turbine_efficiency_modelling(request):
+    return render(request, 'app/tpfm/turbine_efficiency_modelling.html', {'title': _('Turbine Efficiency Modelling')})
+
+@login_required
 def threed_modelling(request):
-    return render(request, 'app/tpfm/pressure_analysis.html', {'title': _('Pressure Analysis')})
+    return render(request, 'app/tpfm/3d_model_turbine.html', {'title': _('Pressure Analysis'), 'version': settings.VERSION})
 
 @login_required
 def planning_scenario_modelling(request):
-    return render(request, 'app/tpfm/3d_model_turbine.html', {'title': _('Turbine and waterflow planner'), 'version': settings.VERSION})
-
-@login_required
-def turbine_efficiency_modelling(request):
-    return render(request, 'app/tpfm/turbine_efficiency_modelling.html', {'title': _('Turbine Efficiency Modelling')})
+    return render(request, 'app/psm/psm_dashboard.html', {'title': _('Planning scenario modelling')})
 
 # def turbine_planner(request):
 #     return render(request, 'app/templates/app/public/3d_model_turbine.html', {'title': _('Turbine and waterflow planner'), 'version': settings.VERSION})
