@@ -87,7 +87,7 @@ def threed_modelling(request):
 
 @login_required
 def planning_scenario_modelling(request):
-    return render(request, 'app/psm/psm.html', {'title': _('Planning scenario modelling')})
+    return render(request, 'app/psm/psm_dashboard.html', {'title': _('Planning scenario modelling')})
 
 # def turbine_planner(request):
 #     return render(request, 'app/templates/app/public/3d_model_turbine.html', {'title': _('Turbine and waterflow planner'), 'version': settings.VERSION})
