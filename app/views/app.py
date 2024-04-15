@@ -83,7 +83,7 @@ def turbine_efficiency_modelling(request):
 
 @login_required
 def threed_modelling(request):
-    return render(request, 'app/tpfm/3d_model_turbine.html', {'title': _('Pressure Analysis'), 'version': settings.VERSION})
+    return render(request, 'app/tpfm/3d_model_turbine.html', {'title': _('ThreeD Modelling'), 'version': settings.VERSION})
 
 @login_required
 def planning_scenario_modelling(request):

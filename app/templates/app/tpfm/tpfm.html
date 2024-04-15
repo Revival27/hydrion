@@ -22,6 +22,11 @@
             <li>
                 <a href="/psm/"><i class="fa-solid fa-tornado"></i> {% trans 'Planning scenario modelling' %}</a>
             </li>
+            {% if title == 'ThreeD Modelling' %}
+            <li>
+                <a href="/"><i class="fa-solid fa-tornado"></i> {% trans '← Go Back to Main Project' %}</a>
+            </li>
+            {% endif %}
 
             {% if user.is_staff %}
             <li>
