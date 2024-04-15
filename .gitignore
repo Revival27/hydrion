@@ -84,7 +84,7 @@ celerybeat.pid
 # virtualenv
 venv/
 ENV/
-
+venv3.10/
 # Spyder project settings
 .spyderproject
 

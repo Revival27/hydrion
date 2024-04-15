@@ -1,2 +1,7 @@
 {% extends "app/psm/psm.html"%}
-<img src="{% static 'psm.png' %}" alt="{{ SETTINGS.app_name }}" />
+{% load static %}
+{% block content %}
+<img src="{% static 'app/img/psm.png' %}" alt=""/>
+
+{% endblock %}
+
