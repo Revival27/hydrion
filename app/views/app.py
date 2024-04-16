@@ -89,6 +89,10 @@ def threed_modelling(request):
 def planning_scenario_modelling(request):
     return render(request, 'app/psm/psm_dashboard.html', {'title': _('Planning scenario modelling')})
 
+@login_required
+def data_collection(request):
+    return render(request, 'app/psm/data_collection.html', {'title': _('Data Collection')})
+
 # def turbine_planner(request):
 #     return render(request, 'app/templates/app/public/3d_model_turbine.html', {'title': _('Turbine and waterflow planner'), 'version': settings.VERSION})
 
