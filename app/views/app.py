@@ -48,6 +48,7 @@ def dashboard(request):
         'no_processingnodes': no_processingnodes,
         'no_tasks': no_tasks
     })
+
 @login_required
 def tpfm_dashboard(request):
     if request.method == 'POST' and request.FILES['fluid_model']:
@@ -88,6 +89,10 @@ def threed_modelling(request):
 @login_required
 def planning_scenario_modelling(request):
     return render(request, 'app/psm/psm_dashboard.html', {'title': _('Planning scenario modelling')})
+
+@login_required
+def data_collection(request):
+    return render(request, 'app/psm/data_collection.html', {'title': _('Data Collection')})
 
 # def turbine_planner(request):
 #     return render(request, 'app/templates/app/public/3d_model_turbine.html', {'title': _('Turbine and waterflow planner'), 'version': settings.VERSION})
