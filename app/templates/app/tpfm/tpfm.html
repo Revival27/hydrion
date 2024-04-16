@@ -5,7 +5,7 @@
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
             <li>
-                <a href="/tpfm/"><i class="fa fa-tachometer-alt fa-fw"></i> {% trans 'Dashboard' %}</a>
+                <a href="/tpfm/"><i class="fa fa-tachometer-alt"></i> {% trans 'Dashboard' %}</a>
             </li>
             <li>
                 <a href="/tpfm/flow_simulation/"><i class="fa-solid fa-thumbtack"></i> {% trans 'Flow simulation' %}</a>
@@ -20,21 +20,7 @@
                 <a href="/tpfm/3d_modelling/"><i class="fa-solid fa-cube"></i> {% trans '3D modelling' %}</a>
             </li>
             <li>
-                <a href="/psm/"><i class="fa fa-tornado"></i> {% trans 'Planning scenario modelling' %}</a>
-            </li>
-            {% if title == 'ThreeD Modelling' %}
-            <li>
                 <a href="/"><i class="fa-solid fa-arrow-left"></i> {% trans 'Go Back to Main Project' %}</a>
-            </li>
-            {% endif %}
-            <li>
-                <a href="#"><i class="fa-solid fa-plug"></i> {% trans 'Plugins' %}</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-wrench"></i> {% trans 'Tools' %}</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-sliders"></i> {% trans 'Settings' %}</a>
             </li>
 
             {% is_dev_mode as dev_mode %}
