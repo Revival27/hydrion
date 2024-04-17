@@ -48,6 +48,7 @@ def dashboard(request):
         'no_processingnodes': no_processingnodes,
         'no_tasks': no_tasks
     })
+
 @login_required
 def tpfm_dashboard(request):
     if request.method == 'POST' and request.FILES['fluid_model']:
