@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^psm/$', app_views.planning_scenario_modelling, name='planning_scenario_modelling'),
     # url(r'^turbine-planner/$', app_views.turbine_planner, name='turbine_planner'),
     url(r'^psm/data_collection/$', app_views.data_collection, name='data_collection'),
+    url(r'^psm/project_planning/$', app_views.project_planning, name='project_planning'),
     url(r'^map/project/(?P<project_pk>[^/.]+)/task/(?P<task_pk>[^/.]+)/$', app_views.map, name='map'),
     url(r'^map/project/(?P<project_pk>[^/.]+)/$', app_views.map, name='map'),
     url(r'^3d/project/(?P<project_pk>[^/.]+)/task/(?P<task_pk>[^/.]+)/$', app_views.model_display, name='model_display'),

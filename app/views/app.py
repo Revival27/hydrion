@@ -91,6 +91,10 @@ def planning_scenario_modelling(request):
     return render(request, 'app/psm/psm_dashboard.html', {'title': _('Planning scenario modelling')})
 
 @login_required
+def project_planning(request):
+    return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning')})
+
+@login_required
 def data_collection(request):
     return render(request, 'app/psm/data_collection.html', {'title': _('Data Collection')})
 

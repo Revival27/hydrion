@@ -8,10 +8,16 @@
                 <a href="/psm/"><i class="fa fa-tachometer-alt fa-fw"></i> {% trans 'Dashboard' %}</a>
             </li>
             <li>
-                <a href="#"><i class="fa-solid fa-thumbtack"></i> {% trans 'Project Planning' %}</a>
+                <a href="#"><i class="fa-solid fa-thumbtack"></i> {% trans 'Project Planning' %}<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="/psm/project_planning/"></i> {% trans 'Project Summary' %}</a></li>
+                    <li><a href="#"></i> {% trans 'Create New Project' %}</a></li>
+                    <li><a href="#"></i> {% trans 'Open Current Project' %}</a></li>
+                    <li><a href="#"></i> {% trans 'Export Project Data' %}</a></li>
+                </ul>
             </li>
             <li>
-                <a href="/psm/data_collection/"> <i class="fa-solid fa-gear"></i> {% trans 'Data collection' %}</a>
+                <a href="/psm/data_collection/"> <i class="fa-solid fa-gear"></i> {% trans 'Data collection' %}</span></a>
             </li>
             <li>
                 <a href="#"><i class="fa-regular fa-user"></i> {% trans 'Simulation and Analysis Tool' %}</a>
