@@ -6,11 +6,11 @@ from django.utils.translation import gettext_lazy as _
 
 class HydroProject(models.Model):
     id = models.BigAutoField(db_column='id', primary_key=True)
-    name = models.CharField(db_column='name')
+    name = models.CharField(db_column='name', max_length=250)
     created_at = models.DateTimeField(db_column='created_at')
     status = models.CharField(db_column='status', max_length=250)
     deadline = models.DateField(db_column='deadline')
-    team_id= models.ForeignKey(db_column='team_id')
+    team_id= models.ForeignKey('Team', on_delete=models.CASCADE)
     description = models.TextField(db_column='description')
     #tasks = models.    
     class Meta:
