@@ -19,5 +19,6 @@ class HydroSurvey(models.Model):
     estimated_energy_production = models.DecimalField(db_column='estimated_energy_production', max_digits=1000, decimal_places=4, blank=True)
     
     class Meta:
+        verbose_name = ('Hydro Survey')
         db_table = 'hydrosurvey'
         managed = True
