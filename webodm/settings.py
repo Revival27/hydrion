@@ -118,6 +118,7 @@ INSTALLED_APPS = [
     'codemirror2',
     'app',
     'nodeodm',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -416,3 +417,6 @@ try:
     from .settings_override import *
 except ImportError:
     pass
+
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
