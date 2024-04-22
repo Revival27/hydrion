@@ -1,0 +1,93 @@
+{% extends "app/psm/psm.html"%}
+{% load i18n static settings %}
+{% block content %}
+<style>
+    .row{
+        display: flex;
+        flex-direction: row;
+    }
+    ul, li{
+        list-style-type: none;
+    }
+    /* .btn{
+        border: 2px solid lightblue;
+    } */
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h4><b>Test Project 12</b></h4>
+            <div>Created 2024.02.02.</div>
+            <div>Project owner Test User 01</div>
+            <hr>
+            <h5>Project Team</h5>
+            <ul>
+                <li>Test User 01</li>
+                <li>Test User 02</li>
+                <li>Test User 03</li>
+                <li>Test User 04</li>
+            </ul>
+            <hr>
+            <h5>Description</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius esse repellendus sequi, amet sit nam neque minima saepe dolor consectetur officia nobis eveniet voluptatum voluptatibus alias sunt quam laudantium explicabo.</p>
+            <button class="btn btn-secondary">More</button>
+            <hr>
+            <h5><b>Task list</b></h5>
+            <ul>
+                <li>
+                    Task 01
+                    Deadline: 2024.02.02
+                    Status: Preparing
+                </li>
+                <li>
+                    Task 02
+                    Deadline: 2024.02.02
+                    Status: Preparing
+                </li>
+            </ul>
+            <button class="btn btn-secondary">New Task</button>
+            <hr>
+            <h5><b>Attachments</b></h5>
+            <ul>
+                <li>
+                    Attachment 01
+                    Uploaded: 2024.02.02.
+                    Format: PDF
+                    Size: 3.7 MB
+                </li>
+            </ul>
+            <button class="btn btn-secondary">New Attachment</button>
+        </div>
+        <div class="col">
+            <form action="">
+                <label class="form-label" for="status" >Status</label>
+                <select class="form-control" name="" id="status">
+                    <option  value="">In progress</option>
+                </select>
+                <label class="form-label" for="deadline">Deadline</label>
+                <input class="form-control" type="date" >
+               
+                <button class="btn btn-secondary">Calendar view</button>
+                <button class="btn btn-secondary">Statistics</button>
+            </form>
+            <hr>
+            <h5>Researches</h5>
+            <ul>
+                <li>Research 01</li>
+                <li>Task 02</li>
+            </ul>
+            <form action="">
+                <button class="btn btn-secondary" type="submit">New research</button>
+            </form>
+            <hr>
+            <form action="">
+                <button class="btn btn-primary">Close Project</button>
+                <button class="btn btn-secondary">Delete Project</button>
+            </form>
+            
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
+
