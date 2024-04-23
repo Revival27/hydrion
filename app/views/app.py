@@ -79,7 +79,7 @@ def tpfm_dashboard(request):
 @login_required
 def export_to_csv(request, hydrosurvey_pk=None):
     response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="users.csv"'
+    response['Content-Disposition'] = 'attachment; filename="hydrosurvey.csv"'
 
     writer = csv.writer(response)
     hydrosurvey_fields = ['deadline', 'status', 'water_surface', 'location', 'flow_direction', 'flow_direction_speed', 'segment_width', 'segment_depth', 'estimated_waterflow', 'estimated_energy_production']
