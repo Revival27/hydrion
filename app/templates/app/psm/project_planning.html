@@ -33,7 +33,7 @@
                 <div>Project owner Test User 01</div>
                 <a href="/psm/edit_project"><i class="fa-solid fa-pen"></i></a>
             <hr>
-            <h5>{{propject.team}}</h5>
+            <h5>Project Team {{project.team_id}}</h5>
             <ul>
                 <li>Test User 01</li>
                 <li>Test User 02</li>
@@ -42,7 +42,7 @@
             </ul>
             <hr>
             <h5>Description</h5>
-            <p>{{propject.description}}</p>
+            <p>{{project.description}}</p>
             <button class="btn btn-secondary">More</button>
             <hr>
             <h5><b>Tasks list</b></h5>
@@ -72,13 +72,15 @@
             <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i> New Attachment</button>
         </div>
         <div class="col">
-            <form action="">
+            <form action="/psm/project_planning/" method="post">
                 <label class="form-label" for="status" >Status</label>
-                <select class="form-control" name="" id="status">
-                    <option  value="">In progress</option>
+                <select class="form-control" id="status" name="project.status">
+                    {% for status in statuses %}
+                    <option value="{{project.status}}" {%if project.status == status.id%}selected {%endif%}>{{status.name}}</option>
+                    {% endfor %}
                 </select>
                 <label class="form-label" for="deadline">Deadline</label>
-                <input class="form-control" type="date" >
+                <input class="form-control" type="date" value="{{project.deadline}}">
                
                 <button class="btn btn-secondary">Calendar view</button>
                 <button class="btn btn-secondary">Statistics</button>

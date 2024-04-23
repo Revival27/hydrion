@@ -9,6 +9,7 @@ from .profile import Profile
 from .hydrosurvey import HydroSurvey
 from .hydroproject import HydroProject
 from .team import Team
+from .status import Status
 
 # deprecated
 def image_directory_path(image_upload, filename):
