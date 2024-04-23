@@ -15,6 +15,10 @@ from django.utils.translation import ugettext as _
 from django import forms
 from webodm import settings
 from app.models.modelform import HydroSurveyForm
+from app.models import HydroSurvey
+from django.shortcuts import HttpResponse, get_object_or_404
+import csv
+
 
 def index(request):
     # Check first access
@@ -71,16 +75,35 @@ def tpfm_dashboard(request):
         return render(request, 'app/tpfm/tpfm_dashboard.html', {'upload_success': True})
     return render(request, 'app/tpfm/tpfm_dashboard.html', {'title': _('Turbine planner & Fluid modelling'),'upload_success': False})
 
+
+@login_required
+def export_to_csv(request, hydrosurvey_pk=None):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="users.csv"'
+
+    writer = csv.writer(response)
+    hydrosurvey_fields = ['deadline', 'status', 'water_surface', 'location', 'flow_direction', 'flow_direction_speed', 'segment_width', 'segment_depth', 'estimated_waterflow', 'estimated_energy_production']
+    
+    writer.writerow(hydrosurvey_fields)
+      
+    if hydrosurvey_pk:
+        survey_all = list(vars(get_object_or_404(HydroSurvey, pk=hydrosurvey_pk)).values())[2:]
+        print(list(survey_all))
+    
+    # Assuming the HydroSurvey model has its fields in the same order as the hydrosurvey_fields variable
+    writer.writerow(survey_all)
+        
+    return response
+
 @login_required
 def hydro_survey(request):
     
     if request.method == 'POST':
         form = HydroSurveyForm(request.POST)
         if form.is_valid():
-            # create a new `Survey` and save it to the db
+            
             survey = form.save()
-            # redirect to the detail page of the survey we just created
-            # we can provide the url pattern arguments as arguments to redirect function
+            
             return redirect('data_collection')
     else:
         form = HydroSurveyForm()
