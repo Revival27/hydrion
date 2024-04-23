@@ -1,40 +1,16 @@
 {% extends "app/psm/psm.html"%}
 {% load i18n static settings %}
-{% block content %}
-<style>
-    .row{
-        display: flex;
-        flex-direction: row;
-    }
-    ul, li{
-        list-style-type: none;
-    }
-    /* .btn{
-        border: 2px solid lightblue;
-    } */
-</style>
+{% block content %}<div></div>
+{% if project.id %}
 <div class="container">
     <div class="row">
         <div class="col">
-            <ul>
-                {% for project in projects %}
-                <li>
-                    {{project.name}}
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-        <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> <a href="/psm/project_planning/">New Project</a></button>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col">
-                <h4><b>Test Project 12</b></h4>
-                <div>Created 2024.02.02.</div>
+                <h4><b>{{project.id}}</b></h4>
+                <div>{{project.created_at}}</div>
                 <div>Project owner Test User 01</div>
                 <a href="/psm/edit_project"><i class="fa-solid fa-pen"></i></a>
             <hr>
-            <h5>Project Team</h5>
+            <h5>{{propject.team}}</h5>
             <ul>
                 <li>Test User 01</li>
                 <li>Test User 02</li>
@@ -43,7 +19,7 @@
             </ul>
             <hr>
             <h5>Description</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius esse repellendus sequi, amet sit nam neque minima saepe dolor consectetur officia nobis eveniet voluptatum voluptatibus alias sunt quam laudantium explicabo.</p>
+            <p>{{propject.description}}</p>
             <button class="btn btn-secondary">More</button>
             <hr>
             <h5><b>Tasks list</b></h5>
@@ -102,6 +78,51 @@
             
         </div>
     </div>
+</div>
+{% else %}
+<style>
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .btn_container{
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+    ul, li{
+    
+        list-style-type: none;
+    }
+    .btn{
+        border: 2px solid lightblue;
+    }
+    #add_new_project_btn{
+        position: relative;
+    }
+
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <ul class="list-group">
+                {% for project in projects %}
+                <li class="list-group-item">
+                    {{project.name}}
+                    {{project.created_at}}
+                    {{project.status}}
+                    <a href="/psm/project_planning/{{project.id}}/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="btn_container"><button id="add_new_project_btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> <a href="/psm/project_planning/">New Project</a></button></div>
+            
+        </div>
+        
+    </div>
+</div>
+{% endif %}
 </div>
 {% endblock %}
 

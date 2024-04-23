@@ -10,7 +10,7 @@ class HydroProject(models.Model):
     created_at = models.DateTimeField(db_column='created_at')
     status = models.CharField(db_column='status', max_length=250)
     deadline = models.DateField(db_column='deadline')
-    team_id= models.ForeignKey('Team', on_delete=models.CASCADE)
+    team = models.ForeignKey('Team', on_delete=models.CASCADE)
     description = models.TextField(db_column='description')
     #tasks = models.    
     class Meta:

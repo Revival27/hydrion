@@ -91,9 +91,12 @@ def planning_scenario_modelling(request):
     return render(request, 'app/psm/psm_dashboard.html', {'title': _('Planning scenario modelling')})
 
 @login_required
-def project_planning(request):
+def project_planning(request, project_id=None):
     projects = HydroProject.objects.all
     print(projects)
+    if project_id is not None:
+        project = HydroProject.objects.get(id=project_id)
+        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project})
 
     return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'projects':projects})
 
