@@ -1,11 +1,34 @@
 {% extends "app/psm/psm.html"%}
 {% load i18n static settings %}
-{% block content %}<div></div>
+{% block content %}
+<style>
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .btn_container{
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+    ul, li{
+    
+        list-style-type: none;
+    }
+    .btn{
+        border: 2px solid lightblue;
+    }
+    #add_new_project_btn{
+        position: relative;
+    }
+
+</style>
 {% if project.id %}
 <div class="container">
     <div class="row">
         <div class="col">
-                <h4><b>{{project.id}}</b></h4>
+                <h4><b>{{project.name}}</b></h4>
                 <div>{{project.created_at}}</div>
                 <div>Project owner Test User 01</div>
                 <a href="/psm/edit_project"><i class="fa-solid fa-pen"></i></a>
@@ -74,35 +97,10 @@
                 <button class="btn btn-primary">Close Project</button>
                 <button class="btn btn-secondary">Delete Project</button>
             </form>
-            
-            
         </div>
     </div>
 </div>
 {% else %}
-<style>
-    .row{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-    .btn_container{
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-    }
-    ul, li{
-    
-        list-style-type: none;
-    }
-    .btn{
-        border: 2px solid lightblue;
-    }
-    #add_new_project_btn{
-        position: relative;
-    }
-
-</style>
 <div class="container">
     <div class="row">
         <div class="col">
