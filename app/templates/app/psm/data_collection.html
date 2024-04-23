@@ -8,10 +8,11 @@
   {% csrf_token %}
   <!-- {{ form|crispy }} -->
     {% for field in form %}
+    {{ field.errors }}
     <div class="form-row">
         {% if forloop.counter|divisibleby:"2" %}
             <div class="form-group col-md-6">
-                {{ field.label_tag }} 
+                {{ field.label_tag }}  
                 {{ field }}
             </div>
         {% else %}
@@ -20,9 +21,10 @@
                 {{ field }}
             </div>
         {% endif %}
+        
     </div>
     {% endfor %}
-  <input type="submit" value="Submit" class="btn btn-primary">
+  <input type="submit" value="Küldés" class="btn btn-primary">
   
 </form>
 {% endblock %}
