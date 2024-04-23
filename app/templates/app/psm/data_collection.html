@@ -11,10 +11,12 @@
     <div class="form-row">
         {% if forloop.counter|divisibleby:"2" %}
             <div class="form-group col-md-6">
+                {{ field.label_tag }} 
                 {{ field }}
             </div>
         {% else %}
             <div class="form-group col-md-6">
+                {{ field.label_tag }} 
                 {{ field }}
             </div>
         {% endif %}
