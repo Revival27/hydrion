@@ -1,0 +1,44 @@
+{% extends "app/psm/psm.html"%}
+{% load i18n static settings %}
+{% block content %}
+<div class="container">
+    <div class="row-sm">
+        <div class="col">
+            <form action="/psm/project_planning/add_project/" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="" class="form-label">Project name</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Description</label>
+                    <input type="text" class="form-control" name="description" id="">
+                </div>
+                <div class="mb-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select class="form-control" id="status" name="status_id">
+                        {% for status in statuses %}
+                        <option value="{{status.id}}" {%if project.status.id == status.id%} selected {%endif%}>{{status.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="deadline">Deadline</label>
+                    <input class="form-control" type="date" name="deadline">
+                </div>
+                <div class="mb-3">
+                    <label for="team" class="form-label">Team</label>
+                    <select class="form-control" id="team" name="team_id">
+                        {% for team in teams %}
+                        <option value="{{team.id}}" {%if project.team.id == team.id%} selected {%endif%}>{{team.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <input type="submit" name="" id="" class="btn btn-primary">
+                
+            </form>
+        </div>
+    </div>
+</div>
+    {% endblock %}

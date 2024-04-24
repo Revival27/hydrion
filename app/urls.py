@@ -37,7 +37,10 @@ urlpatterns = [
     url(r'^psm/hydrosurvey/(?P<hydrosurvey_pk>[^/.]+)/csv/$', app_views.export_to_csv, name='data_collection'),
     
     url(r'^psm/project_planning/$', app_views.project_planning, name='project_planning'),
-    url(r'^psm/project_planning/(?P<project_id>[^/.]+)/$', app_views.project_planning, name='project_planning'),
+    url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/$', app_views.project_planning, name='project_planning'),
+    url(r'^psm/project_planning/add_project/$', app_views.add_project, name='project_planning'),
+    url(r'^psm/project_planning/(?P<project_id>[^/.]+)/add_task/$', app_views.project_planning, name='project_planning'),
+
     url(r'^map/project/(?P<project_pk>[^/.]+)/task/(?P<task_pk>[^/.]+)/$', app_views.map, name='map'),
     url(r'^map/project/(?P<project_pk>[^/.]+)/$', app_views.map, name='map'),
     url(r'^3d/project/(?P<project_pk>[^/.]+)/task/(?P<task_pk>[^/.]+)/$', app_views.model_display, name='model_display'),

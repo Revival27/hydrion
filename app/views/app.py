@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from guardian.shortcuts import get_objects_for_user
 
 from nodeodm.models import ProcessingNode
-from app.models import Project, Task, HydroProject, Status, HydroTask
+from app.models import Project, Task, HydroProject, Status, HydroTask, Team
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
@@ -18,6 +18,7 @@ from app.models.modelform import HydroSurveyForm
 from app.models import HydroSurvey
 from django.shortcuts import HttpResponse, get_object_or_404
 import csv
+import datetime
 
 
 def index(request):
@@ -139,6 +140,27 @@ def project_planning(request, project_id=None):
         tasks = HydroTask.objects.all
         return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks}, )
     return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'projects':projects})
+
+@login_required
+def add_project(request):
+    statuses = Status.objects.all()
+    teams = Team.objects.all()
+    if request.method == "POST":
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+        status = request.POST.get('status_id')
+        status = Status.objects.get(id=status)
+        deadline = request.POST.get('deadline')
+        team = request.POST.get('team_id')
+        team = Team.objects.get(id = team)
+        project = HydroProject.objects.create(name=name,
+                                              created_at=datetime.date.today().strftime("%Y-%m-%d"),
+                                              description=description,
+                                              status = status,
+                                              deadline = deadline,
+                                              team =  team)
+        print(project)
+    return render(request, 'app/psm/add_project.html', {'title': _('Project Planning'), 'statuses':statuses, 'teams':teams})
 
 @login_required
 def data_collection(request):
