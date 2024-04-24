@@ -4,16 +4,18 @@ from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 
-class HydroProject(models.Model):
+class HydroTask(models.Model):
     id = models.BigAutoField(db_column='id', primary_key=True)
     name = models.CharField(db_column='name', max_length=250)
-    created_at = models.DateTimeField(db_column='created_at')
-    status = models.ForeignKey('Status', on_delete=models.CASCADE)
     deadline = models.DateField(db_column='deadline')
-    team = models.ForeignKey('Team', on_delete=models.CASCADE)
-    description = models.TextField(db_column='description')
+    status = models.CharField(db_column='status', max_length=250)
+    description = models.TextField(db_column='description', max_length=1000)
+    project = models.ForeignKey('HydroProject', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
+    
     class Meta:
-        verbose_name = ('Hydro Project')
-        db_table = 'hydroproject'
+        verbose_name = ('Hydro Task')
+        db_table = 'hydrotask'
         managed = True

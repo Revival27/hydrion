@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from guardian.shortcuts import get_objects_for_user
 
 from nodeodm.models import ProcessingNode
-from app.models import Project, Task, HydroProject, Status
+from app.models import Project, Task, HydroProject, Status, HydroTask
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
@@ -96,7 +96,8 @@ def project_planning(request, project_id=None):
     if project_id is not None:
         project = HydroProject.objects.get(id=project_id)
         statuses = Status.objects.all
-        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses})
+        tasks = HydroTask.objects.all
+        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks}, )
     return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'projects':projects})
 
 @login_required

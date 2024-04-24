@@ -10,6 +10,7 @@ from .hydrosurvey import HydroSurvey
 from .hydroproject import HydroProject
 from .team import Team
 from .status import Status
+from .hydrotask import HydroTask
 
 # deprecated
 def image_directory_path(image_upload, filename):
