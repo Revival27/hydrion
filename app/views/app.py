@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from guardian.shortcuts import get_objects_for_user
 
 from nodeodm.models import ProcessingNode
-from app.models import Project, Task
+from app.models import Project, Task, HydroProject, Status, HydroTask
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
@@ -129,6 +129,16 @@ def threed_modelling(request):
 @login_required
 def planning_scenario_modelling(request):
     return render(request, 'app/psm/psm_dashboard.html', {'title': _('Planning scenario modelling')})
+
+@login_required
+def project_planning(request, project_id=None):
+    projects = HydroProject.objects.all
+    if project_id is not None:
+        project = HydroProject.objects.get(id=project_id)
+        statuses = Status.objects.all
+        tasks = HydroTask.objects.all
+        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks}, )
+    return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'projects':projects})
 
 @login_required
 def data_collection(request):

@@ -7,6 +7,10 @@ from .plugin_datum import PluginDatum
 from .plugin import Plugin
 from .profile import Profile
 from .hydrosurvey import HydroSurvey
+from .hydroproject import HydroProject
+from .team import Team
+from .status import Status
+from .hydrotask import HydroTask
 
 # deprecated
 def image_directory_path(image_upload, filename):
