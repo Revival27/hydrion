@@ -19,8 +19,17 @@
     .btn{
         border: 2px solid lightblue;
     }
+    a {
+        all: unset;
+    }
     #add_new_project_btn{
         position: relative;
+    }
+    #task_form{
+        padding: 5px;
+        margin: 5px;
+        border: 2px solid rgb(247, 247, 247);
+        border-radius: 5px;
     }
 
 </style>
@@ -55,7 +64,8 @@
                 {% endfor %}
             </ul>
             <button class="btn btn-secondary" type="button" onclick="toggleForm()"><i class="fa-solid fa-plus"></i> New Task</button>
-            <form action="/psm/project_planning/project/{{project.id}}/add_task/" method="post" id="task_form" style="display: none;">
+            <div >
+                <form action="/psm/project_planning/project/{{project.id}}/" method="post" id="task_form" style="display: none;">
                 {% csrf_token %}
                 <label for="task_name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="task_name" name="task_name" required>
@@ -72,7 +82,14 @@
                 <input type="number" name="project_id" value="{{project.id}}" hidden>
                 <button class="btn btn-primary">Invite</button>
                 <button type="submit" class="btn btn-primary"> New task</button>
-            </form> 
+                
+            </form>
+            {% if add_new_task %}
+                <div class="alert alert-success" role="alert">
+                    Successfully added new task !
+                </div>
+                {% endif %} 
+            </div>
             <hr>
             <h5><b>Attachments</b></h5>
             <ul>
@@ -109,9 +126,10 @@
                 <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-plus"></i> New research</button>
             </form>
             <hr>
-            <form action="">
-                <button class="btn btn-primary">Close Project</button>
-                <button class="btn btn-secondary">Delete Project</button>
+            <button class="btn btn-primary">Close Project</button>
+            <form action="/psm/project_planning/project/{{project.id}}/delete/" method="post">
+                {% csrf_token %}
+                <input class="btn btn-secondary"  name="project.id" value="Delet Project" type="submit">
             </form>
         </div>
     </div>

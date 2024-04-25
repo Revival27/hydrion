@@ -152,8 +152,20 @@ def project_planning(request, project_id=None):
                     description = task_description,
                     project_id = project_id
                 )
-        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses}, )
+            return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'add_new_task': True})
+        elif request.method == "GET":
+            return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'add_new_task': False})
     return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'projects':projects})
+
+@login_required
+def delete_project(request, project_id):
+    projects = HydroProject.objects.all
+    if request.method == "POST":
+        HydroProject.objects.filter(id=project_id).delete()
+        print("delete_project")
+        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'projects':projects})
+    
+    
 
 @login_required
 def add_project(request):
