@@ -51,7 +51,25 @@
                 <li>{{task.name}} {{task.deadline}} {{task.status}}</li>
                 {% endfor %}
             </ul>
-            <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i> New Task</button>
+            <button class="btn btn-secondary" type="button" onclick="toggleForm()"><i class="fa-solid fa-plus"></i> New Task</button>
+            <form action="/psm/project_planning/project/{{project.id}}/add_task/" method="post" id="task_form" style="display: none;">
+                {% csrf_token %}
+                <label for="task_name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="task_name" name="task_name" required>
+                <label for="task_deadline" class="form-label">Deadline</label>
+                <input type="date" id="task_deadline" class="form-control" name="task_deadline" required>
+                <label for="task_status" class="form-label" >Status</label>
+                <select name="task_status" id="task_status" class="form-control" required>
+                    {% for task_status in task_statuses %}
+                    <option value="{{task_status.id}}" {%if task.status.id == task_status.id%} selected {%endif%}>{{task_status.name}}</option>
+                    {% endfor %}
+                </select>
+                <label for="task_description" class="form-label">Description</label>
+                <input type="text" class="form-control" id="task_description" name="task_description">
+                <input type="number" name="project_id" value="{{project.id}}" hidden>
+                <button class="btn btn-primary">Invite</button>
+                <button type="submit" class="btn btn-primary"> New task</button>
+            </form> 
             <hr>
             <h5><b>Attachments</b></h5>
             <ul>
@@ -118,4 +136,3 @@
 {% endif %}
 </div>
 {% endblock %}
-

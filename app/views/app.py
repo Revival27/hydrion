@@ -8,14 +8,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from guardian.shortcuts import get_objects_for_user
 
 from nodeodm.models import ProcessingNode
-from app.models import Project, Task, HydroProject, Status, HydroTask, Team
+from app.models import Project, Task, HydroProject, Status, HydroTask, Team, HydroSurvey, TaskStatus
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
 from django import forms
 from webodm import settings
 from app.models.modelform import HydroSurveyForm
-from app.models import HydroSurvey
 from django.shortcuts import HttpResponse, get_object_or_404
 import csv
 import datetime
@@ -138,7 +137,22 @@ def project_planning(request, project_id=None):
         project = HydroProject.objects.get(id=project_id)
         statuses = Status.objects.all
         tasks = HydroTask.objects.all
-        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks}, )
+        task_statuses = TaskStatus.objects.all
+        if request.method == "POST":
+            task_name = request.POST.get('task_name')
+            task_deadline = request.POST.get('task_deadline')
+            task_status = request.POST.get('task_status')
+            task_description = request.POST.get('task_description')
+            project_id = request.POST.get('project_id')
+            if task_name:
+                task = HydroTask.objects.create(
+                    name=task_name,
+                    deadline = task_deadline,
+                    status_id = task_status,
+                    description = task_description,
+                    project_id = project_id
+                )
+        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses}, )
     return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'projects':projects})
 
 @login_required
@@ -153,13 +167,12 @@ def add_project(request):
         deadline = request.POST.get('deadline')
         team = request.POST.get('team_id')
         team = Team.objects.get(id = team)
-        project = HydroProject.objects.create(name=name,
-                                              created_at=datetime.date.today().strftime("%Y-%m-%d"),
-                                              description=description,
+        project = HydroProject.objects.create(name = name,
+                                              created_at = datetime.date.today().strftime("%Y-%m-%d"),
+                                              description = description,
                                               status = status,
                                               deadline = deadline,
                                               team =  team)
-        print(project)
     return render(request, 'app/psm/add_project.html', {'title': _('Project Planning'), 'statuses':statuses, 'teams':teams})
 
 @login_required

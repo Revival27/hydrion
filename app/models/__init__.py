@@ -11,7 +11,7 @@ from .hydroproject import HydroProject
 from .team import Team
 from .status import Status
 from .hydrotask import HydroTask
-
+from .task_status import TaskStatus
 # deprecated
 def image_directory_path(image_upload, filename):
     raise Exception("Deprecated")

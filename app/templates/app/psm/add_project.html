@@ -2,21 +2,22 @@
 {% load i18n static settings %}
 {% block content %}
 <div class="container">
-    <div class="row-sm">
+    <div class="row-sm" style="max-width: 60%;">
         <div class="col">
+            
             <form action="/psm/project_planning/add_project/" method="post">
                 {% csrf_token %}
                 <div class="mb-3">
-                    <label for="" class="form-label">Project name</label>
-                    <input type="text" class="form-control" name="name">
+                    <label for="name" class="form-label">Project name</label>
+                    <input type="text" class="form-control" name="name" id="name" required>
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Description</label>
-                    <input type="text" class="form-control" name="description" id="">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" class="form-control" name="description" id="description" required>
                 </div>
                 <div class="mb-3">
                     <label for="status" class="form-label">Status</label>
-                    <select class="form-control" id="status" name="status_id">
+                    <select class="form-control" id="status" name="status_id" required>
                         {% for status in statuses %}
                         <option value="{{status.id}}" {%if project.status.id == status.id%} selected {%endif%}>{{status.name}}</option>
                         {% endfor %}
@@ -24,20 +25,19 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="deadline">Deadline</label>
-                    <input class="form-control" type="date" name="deadline">
+                    <input class="form-control" type="date" name="deadline" id="deadline" required>
                 </div>
                 <div class="mb-3">
                     <label for="team" class="form-label">Team</label>
-                    <select class="form-control" id="team" name="team_id">
+                    <select class="form-control" id="team" name="team_id" id="team" required>
                         {% for team in teams %}
                         <option value="{{team.id}}" {%if project.team.id == team.id%} selected {%endif%}>{{team.name}}</option>
                         {% endfor %}
                     </select>
                 </div>
-
                 <input type="submit" name="" id="" class="btn btn-primary">
-                
             </form>
+
         </div>
     </div>
 </div>
