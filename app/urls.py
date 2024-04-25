@@ -32,9 +32,12 @@ urlpatterns = [
     url(r'^psm/$', app_views.planning_scenario_modelling, name='planning_scenario_modelling'),
     # url(r'^turbine-planner/$', app_views.turbine_planner, name='turbine_planner'),
     
-    url(r'^psm/data_collection/$', app_views.hydro_survey, name='data_collection'),
+    url(r'^psm/data_collection/$', app_views.hydro_survey_list, name='data_collection'),
     
     url(r'^psm/hydrosurvey/(?P<hydrosurvey_pk>[^/.]+)/csv/$', app_views.export_to_csv, name='data_collection'),
+    
+    url(r'^psm/hydrosurvey/(?P<hydrosurvey_pk>[^/.]+)/$', app_views.hydro_survey, name='data_collection'),
+    url(r'^psm/hydrosurveys/$', app_views.hydro_survey, name='data_collection'),
     
     url(r'^psm/project_planning/$', app_views.project_planning, name='project_planning'),
     url(r'^psm/project_planning/(?P<project_id>[^/.]+)/$', app_views.project_planning, name='project_planning'),
