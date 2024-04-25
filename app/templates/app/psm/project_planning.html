@@ -44,10 +44,9 @@
             <hr>
             <h5>Project Team {{project.team_id}}</h5>
             <ul>
-                <li>Test User 01</li>
-                <li>Test User 02</li>
-                <li>Test User 03</li>
-                <li>Test User 04</li>
+               {% for team_member in team_members %}
+               <li>{{team_member}}</li>
+               {% endfor %}
             </ul>
             <hr>
             <h5>Description</h5>

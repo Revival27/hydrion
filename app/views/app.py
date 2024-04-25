@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from guardian.shortcuts import get_objects_for_user
 
 from nodeodm.models import ProcessingNode
-from app.models import Project, Task, HydroProject, Status, HydroTask, Team, HydroSurvey, TaskStatus
+from app.models import Project, Task, HydroProject, Status, HydroTask, Team, HydroSurvey, TaskStatus, TeamMember
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
@@ -138,6 +138,8 @@ def project_planning(request, project_id=None):
         statuses = Status.objects.all
         tasks = HydroTask.objects.all
         task_statuses = TaskStatus.objects.all
+        team_id = project.team
+        team_members = TeamMember.objects.filter(team = team_id)
         if request.method == "POST":
             task_name = request.POST.get('task_name')
             task_deadline = request.POST.get('task_deadline')
@@ -152,9 +154,9 @@ def project_planning(request, project_id=None):
                     description = task_description,
                     project_id = project_id
                 )
-            return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'add_new_task': True})
+            return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'team_members':team_members,'add_new_task': True})
         elif request.method == "GET":
-            return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'add_new_task': False})
+            return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'team_members':team_members,'add_new_task': False})
     return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'projects':projects})
 
 @login_required
