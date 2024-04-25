@@ -47,8 +47,11 @@
             <hr>
             <h5><b>Tasks list</b></h5>
             <ul>
+                
                 {% for task in tasks %}
-                <li>{{task.name}} {{task.deadline}} {{task.status}}</li>
+                    {% if task.project_id == project.id%}
+                        <li>{{task.name}} {{task.deadline}} {{task.status}}</li>
+                    {% endif %}
                 {% endfor %}
             </ul>
             <button class="btn btn-secondary" type="button" onclick="toggleForm()"><i class="fa-solid fa-plus"></i> New Task</button>
