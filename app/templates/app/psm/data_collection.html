@@ -2,29 +2,44 @@
 {% load i18n static crispy_forms_tags %}
 {% block content %}
 
-<h1>Hidrológiai felmérés</h1>
+<h1>Hidrológiai felmérések</h1>
 
-<form action="" method="post" novalidate>
-  {% csrf_token %}
-  <!-- {{ form|crispy }} -->
-    {% for field in form %}
-    {{ field.errors }}
-    <div class="form-row">
-        {% if forloop.counter|divisibleby:"2" %}
-            <div class="form-group col-md-6">
-                {{ field.label_tag }}  
-                {{ field }}
-            </div>
-        {% else %}
-            <div class="form-group col-md-6">
-                {{ field.label_tag }} 
-                {{ field }}
-            </div>
-        {% endif %}
+<div class="container">
+    <div class="row">   
+        <div class="col">
+            <ul class="list-group">
+                {% for hydrosurvey in hydrosurveys %}
+                <li class="list-group-item">
+                    {{hydrosurvey.deadline}}
+                    {{hydrosurvey.status}}
+                    {{hydrosurvey.location}}
+                    <a href="/psm/hydrosurvey/{{hydrosurvey.id}}/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="btn_container"><button id="add_new_project_btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> <a href="/psm/project_planning/">New Survey</a></button></div>
+            
+        </div>
         
     </div>
-    {% endfor %}
-  <input type="submit" value="Küldés" class="btn btn-primary">
-  
-</form>
+</div>
+
+{% if survey.id %}
+<h2>{{ sruvey.name }}</h2>
+
+<ul>
+ <li>Határidő: {{ survey.deadline }}</li>
+ <li>Státusz: {{ survey.status }}</li>
+ <li>Hely: {{ survey.location }}</li>
+ <li>Vízfelület: {{ survey.water_surface }}</li>
+ <li>Áramlás iránya: {{ survey.flow_direction }}</li>
+ <li>Áramlás mért sebessége: {{ survey.flow_direction_speed }}</li>
+ <li>Szelvény szélessége: {{ survey.segment_width }}</li>
+ <li>Szelvény mélysége: {{ survey.segment_depth }}</li>
+ <li>Becsült vízhozam: {{ survey.estimated_waterflow }}</li>
+ <li>Becsült energia termelés: {{ survey.estimated_energy_production }}</li>
+</ul>
+{% endif %}
+
+
 {% endblock %}

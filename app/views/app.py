@@ -96,10 +96,10 @@ def export_to_csv(request, hydrosurvey_pk=None):
     return response
 
 @login_required
-def hydro_survey(request):
-    
+def hydro_survey(request, hydrosurvey_pk=None):
+    form = HydroSurveyForm(request.POST)
     if request.method == 'POST':
-        form = HydroSurveyForm(request.POST)
+        
         if form.is_valid():
             
             survey = form.save()
@@ -107,8 +107,21 @@ def hydro_survey(request):
             return redirect('data_collection')
     else:
         form = HydroSurveyForm()
-
+        
+    if hydrosurvey_pk:
+        survey = get_object_or_404(HydroSurvey, pk=hydrosurvey_pk)
+        return render(request, 'app/psm/data_collection.html', {'survey': survey}, {'form': form})
+    
     return render(request, 'app/psm/data_collection.html', {'form': form})
+
+@login_required
+def hydro_survey_list(request):
+    
+    hydrosurveys = HydroSurvey.objects.all()
+    
+    
+    return render(request, 'app/psm/data_collection.html', {'hydrosurveys': hydrosurveys}) 
+
 
 @login_required
 def flow_simulation(request):  
