@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.contrib.auth.models import User, Group
 from app.models import Profile
 from rest_framework import serializers, viewsets, generics, status, exceptions
@@ -7,6 +8,7 @@ from rest_framework.response import Response
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.hashers import make_password
 from app import models
+from ..models import Team, HydroProject, Status
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -82,3 +84,19 @@ class AdminProfileViewSet(viewsets.ModelViewSet):
             raise exceptions.NotFound()
         
         return Response({'deadline': p.set_quota_deadline(hours)}, status=status.HTTP_200_OK)
+
+@admin.register(Team)
+class TeamAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')  # Customize the fields displayed in the list view
+    search_fields = ('name',)       # Add fields to search by in the admin interface
+
+
+@admin.register(HydroProject)
+class HydroProjectAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'created_at', 'status', 'deadline', 'team')
+    search_fields = ('name', 'status')
+
+@admin.register(Status)
+class StatusAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')  
+    search_fields = ('name',)
