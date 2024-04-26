@@ -266,7 +266,7 @@ LOGGING = {
 
 
 # Auth
-LOGIN_REDIRECT_URL = '/dashboard/'
+LOGIN_REDIRECT_URL = '/plugins/diagnostic'
 LOGIN_URL = '/login/'
 
 # CORS (very relaxed settings, users might want to change this in production)
