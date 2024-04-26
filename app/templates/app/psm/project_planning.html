@@ -31,6 +31,13 @@
         border: 2px solid rgb(247, 247, 247);
         border-radius: 5px;
     }
+    .fa-container{
+        position: fixed;
+        right: 20px;
+    }
+    i{
+        position: relative;
+    }
 
 </style>
 {% if project.id %}
@@ -38,14 +45,16 @@
     <div class="row">
         <div class="col">
                 <h4><b>{{project.name}}</b></h4>
-                <div>{{project.created_at}}</div>
-                <div>Project owner Test User 01</div>
-                <a href="/psm/edit_project"><i class="fa-solid fa-pen"></i></a>
+                <div>Created at: {{project.created_at}}</div>
+                <div>Project owner: Test User 01</div>
+                <div class="fa-container">
+                    <a href="/psm/edit_project"><i class="fa-solid fa-pen"></i></a>
+                </div>
             <hr>
             <h5>Project Team {{project.team_id}}</h5>
             <ul>
                {% for team_member in team_members %}
-               <li>{{team_member}}</li>
+               <li><ul><li>{{team_member}}</li><li>{{team_member.title}}</li></ul></li>
                {% endfor %}
             </ul>
             <hr>
