@@ -31,7 +31,6 @@
         border: 2px solid rgb(247, 247, 247);
         border-radius: 5px;
     }
-
 </style>
 {% if project.id %}
 <div class="container">
@@ -112,6 +111,7 @@
         </div>
         <div class="col">
             <form action="/psm/project_planning/" method="post">
+                {% csrf_token %}
                 <label class="form-label" for="status" >Status</label>
                 <select class="form-control" id="status" name="project.status">
                     {% for status in statuses %}
@@ -120,19 +120,11 @@
                 </select>
                 <label class="form-label" for="deadline">Deadline</label>
                 <input class="form-control" type="date" value="{{project.deadline|date:'Y-m-d'}}">
-               
+                <button class="btn btn-primary">Save</button>
                 <button class="btn btn-secondary">Calendar view</button>
                 <button class="btn btn-secondary">Statistics</button>
             </form>
-            <hr>
-            <h5>Researches</h5>
-            <ul>
-                <li>Research 01</li>
-                <li>Task 02</li>
-            </ul>
-            <form action="">
-                <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-plus"></i> New research</button>
-            </form>
+          
             <hr>
             <button class="btn btn-primary">Close Project</button>
             <form action="/psm/project_planning/project/{{project.id}}/delete/" method="post">
