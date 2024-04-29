@@ -110,21 +110,20 @@
             <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i> New Attachment</button>
         </div>
         <div class="col">
-            <form action="/psm/project_planning/" method="post">
+            <form action="/psm/project_planning/project/{{project.id}}/save/" method="post">
                 {% csrf_token %}
                 <label class="form-label" for="status" >Status</label>
-                <select class="form-control" id="status" name="project.status">
+                <select class="form-control" id="status" name="project_status">
                     {% for status in statuses %}
                     <option value="{{status.id}}" {%if project.status.id == status.id%} selected {%endif%}>{{status.name}}</option>
                     {% endfor %}
                 </select>
                 <label class="form-label" for="deadline">Deadline</label>
-                <input class="form-control" type="date" value="{{project.deadline|date:'Y-m-d'}}">
-                <button class="btn btn-primary">Save</button>
-                <button class="btn btn-secondary">Calendar view</button>
-                <button class="btn btn-secondary">Statistics</button>
+                <input class="form-control" type="date" value="{{project.deadline|date:'Y-m-d'}}" name="project_deadline">
+                <button class="btn btn-primary" type="submit">Save</button>
             </form>
-          
+            <button class="btn btn-secondary">Calendar view</button>
+            <button class="btn btn-secondary">Statistics</button>
             <hr>
             <button class="btn btn-primary">Close Project</button>
             <form action="/psm/project_planning/project/{{project.id}}/delete/" method="post">

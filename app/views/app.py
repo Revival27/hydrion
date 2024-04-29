@@ -145,12 +145,12 @@ def planning_scenario_modelling(request):
 
 @login_required
 def project_planning(request, project_id=None):
-    projects = HydroProject.objects.all
+    projects = HydroProject.objects.all()
     if project_id is not None:
         project = HydroProject.objects.get(id=project_id)
-        statuses = Status.objects.all
-        tasks = HydroTask.objects.all
-        task_statuses = TaskStatus.objects.all
+        statuses = Status.objects.all()
+        tasks = HydroTask.objects.all()
+        task_statuses = TaskStatus.objects.all()
         team_id = project.team
         team_members = TeamMember.objects.filter(team = team_id)
         if request.method == "POST":
@@ -174,13 +174,26 @@ def project_planning(request, project_id=None):
 
 @login_required
 def delete_project(request, project_id):
-    projects = HydroProject.objects.all
+    projects = HydroProject.objects.all()
     if request.method == "POST":
         HydroProject.objects.filter(id=project_id).delete()
-        print("delete_project")
         return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'projects':projects})
     
-    
+@login_required
+def save_project(request, project_id):   
+    if project_id is not None and request.method == "POST":
+        project = HydroProject.objects.get(id=project_id)
+        statuses = Status.objects.all()
+        tasks = HydroTask.objects.all()
+        task_statuses = TaskStatus.objects.all()
+        team_id = project.team
+        team_members = TeamMember.objects.filter(team = team_id)
+        status = Status.objects.get(id = request.POST.get('project_status'))
+        project.status = status
+        project.deadline = request.POST.get('project_deadline')
+        project.save()
+        project = HydroProject.objects.get(id=project_id)    
+    return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'team_members':team_members,'add_new_task': False})
 
 @login_required
 def add_project(request):

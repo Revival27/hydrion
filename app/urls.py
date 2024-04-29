@@ -42,6 +42,7 @@ urlpatterns = [
     url(r'^psm/project_planning/$', app_views.project_planning, name='project_planning'),
     url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/$', app_views.project_planning, name='project_planning'),
     url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/delete/$', app_views.delete_project, name='project_planning'),
+    url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/save/$', app_views.save_project, name='save_project'),
     url(r'^psm/project_planning/add_project/$', app_views.add_project, name='project_planning'),
     #url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/add_task/$', app_views.project_planning, name='project_planning'),
 
