@@ -53,11 +53,7 @@
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
-                <!-- <li>
-                    <a href="/dashboard/"><i class="fa fa-tachometer-alt fa-fw"></i> {% trans 'Dashboard' %}</a>
-                </li> -->
                 <li>
-                    <a href="/dashboard/"><i class="fa fa-tachometer-alt fa-fw"></i>{% trans 'Dashboard' %}<span class="fa arrow"></span></a>
                     {% load processingnode_extras plugins %}
                     {% can_view_processing_nodes as view_nodes %}
                     {% can_add_processing_nodes as add_nodes %}
@@ -65,7 +61,7 @@
 
                     {% get_plugins_main_menus as plugin_menus %}
                     
-                    <ul class="nav nav-second-level">
+
                         {% for menu in plugin_menus %}
                         
                         <li>
@@ -82,8 +78,9 @@
                             {% endif %}
                         </li>
                     {% endfor %}
-
-                    </ul>
+                </li>
+                <li>
+                    <a href="/dashboard/"><i class="fa fa-tachometer-alt fa-fw"></i>{% trans 'Dashboard' %}</a>
                 </li>
                 <li>
                     <a href="/tpfm/" style="font-size: 0.92em"><i class="fa fa-tornado"></i> {% trans 'Turbine Planner & Fluid Modelling' %}</a>
