@@ -144,13 +144,19 @@ def planning_scenario_modelling(request):
     return render(request, 'app/psm/psm_dashboard.html', {'title': _('Planning scenario modelling')})
 
 @login_required
-def project_planning(request, project_id=None, report_id=None):
-    if report_id is not None:
-        report = Report.objects.get(id=report_id)
-        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'report':report})
-    if request.method == "GET" and "statistics" in request.path:
-        statistics = Statistic.objects.all()
-        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'statistics':statistics})
+def report(request, report_id=None):
+    if request.method == "GET" and "reports" in request.path:
+        reports = Report.objects.all()
+        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'reports':reports})
+    report = Report.objects.get(id=report_id)
+    project_id = request.POST.get('project_id')
+    project_tasks_status = HydroTask.objects.filter(project_id=project_id).values('status_id')
+    tasks_status = TaskStatus.objects.filter(id = project_tasks_status)
+    
+    return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'report':report, 'tasks_status': tasks_status})
+
+@login_required
+def project_planning(request, project_id=None):
     projects = HydroProject.objects.all()
     if project_id is not None:
         project = HydroProject.objects.get(id=project_id)

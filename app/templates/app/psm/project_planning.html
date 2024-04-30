@@ -32,31 +32,34 @@
         border-radius: 5px;
     }
 </style>
-{% if statistic.id %}
+{% if report %}
 <div class="container">
     <div class="row">
         <div class="col">
-            <h4><b>{{statistic.name}}</b></h4>
-            <div>Created at: {{statistic.created_at}}</div>
-            <div>{{statistic.efficiency}}</div>
+            <h4><b>{{report.name}}</b></h4>
+            <div>Created at: {{report.created_at}}</div>
+            <div>{{report.efficiency}}</div>
+           {% for ts in tasks_status %}
+           {{ts}}
+           {% endfor %}
         <hr>
         </div>
     </div>
 </div>
 {% endif %}
-{% if "statistics" in request.path %}
+{% if "reports" in request.path %}
 <div class="container">
     <div class="row">
         <div class="col">
             <h4><b>Statistics</b></h4>
             <ul class="list-group">
-                {% for statistic in statistics %}
+                {% for report in reports %}
                 <li class="list-group-item">
-                    {{statistic}}
-                    {{statistic.name}}
-                    {{statistic.created_at}}
-                    {{statistic.efficiency}}
-                    <a href="/psm/project_planning/statistic/{{statistic.id}}/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    {{report}}
+                    {{report.name}}
+                    {{report.created_at}}
+                    {{report.efficiency}}
+                    <a href="/psm/project_planning/report/{{report.id}}/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </li>
                 {% endfor %}
             </ul>
@@ -155,7 +158,11 @@
                 <button class="btn btn-primary" type="submit">Save</button>
             </form>
             <button class="btn btn-secondary">Calendar view</button>
-            <button class="btn btn-secondary"><a href="/psm/project_planning/statistic/{{project.statistic_id}}">Statistic</a></button>
+            <form action="/psm/project_planning/report/{{project.report_id}}/" method="post">
+                {% csrf_token %}
+                <input type="text" name="project_id" value="{{project.id}}" hidden>
+                <button class="btn btn-secondary"><i class="fa-solid fa-chart-simple"></i> Report</button>
+            </form>
             <hr>
             <button class="btn btn-primary">Close Project</button>
             <form action="/psm/project_planning/project/{{project.id}}/delete/" method="post">
