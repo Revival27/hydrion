@@ -32,14 +32,37 @@
         border-radius: 5px;
     }
 </style>
+{% if statistic.id %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h4><b>{{statistic.name}}</b></h4>
+            <div>Created at: {{statistic.created_at}}</div>
+            <div>{{statistic.efficiency}}</div>
+        <hr>
+        </div>
+    </div>
+</div>
+{% endif %}
 {% if "statistics" in request.path %}
-Statistics
-<ul>
-    {% for statistic in statistics %}
-    <li>{{statistic}}</li>
-{% endfor %}
-</ul>
-
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h4><b>Statistics</b></h4>
+            <ul class="list-group">
+                {% for statistic in statistics %}
+                <li class="list-group-item">
+                    {{statistic}}
+                    {{statistic.name}}
+                    {{statistic.created_at}}
+                    {{statistic.efficiency}}
+                    <a href="/psm/project_planning/statistic/{{statistic.id}}/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
 {% endif %}
 {% if project.id %}
 <div class="container">
@@ -132,7 +155,7 @@ Statistics
                 <button class="btn btn-primary" type="submit">Save</button>
             </form>
             <button class="btn btn-secondary">Calendar view</button>
-            <button class="btn btn-secondary"><a href="/psm/project_planning/statistics/">Statistics</a></button>
+            <button class="btn btn-secondary"><a href="/psm/project_planning/statistic/{{project.statistic_id}}">Statistic</a></button>
             <hr>
             <button class="btn btn-primary">Close Project</button>
             <form action="/psm/project_planning/project/{{project.id}}/delete/" method="post">
@@ -142,10 +165,12 @@ Statistics
         </div>
     </div>
 </div>
-{% else %}
+{% endif %}
+{% if projects %}
 <div class="container">
     <div class="row">
         <div class="col">
+            <h4><b>Projects</b></h4>
             <ul class="list-group">
                 {% for project in projects %}
                 <li class="list-group-item">
@@ -156,12 +181,9 @@ Statistics
                 </li>
                 {% endfor %}
             </ul>
-            <div class="btn_container"><button id="add_new_project_btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> <a href="/psm/project_planning/add_project/">New Project</a></button></div>
-            
+            <div class="btn_container"><button id="add_new_project_btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> <a href="/psm/project_planning/add_project/">New Project</a></button></div>  
         </div>
-        
     </div>
 </div>
 {% endif %}
-</div>
 {% endblock %}
