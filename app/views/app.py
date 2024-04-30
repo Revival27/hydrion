@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from guardian.shortcuts import get_objects_for_user
 
 from nodeodm.models import ProcessingNode
-from app.models import Project, Task, HydroProject, Status, HydroTask, Team, HydroSurvey, TaskStatus, TeamMember
+from app.models import Project, Task, HydroProject, Status, HydroTask, Team, HydroSurvey, TaskStatus, TeamMember, Statistic
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
@@ -145,6 +145,9 @@ def planning_scenario_modelling(request):
 
 @login_required
 def project_planning(request, project_id=None):
+    if request.method == "GET" and "statistics" in request.path:
+        statistics = Statistic.objects.all()
+        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'statistics':statistics})
     projects = HydroProject.objects.all()
     if project_id is not None:
         project = HydroProject.objects.get(id=project_id)
@@ -214,6 +217,10 @@ def add_project(request):
                                               deadline = deadline,
                                               team =  team)
     return render(request, 'app/psm/add_project.html', {'title': _('Project Planning'), 'statuses':statuses, 'teams':teams})
+
+@login_required
+def statistics(request):
+    return render(request, 'app/psm/project_planning.html', {'title': _('Project statistics')}) 
 
 @login_required
 def data_collection(request):

@@ -13,6 +13,7 @@ from .status import Status
 from .hydrotask import HydroTask
 from .task_status import TaskStatus
 from .team_member import TeamMember
+from .statistic import Statistic
 # deprecated
 def image_directory_path(image_upload, filename):
     raise Exception("Deprecated")
