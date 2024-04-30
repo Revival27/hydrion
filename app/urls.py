@@ -1,5 +1,7 @@
 from django.conf.urls import url, include
 from django.views.i18n import JavaScriptCatalog
+from django.views.generic import TemplateView
+
 
 from .views import app as app_views, public as public_views, dev as dev_views
 from .plugins.views import app_view_handler, root_url_patterns
@@ -44,7 +46,11 @@ urlpatterns = [
     url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/delete/$', app_views.delete_project, name='project_planning'),
     url(r'^psm/project_planning/add_project/$', app_views.add_project, name='project_planning'),
     #url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/add_task/$', app_views.project_planning, name='project_planning'),
-
+    
+    url(r'^fullcalendar/', TemplateView.as_view(template_name="fullcalendar.html"), name='fullcalendar'),
+    
+    url(r'^calendar/', include('schedule.urls')),
+    
     url(r'^map/project/(?P<project_pk>[^/.]+)/task/(?P<task_pk>[^/.]+)/$', app_views.map, name='map'),
     url(r'^map/project/(?P<project_pk>[^/.]+)/$', app_views.map, name='map'),
     url(r'^3d/project/(?P<project_pk>[^/.]+)/task/(?P<task_pk>[^/.]+)/$', app_views.model_display, name='model_display'),
