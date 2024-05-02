@@ -159,7 +159,8 @@ def project_planning(request, project_id=None):
             task_status = request.POST.get('task_status')
             task_description = request.POST.get('task_description')
             project_id = request.POST.get('project_id')
-            task_start_date = request.POST.get('start_date')
+            task_start_date = request.POST.get('task_start_date')
+            task_color = request.POST.get('task_color')
             if task_name:
                 task = HydroTask.objects.create(
                     name=task_name,
@@ -167,7 +168,8 @@ def project_planning(request, project_id=None):
                     status_id = task_status,
                     description = task_description,
                     project_id = project_id,
-                    start_date = task_start_date
+                    start_date = task_start_date,
+                    color = task_color
                 )
             return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'team_members':team_members,'add_new_task': True})
         elif request.method == "GET":

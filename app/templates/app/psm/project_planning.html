@@ -74,10 +74,17 @@
                 {% csrf_token %}
                 <label for="task_name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="task_name" name="task_name" required>
+
                 <label for="task_start_date" class="form-label">Start Date</label>
                 <input type="date" id="task_start_date" class="form-control" name="task_start_date" required>
+
                 <label for="task_deadline" class="form-label">Deadline</label>
                 <input type="date" id="task_deadline" class="form-control" name="task_deadline" required>
+                
+                <label for="task_color" class="form-label" >Color for the calendar view</label>
+                <input type="color" id="task_color" class="form-control" name="task_color" value="#3498DB" required>
+                
+
                 <label for="task_status" class="form-label" >Status</label>
                 <select name="task_status" id="task_status" class="form-control" required>
                     {% for task_status in task_statuses %}
@@ -121,9 +128,12 @@
                 <label class="form-label" for="deadline">Deadline</label>
                 <input class="form-control" type="date" value="{{project.deadline|date:'Y-m-d'}}">
                 <button class="btn btn-primary">Save</button>            
-                <button class="btn btn-secondary">Calendar view</button>
                 <button class="btn btn-secondary">Statistics</button>
             </form>
+            <form action="/psm/calendar/project/{{project.id}}/" method="post">
+                {% csrf_token %}
+                <input class="btn btn-secondary" type="submit" value="Calendar view" name="Submit" id="frm1_submit" />
+            </form>  
           
             <hr>
             <button class="btn btn-primary">Close Project</button>
@@ -131,10 +141,7 @@
                 {% csrf_token %}
                 <input class="btn btn-secondary" name="project.id" value="Delete Project" type="submit">
             </form>
-            <form action="/psm/calendar/project/{{project.id}}/" method="post">
-                {% csrf_token %}
-                <input class="btn btn-secondary" type="submit" value="Calendar view" name="Submit" id="frm1_submit" />
-            </form>  
+
         </div>
     </div>
 </div>
