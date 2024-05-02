@@ -44,8 +44,12 @@ urlpatterns = [
     url(r'^psm/project_planning/$', app_views.project_planning, name='project_planning'),
     url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/$', app_views.project_planning, name='project_planning'),
     url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/delete/$', app_views.delete_project, name='project_planning'),
+    url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/save/$', app_views.save_project, name='save_project'),
     url(r'^psm/project_planning/add_project/$', app_views.add_project, name='project_planning'),
-    #url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/add_task/$', app_views.project_planning, name='project_planning'),
+
+    url(r'^psm/project_planning/reports/$', app_views.report, name='report'),
+    url(r'^psm/project_planning/report/(?P<report_id>[^/.]+)/$', app_views.report, name='report'),
+    
     
     url(r'^fullcalendar/', TemplateView.as_view(template_name="fullcalendar.html"), name='fullcalendar'),
     

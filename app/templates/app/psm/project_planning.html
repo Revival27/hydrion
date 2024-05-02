@@ -32,6 +32,41 @@
         border-radius: 5px;
     }
 </style>
+{% if report %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h4><b>{{report.name}}</b></h4>
+            <div>Created at: {{report.created_at}}</div>
+            <div>{{report.efficiency}}</div>
+           {% for ts in tasks_statu %}
+           {{ts}}
+           {% endfor %}
+        <hr>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% if "reports" in request.path %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h4><b>Statistics</b></h4>
+            <ul class="list-group">
+                {% for report in reports %}
+                <li class="list-group-item">
+                    {{report}}
+                    {{report.name}}
+                    {{report.created_at}}
+                    {{report.efficiency}}
+                    <a href="/psm/project_planning/report/{{report.id}}/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endif %}
 {% if project.id %}
 <div class="container">
     <div class="row">
@@ -110,21 +145,24 @@
             <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i> New Attachment</button>
         </div>
         <div class="col">
-            <form action="/psm/project_planning/" method="post">
+            <form action="/psm/project_planning/project/{{project.id}}/save/" method="post">
                 {% csrf_token %}
                 <label class="form-label" for="status" >Status</label>
-                <select class="form-control" id="status" name="project.status">
+                <select class="form-control" id="status" name="project_status">
                     {% for status in statuses %}
                         <option value="{{status.id}}" {%if project.status.id == status.id%} selected {%endif%}>{{status.name}}</option>
                     {% endfor %}
                 </select>
                 <label class="form-label" for="deadline">Deadline</label>
-                <input class="form-control" type="date" value="{{project.deadline|date:'Y-m-d'}}">
-                <button class="btn btn-primary">Save</button>            
-                <button class="btn btn-secondary">Calendar view</button>
-                <button class="btn btn-secondary">Statistics</button>
+                <input class="form-control" type="date" value="{{project.deadline|date:'Y-m-d'}}" name="project_deadline">
+                <button class="btn btn-primary" type="submit">Save</button>            
             </form>
-          
+            <button class="btn btn-secondary">Calendar view</button>
+            <form action="/psm/project_planning/report/{{project.report_id}}/" method="post">
+                {% csrf_token %}
+                <input type="text" name="project_id" value="{{project.id}}" hidden>
+                <button class="btn btn-secondary"><i class="fa-solid fa-chart-simple"></i> Report</button>
+            </form>
             <hr>
             <button class="btn btn-primary">Close Project</button>
             <form action="/psm/project_planning/project/{{project.id}}/delete/" method="post">
@@ -138,10 +176,12 @@
         </div>
     </div>
 </div>
-{% else %}
+{% endif %}
+{% if projects %}
 <div class="container">
     <div class="row">
         <div class="col">
+            <h4><b>Projects</b></h4>
             <ul class="list-group">
                 {% for project in projects %}
                 <li class="list-group-item">
@@ -153,9 +193,9 @@
                 {% endfor %}
             </ul>
             <div class="btn_container"><button id="add_new_project_btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> <a href="/psm/project_planning/add_project/">New Project</a></button></div>
+            
         </div>
     </div>
 </div>
 {% endif %}
-</div>
 {% endblock %}

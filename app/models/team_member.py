@@ -4,7 +4,6 @@ from django.contrib.postgres import fields
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
-
 class TeamMember(models.Model):
     id = models.BigAutoField(db_column='id', primary_key=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)

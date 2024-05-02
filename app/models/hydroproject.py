@@ -12,7 +12,7 @@ class HydroProject(models.Model):
     deadline = models.DateField(db_column='deadline')
     team = models.ForeignKey('Team', on_delete=models.CASCADE)
     description = models.TextField(db_column='description')
-
+    report = models.ForeignKey('Report', on_delete=models.CASCADE)
     class Meta:
         verbose_name = ('Hydro Project')
         db_table = 'hydroproject'

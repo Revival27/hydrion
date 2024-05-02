@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from guardian.shortcuts import get_objects_for_user
 
 from nodeodm.models import ProcessingNode
-from app.models import Project, Task, HydroProject, Status, HydroTask, Team, HydroSurvey, TaskStatus, TeamMember
+from app.models import Project, Task, HydroProject, Status, HydroTask, Team, HydroSurvey, TaskStatus, TeamMember, Report
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
@@ -144,13 +144,21 @@ def planning_scenario_modelling(request):
     return render(request, 'app/psm/psm_dashboard.html', {'title': _('Planning scenario modelling')})
 
 @login_required
+def report(request, report_id=None):
+    if request.method == "GET" and "reports" in request.path:
+        reports = Report.objects.all()
+        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'reports':reports})
+    report = Report.objects.get(id=report_id)
+    return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'report':report}) #, 'tasks_status': tasks_status
+
+@login_required
 def project_planning(request, project_id=None):
-    projects = HydroProject.objects.all()
+    projects = HydroProject.objects.all()()
     if project_id is not None:
         project = HydroProject.objects.get(pk=project_id)
-        statuses = Status.objects.all()
-        tasks = HydroTask.objects.filter(project=project.id)
-        task_statuses = TaskStatus.objects.all()
+        statuses = Status.objects.all()()
+        tasks = HydroTask.objects.filter(project=project.id)()
+        task_statuses = TaskStatus.objects.all()()
         team_id = project.team
         team_members = TeamMember.objects.filter(team = team_id)
         if request.method == "POST":
@@ -185,10 +193,23 @@ def delete_project(request, project_id):
     projects = HydroProject.objects.all()
     if request.method == "POST":
         HydroProject.objects.filter(id=project_id).delete()
-        print("delete_project")
         return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'projects':projects})
     
-    
+@login_required
+def save_project(request, project_id):   
+    if project_id is not None and request.method == "POST":
+        project = HydroProject.objects.get(id=project_id)
+        statuses = Status.objects.all()
+        tasks = HydroTask.objects.all()
+        task_statuses = TaskStatus.objects.all()
+        team_id = project.team
+        team_members = TeamMember.objects.filter(team = team_id)
+        status = Status.objects.get(id = request.POST.get('project_status'))
+        project.status = status
+        project.deadline = request.POST.get('project_deadline')
+        project.save()
+        project = HydroProject.objects.get(id=project_id)    
+    return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'team_members':team_members,'add_new_task': False})
 
 @login_required
 def add_project(request):
@@ -209,6 +230,10 @@ def add_project(request):
                                               deadline = deadline,
                                               team =  team)
     return render(request, 'app/psm/add_project.html', {'title': _('Project Planning'), 'statuses':statuses, 'teams':teams})
+
+@login_required
+def statistics(request):
+    return render(request, 'app/psm/project_planning.html', {'title': _('Project statistics')}) 
 
 @login_required
 def data_collection(request):
