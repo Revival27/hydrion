@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.hashers import make_password
 from app import models
-from ..models import Team, HydroProject, Status
+from ..models import Team, HydroProject, ProjectStatus
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -93,10 +93,10 @@ class TeamAdmin(admin.ModelAdmin):
 
 @admin.register(HydroProject)
 class HydroProjectAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'created_at', 'status', 'deadline', 'team')
-    search_fields = ('name', 'status')
+    list_display = ('id', 'name', 'created_at', 'project_status', 'deadline', 'team')
+    search_fields = ('name', 'project_status')
 
-@admin.register(Status)
+@admin.register(ProjectStatus)
 class StatusAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')  
     search_fields = ('name',)

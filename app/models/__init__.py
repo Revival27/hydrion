@@ -9,7 +9,7 @@ from .profile import Profile
 from .hydrosurvey import HydroSurvey
 from .hydroproject import HydroProject
 from .team import Team
-from .status import Status
+from .status import ProjectStatus
 from .hydrotask import HydroTask
 from .task_status import TaskStatus
 from .team_member import TeamMember

@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from guardian.shortcuts import get_objects_for_user
 
 from nodeodm.models import ProcessingNode
-from app.models import Project, Task, HydroProject, Status, HydroTask, Team, HydroSurvey, TaskStatus, TeamMember, Report
+from app.models import Project, Task, HydroProject, ProjectStatus, HydroTask, Team, HydroSurvey, TaskStatus, TeamMember, Report
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
@@ -153,12 +153,12 @@ def report(request, report_id=None):
 
 @login_required
 def project_planning(request, project_id=None):
-    projects = HydroProject.objects.all()()
+    projects = HydroProject.objects.all()
     if project_id is not None:
         project = HydroProject.objects.get(pk=project_id)
-        statuses = Status.objects.all()()
-        tasks = HydroTask.objects.filter(project=project.id)()
-        task_statuses = TaskStatus.objects.all()()
+        statuses = ProjectStatus.objects.all()
+        tasks = HydroTask.objects.filter(project=project.id)
+        task_statuses = TaskStatus.objects.all()
         team_id = project.team
         team_members = TeamMember.objects.filter(team = team_id)
         if request.method == "POST":
@@ -199,12 +199,12 @@ def delete_project(request, project_id):
 def save_project(request, project_id):   
     if project_id is not None and request.method == "POST":
         project = HydroProject.objects.get(id=project_id)
-        statuses = Status.objects.all()
+        statuses = ProjectStatus.objects.all()
         tasks = HydroTask.objects.all()
         task_statuses = TaskStatus.objects.all()
         team_id = project.team
         team_members = TeamMember.objects.filter(team = team_id)
-        status = Status.objects.get(id = request.POST.get('project_status'))
+        status = ProjectStatus.objects.get(id = request.POST.get('project_status'))
         project.status = status
         project.deadline = request.POST.get('project_deadline')
         project.save()
@@ -213,13 +213,13 @@ def save_project(request, project_id):
 
 @login_required
 def add_project(request):
-    statuses = Status.objects.all()
+    statuses = ProjectStatus.objects.all()
     teams = Team.objects.all()
     if request.method == "POST":
         name = request.POST.get('name')
         description = request.POST.get('description')
         status = request.POST.get('status_id')
-        status = Status.objects.get(id=status)
+        status = ProjectStatus.objects.get(id=status)
         deadline = request.POST.get('deadline')
         team = request.POST.get('team_id')
         team = Team.objects.get(id = team)
