@@ -145,12 +145,12 @@ def planning_scenario_modelling(request):
 
 @login_required
 def project_planning(request, project_id=None):
-    projects = HydroProject.objects.all
+    projects = HydroProject.objects.all()
     if project_id is not None:
-        project = HydroProject.objects.get(id=project_id)
-        statuses = Status.objects.all
-        tasks = HydroTask.objects.all
-        task_statuses = TaskStatus.objects.all
+        project = HydroProject.objects.get(pk=project_id)
+        statuses = Status.objects.all()
+        tasks = HydroTask.objects.filter(project=project.id)
+        task_statuses = TaskStatus.objects.all()
         team_id = project.team
         team_members = TeamMember.objects.filter(team = team_id)
         if request.method == "POST":
@@ -159,13 +159,15 @@ def project_planning(request, project_id=None):
             task_status = request.POST.get('task_status')
             task_description = request.POST.get('task_description')
             project_id = request.POST.get('project_id')
+            task_start_date = request.POST.get('start_date')
             if task_name:
                 task = HydroTask.objects.create(
                     name=task_name,
                     deadline = task_deadline,
                     status_id = task_status,
                     description = task_description,
-                    project_id = project_id
+                    project_id = project_id,
+                    start_date = task_start_date
                 )
             return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'team_members':team_members,'add_new_task': True})
         elif request.method == "GET":
@@ -173,8 +175,14 @@ def project_planning(request, project_id=None):
     return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'projects':projects})
 
 @login_required
+def calendar_view(request, project_id=None):
+    project = get_object_or_404(HydroProject, pk=int(project_id))
+    tasks = HydroTask.objects.filter(project=project.id)
+    return render(request, 'app/psm/fullcalendar.html', {'tasks':tasks})
+
+@login_required
 def delete_project(request, project_id):
-    projects = HydroProject.objects.all
+    projects = HydroProject.objects.all()
     if request.method == "POST":
         HydroProject.objects.filter(id=project_id).delete()
         print("delete_project")

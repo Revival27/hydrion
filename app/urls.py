@@ -50,6 +50,7 @@ urlpatterns = [
     url(r'^fullcalendar/', TemplateView.as_view(template_name="fullcalendar.html"), name='fullcalendar'),
     
     url(r'^calendar/', include('schedule.urls')),
+    url(r'^psm/calendar/project/(?P<project_id>[^/.]+)/$', app_views.calendar_view, name='calendar-view'),
     
     url(r'^map/project/(?P<project_pk>[^/.]+)/task/(?P<task_pk>[^/.]+)/$', app_views.map, name='map'),
     url(r'^map/project/(?P<project_pk>[^/.]+)/$', app_views.map, name='map'),

@@ -63,11 +63,9 @@
             <h5><b>Tasks list</b></h5>
             <ul>
                 {% for task in tasks %}
-                    {% if task.project_id == project.id%}
                     <li>
-                        <ul><li>{{task.name}}</li><li>{{task.deadline}} </li><li>{{task.status}}</li></ul> 
+                        <ul><li>{{task.name}}</li><li>{{task.deadline}} </li><li>{{task.status}}</li><li>{{task.start_date}}</li></ul> 
                     </li>
-                    {% endif %}
                 {% endfor %}
             </ul>
             <button class="btn btn-secondary" type="button" onclick="toggleForm()"><i class="fa-solid fa-plus"></i> New Task</button>
@@ -76,12 +74,14 @@
                 {% csrf_token %}
                 <label for="task_name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="task_name" name="task_name" required>
+                <label for="task_start_date" class="form-label">Start Date</label>
+                <input type="date" id="task_start_date" class="form-control" name="task_start_date" required>
                 <label for="task_deadline" class="form-label">Deadline</label>
                 <input type="date" id="task_deadline" class="form-control" name="task_deadline" required>
                 <label for="task_status" class="form-label" >Status</label>
                 <select name="task_status" id="task_status" class="form-control" required>
                     {% for task_status in task_statuses %}
-                    <option value="{{task_status.id}}" {%if task.status.id == task_status.id%} selected {%endif%}>{{task_status.name}}</option>
+                        <option value="{{task_status.id}}" {%if task.status.id == task_status.id%} selected {%endif%}>{{task_status.name}}</option>
                     {% endfor %}
                 </select>
                 <label for="task_description" class="form-label">Description</label>
@@ -95,7 +95,7 @@
                 <div class="alert alert-success" role="alert">
                     Successfully added new task !
                 </div>
-                {% endif %} 
+            {% endif %} 
             </div>
             <hr>
             <h5><b>Attachments</b></h5>
@@ -115,12 +115,12 @@
                 <label class="form-label" for="status" >Status</label>
                 <select class="form-control" id="status" name="project.status">
                     {% for status in statuses %}
-                    <option value="{{status.id}}" {%if project.status.id == status.id%} selected {%endif%}>{{status.name}}</option>
+                        <option value="{{status.id}}" {%if project.status.id == status.id%} selected {%endif%}>{{status.name}}</option>
                     {% endfor %}
                 </select>
                 <label class="form-label" for="deadline">Deadline</label>
                 <input class="form-control" type="date" value="{{project.deadline|date:'Y-m-d'}}">
-                <button class="btn btn-primary">Save</button>
+                <button class="btn btn-primary">Save</button>            
                 <button class="btn btn-secondary">Calendar view</button>
                 <button class="btn btn-secondary">Statistics</button>
             </form>
@@ -129,8 +129,12 @@
             <button class="btn btn-primary">Close Project</button>
             <form action="/psm/project_planning/project/{{project.id}}/delete/" method="post">
                 {% csrf_token %}
-                <input class="btn btn-secondary"  name="project.id" value="Delete Project" type="submit">
+                <input class="btn btn-secondary" name="project.id" value="Delete Project" type="submit">
             </form>
+            <form action="/psm/calendar/project/{{project.id}}/" method="post">
+                {% csrf_token %}
+                <input class="btn btn-secondary" type="submit" value="Calendar view" name="Submit" id="frm1_submit" />
+            </form>  
         </div>
     </div>
 </div>
@@ -149,9 +153,7 @@
                 {% endfor %}
             </ul>
             <div class="btn_container"><button id="add_new_project_btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> <a href="/psm/project_planning/add_project/">New Project</a></button></div>
-            
         </div>
-        
     </div>
 </div>
 {% endif %}
