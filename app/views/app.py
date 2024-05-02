@@ -149,11 +149,7 @@ def report(request, report_id=None):
         reports = Report.objects.all()
         return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'reports':reports})
     report = Report.objects.get(id=report_id)
-    project_id = request.POST.get('project_id')
-    project_tasks_status = HydroTask.objects.filter(project_id=project_id).values('status_id')
-    tasks_status = TaskStatus.objects.filter(id = project_tasks_status)
-    
-    return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'report':report, 'tasks_status': tasks_status})
+    return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'report':report}) #, 'tasks_status': tasks_status
 
 @login_required
 def project_planning(request, project_id=None):
