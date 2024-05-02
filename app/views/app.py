@@ -226,7 +226,7 @@ def add_project(request):
         project = HydroProject.objects.create(name = name,
                                               created_at = datetime.date.today().strftime("%Y-%m-%d"),
                                               description = description,
-                                              status = status,
+                                              project_status = status,
                                               deadline = deadline,
                                               team =  team)
     return render(request, 'app/psm/add_project.html', {'title': _('Project Planning'), 'statuses':statuses, 'teams':teams})
