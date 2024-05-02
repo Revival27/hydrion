@@ -119,8 +119,6 @@ INSTALLED_APPS = [
     'app',
     'nodeodm',
     'crispy_forms',
-    'schedule',
-    'djangobower',
 ]
 
 MIDDLEWARE = [
@@ -203,17 +201,8 @@ STATICFILES_DIRS = [
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'djangobower.finders.BowerFinder',
 ]
 
-BOWER_COMPONENTS_ROOT = 'app/static/app/components'
-
-BOWER_INSTALLED_APPS = (
-    'jquery',
-    'jquery-ui',
-    'bootstrap',
-    'fullcalendar',
-)
 
 # File Uploads
 FILE_UPLOAD_MAX_MEMORY_SIZE = 4718592 # 4.5 MB

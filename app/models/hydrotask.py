@@ -3,7 +3,6 @@ from django.contrib.postgres import fields
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from datetime import timedelta
-from schedule.models import EventRelation, Calendar, Event
 
 
 
