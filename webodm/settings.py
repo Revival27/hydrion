@@ -203,6 +203,7 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
+
 # File Uploads
 FILE_UPLOAD_MAX_MEMORY_SIZE = 4718592 # 4.5 MB
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10485760 # 10 MB
