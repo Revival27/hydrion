@@ -51,7 +51,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h4><b>Statistics</b></h4>
+            <h4><b>Reports</b></h4>
             <ul class="list-group">
                 {% for report in reports %}
                 <li class="list-group-item">
@@ -164,7 +164,7 @@
                 <input class="form-control" type="date" value="{{project.deadline|date:'Y-m-d'}}" name="project_deadline">
                 <button class="btn btn-primary" type="submit">Save</button>            
             </form>
-            <form action="/psm/calendar/project/{{project.id}}/" method="post">
+            <form action="/psm/project_planning/report/{{project.report_id}}/" method="post">
                 {% csrf_token %}
                 <input type="text" name="project_id" value="{{project.id}}" hidden>
                 <button class="btn btn-secondary"><i class="fa-solid fa-chart-simple"></i> Report</button>
