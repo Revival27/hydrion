@@ -8,15 +8,15 @@
             <form action="/psm/project_planning/add_project/" method="post">
                 {% csrf_token %}
                 <div class="mb-3">
-                    <label for="name" class="form-label">Project name</label>
+                    <label for="name" class="form-label">{% trans 'Project name' %}</label>
                     <input type="text" class="form-control" name="name" id="name" required>
                 </div>
                 <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
+                    <label for="description" class="form-label">{% trans 'Description' %}</label>
                     <input type="text" class="form-control" name="description" id="description" required>
                 </div>
                 <div class="mb-3">
-                    <label for="status" class="form-label">Status</label>
+                    <label for="status" class="form-label">{% trans 'Status' %}</label>
                     <select class="form-control" id="status" name="status_id" required>
                         {% for status in statuses %}
                         <option value="{{status.id}}" {%if project.status.id == status.id%} selected {%endif%}>{{status.name}}</option>
@@ -24,11 +24,11 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label" for="deadline">Deadline</label>
+                    <label class="form-label" for="deadline">{% trans 'Deadline' %}</label>
                     <input class="form-control" type="date" name="deadline" id="deadline" required>
                 </div>
                 <div class="mb-3">
-                    <label for="team" class="form-label">Team</label>
+                    <label for="team" class="form-label">{% trans 'Team' %}</label>
                     <select class="form-control" id="team" name="team_id" id="team" required>
                         {% for team in teams %}
                         <option value="{{team.id}}" {%if project.team.id == team.id%} selected {%endif%}>{{team.name}}</option>

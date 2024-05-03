@@ -1,0 +1,3600 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: app/templates/app/about.html:94
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-03 23:21+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/admin.py:65
+msgid "Enter custom CSS"
+msgstr ""
+
+#: app/admin.py:66 app/models/theme.py:40
+msgid "CSS"
+msgstr ""
+
+#: app/admin.py:69
+msgid "HTML that will be displayed above site header"
+msgstr ""
+
+#: app/admin.py:70 app/models/theme.py:41
+msgid "HTML (before header)"
+msgstr ""
+
+#: app/admin.py:73
+msgid "HTML that will be displayed after site header"
+msgstr ""
+
+#: app/admin.py:74 app/models/theme.py:42
+msgid "HTML (after header)"
+msgstr ""
+
+#: app/admin.py:77
+msgid "HTML that will be displayed after the body tag"
+msgstr ""
+
+#: app/admin.py:78 app/models/theme.py:43
+msgid "HTML (after body)"
+msgstr ""
+
+#: app/admin.py:82
+#, python-brace-format
+msgid ""
+"HTML that will be displayed in the footer. You can also use the special tags "
+"such as {ORGANIZATION} and {YEAR}."
+msgstr ""
+
+#: app/admin.py:83 app/models/theme.py:44
+msgid "HTML (footer)"
+msgstr ""
+
+#: app/admin.py:115 app/models/project.py:25
+#: app/templates/app/psm/add_project.html:15
+msgid "Description"
+msgstr "Leírás"
+
+#: app/admin.py:121
+msgid "Version"
+msgstr "Verzió"
+
+#: app/admin.py:127
+msgid "Author"
+msgstr "Szerző"
+
+#: app/admin.py:159
+#, python-format
+msgid "Restart required. Please restart WebODM to enable %(plugin)s"
+msgstr ""
+
+#: app/admin.py:162
+#, python-format
+msgid "Cannot enable plugin %(plugin)s: %(message)s"
+msgstr ""
+
+#: app/admin.py:171
+#, python-format
+msgid "Restart required. Please restart WebODM to fully disable %(plugin)s"
+msgstr ""
+
+#: app/admin.py:174
+#, python-format
+msgid "Cannot disable plugin %(plugin)s: %(message)s"
+msgstr ""
+
+#: app/admin.py:183
+#, python-format
+msgid "Cannot delete plugin %(plugin)s: %(message)s"
+msgstr ""
+
+#: app/admin.py:231
+msgid "Plugin added successfully"
+msgstr ""
+
+#: app/admin.py:233
+#, python-format
+msgid "Cannot load plugin: %(message)s"
+msgstr ""
+
+#: app/admin.py:239
+msgid "You need to upload a zip file"
+msgstr ""
+
+#: app/admin.py:253
+msgid "Disable"
+msgstr ""
+
+#: app/admin.py:256
+msgid "Enable"
+msgstr ""
+
+#: app/admin.py:261
+msgid "Actions"
+msgstr ""
+
+#: app/api/formulas.py:12 app/api/formulas.py:32
+msgid ""
+"Normalized Difference Vegetation Index shows the amount of green vegetation."
+msgstr ""
+
+#: app/api/formulas.py:17
+msgid ""
+"Normalized difference yellowness index (NDYI), best model variability in "
+"relative yield potential in Canola."
+msgstr ""
+
+#: app/api/formulas.py:22
+msgid ""
+"Normalized Difference Red Edge Index shows the amount of green vegetation of "
+"permanent or later stage crops."
+msgstr ""
+
+#: app/api/formulas.py:27
+msgid ""
+"Normalized Difference Water Index shows the amount of water content in water "
+"bodies."
+msgstr ""
+
+#: app/api/formulas.py:37
+msgid ""
+"Enhanced Normalized Difference Vegetation Index is like NDVI, but uses Blue "
+"and Green bands instead of only Red to isolate plant health."
+msgstr ""
+
+#: app/api/formulas.py:41
+msgid ""
+"Visible NDVI is an un-normalized index for RGB sensors using constants "
+"derived from citrus, grape, and sugarcane crop data."
+msgstr ""
+
+#: app/api/formulas.py:45
+msgid "Visual Atmospheric Resistance Index shows the areas of vegetation."
+msgstr ""
+
+#: app/api/formulas.py:50
+msgid "Modified Photochemical Reflectance Index"
+msgstr ""
+
+#: app/api/formulas.py:55
+msgid ""
+"Excess Green Index (derived from only the RGB bands) emphasizes the "
+"greenness of leafy crops such as potatoes."
+msgstr ""
+
+#: app/api/formulas.py:59
+msgid ""
+"Burn Area Index hightlights burned land in the red to near-infrared spectrum."
+msgstr ""
+
+#: app/api/formulas.py:63
+msgid "Green Leaf Index shows greens leaves and stems."
+msgstr ""
+
+#: app/api/formulas.py:68
+msgid ""
+"Green Normalized Difference Vegetation Index is similar to NDVI, but "
+"measures the green spectrum instead of red."
+msgstr ""
+
+#: app/api/formulas.py:73
+msgid ""
+"Green Ratio Vegetation Index is sensitive to photosynthetic rates in forests."
+msgstr ""
+
+#: app/api/formulas.py:77
+msgid ""
+"Soil Adjusted Vegetation Index is similar to NDVI but attempts to remove the "
+"effects of soil areas using an adjustment factor (0.5)."
+msgstr ""
+
+#: app/api/formulas.py:81
+msgid ""
+"Modified Non-Linear Index improves the Non-Linear Index algorithm to account "
+"for soil areas."
+msgstr ""
+
+#: app/api/formulas.py:85
+msgid ""
+"Modified Simple Ratio is an improvement of the Simple Ratio (SR) index to be "
+"more sensitive to vegetation."
+msgstr ""
+
+#: app/api/formulas.py:89
+msgid ""
+"Renormalized Difference Vegetation Index uses the difference between near-IR "
+"and red, plus NDVI to show areas of healthy vegetation."
+msgstr ""
+
+#: app/api/formulas.py:93
+msgid ""
+"Transformed Difference Vegetation Index highlights vegetation cover in urban "
+"environments."
+msgstr ""
+
+#: app/api/formulas.py:97
+msgid ""
+"Optimized Soil Adjusted Vegetation Index is based on SAVI, but tends to work "
+"better in areas with little vegetation where soil is visible."
+msgstr ""
+
+#: app/api/formulas.py:101
+msgid "Leaf Area Index estimates foliage areas and predicts crop yields."
+msgstr ""
+
+#: app/api/formulas.py:106
+msgid ""
+"Enhanced Vegetation Index is useful in areas where NDVI might saturate, by "
+"using blue wavelengths to correct soil signals."
+msgstr ""
+
+#: app/api/formulas.py:111
+msgid ""
+"Atmospherically Resistant Vegetation Index. Useful when working with imagery "
+"for regions with high atmospheric aerosol content."
+msgstr ""
+
+#: app/api/formulas.py:116
+msgid "Temperature in Celsius degrees."
+msgstr ""
+
+#: app/api/formulas.py:120
+msgid "Temperature in Centikelvin degrees."
+msgstr ""
+
+#: app/api/projects.py:125
+msgid "Cannot duplicate project"
+msgstr ""
+
+#: app/api/projects.py:193
+msgid "Invalid user in permissions list"
+msgstr ""
+
+#: app/api/projects.py:195
+msgid "Invalid permissions"
+msgstr ""
+
+#: app/api/tasks.py:186
+msgid "You need to upload at least 1 file before commit"
+msgstr ""
+
+#: app/api/tasks.py:209
+msgid "No files uploaded"
+msgstr ""
+
+#: app/api/tasks.py:235
+msgid "Cannot duplicate task"
+msgstr ""
+
+#: app/api/tasks.py:252
+msgid "Cannot create task, you need at least 2 images"
+msgstr ""
+
+#: app/api/tasks.py:371 app/api/tasks.py:374 app/api/tasks.py:398
+#: app/api/tasks.py:401
+msgid "Asset does not exist"
+msgstr ""
+
+#: app/api/tasks.py:417
+msgid "Imported Task"
+msgstr ""
+
+#: app/api/tasks.py:420
+msgid "Cannot create task, you need to upload 1 file"
+msgstr ""
+
+#: app/api/tasks.py:423
+msgid "Cannot create task, either specify a URL or upload 1 file."
+msgstr ""
+
+#: app/api/tiler.py:305
+msgid "Invalid boundaries parameter"
+msgstr ""
+
+#: app/api/tiler.py:324
+msgid "Invalid tile size parameter"
+msgstr ""
+
+#: app/api/tiler.py:354 app/api/tiler.py:426
+msgid "Outside of bounds"
+msgstr ""
+
+#: app/api/tiler.py:364
+msgid "Invalid boundaries"
+msgstr ""
+
+#: app/api/tiler.py:432 app/api/tiler.py:551
+msgid "Not a valid color_map value"
+msgstr ""
+
+#: app/api/tiler.py:438
+msgid "Invalid rescale value"
+msgstr ""
+
+#: app/api/tiler.py:460
+msgid "Invalid hillshade value"
+msgstr ""
+
+#: app/api/tiler.py:463
+msgid "Cannot compute hillshade of non-elevation raster (multiple bands found)"
+msgstr ""
+
+#: app/api/tiler.py:487
+msgid ""
+"Cannot process tile: intensity image provided, but no RGB data was computed."
+msgstr ""
+
+#: app/api/tiler.py:536 app/api/tiler.py:538
+#, python-format
+msgid "Unsupported format: %(value)s"
+msgstr ""
+
+#: app/api/tiler.py:557
+#, python-format
+msgid "Invalid EPSG code: %(value)s"
+msgstr ""
+
+#: app/api/tiler.py:560
+msgid "Both formula and bands parameters are required"
+msgstr ""
+
+#: app/api/tiler.py:583
+#, python-format
+msgid "Invalid rescale value: %(value)s"
+msgstr ""
+
+#: app/api/tiler.py:591
+#, python-format
+msgid "Invalid hillshade value: %(value)s"
+msgstr ""
+
+#: app/api/tiler.py:602
+msgid "Cannot use epsg on non-georeferenced dataset"
+msgstr ""
+
+#: app/models/plugin.py:5
+msgid "Plugin name"
+msgstr ""
+
+#: app/models/plugin.py:5 app/models/preset.py:10 app/models/project.py:24
+#: app/models/task.py:244 app/models/theme.py:18
+msgid "Name"
+msgstr ""
+
+#: app/models/plugin.py:6
+msgid "Whether this plugin is turned on."
+msgstr ""
+
+#: app/models/plugin.py:6
+msgid "Enabled"
+msgstr ""
+
+#: app/models/plugin.py:20
+msgid "Plugin"
+msgstr ""
+
+#: app/models/plugin.py:21 app/templates/app/logged_in_base.html:115
+msgid "Plugins"
+msgstr "Pluginok"
+
+#: app/models/plugin_datum.py:7
+msgid "Setting key"
+msgstr ""
+
+#: app/models/plugin_datum.py:7
+msgid "Key"
+msgstr ""
+
+#: app/models/plugin_datum.py:8
+msgid "The user this setting belongs to. If NULL, the setting is global."
+msgstr ""
+
+#: app/models/plugin_datum.py:8 app/templates/app/admin/object_history.html:23
+msgid "User"
+msgstr ""
+
+#: app/models/plugin_datum.py:9
+msgid "Integer value"
+msgstr ""
+
+#: app/models/plugin_datum.py:10
+msgid "Float value"
+msgstr ""
+
+#: app/models/plugin_datum.py:11
+msgid "Bool value"
+msgstr ""
+
+#: app/models/plugin_datum.py:12
+msgid "String value"
+msgstr ""
+
+#: app/models/plugin_datum.py:13
+msgid "JSON value"
+msgstr ""
+
+#: app/models/plugin_datum.py:19 app/models/plugin_datum.py:20
+msgid "Plugin Datum"
+msgstr ""
+
+#: app/models/preset.py:9
+msgid "The person who owns this preset"
+msgstr ""
+
+#: app/models/preset.py:9 app/models/project.py:23
+msgid "Owner"
+msgstr ""
+
+#: app/models/preset.py:10
+msgid "A label used to describe the preset"
+msgstr ""
+
+#: app/models/preset.py:11
+msgid "Options that define this preset (same format as in a Task's options)."
+msgstr ""
+
+#: app/models/preset.py:11 app/models/task.py:250
+#: venv/lib/python3.10/site-packages/click/core.py:1387
+msgid "Options"
+msgstr ""
+
+#: app/models/preset.py:13 app/models/project.py:26 app/models/task.py:258
+msgid "Creation date"
+msgstr ""
+
+#: app/models/preset.py:13 app/models/project.py:26 app/models/task.py:258
+msgid "Created at"
+msgstr ""
+
+#: app/models/preset.py:14
+msgid ""
+"Whether this preset is available to every user in the system or just to its "
+"owner."
+msgstr ""
+
+#: app/models/preset.py:14
+msgid "System"
+msgstr ""
+
+#: app/models/preset.py:20
+msgid "Preset"
+msgstr ""
+
+#: app/models/preset.py:21
+msgid "Presets"
+msgstr ""
+
+#: app/models/profile.py:15
+msgid "Maximum disk quota in megabytes"
+msgstr ""
+
+#: app/models/profile.py:15
+msgid "Quota"
+msgstr ""
+
+#: app/models/project.py:23
+msgid "The person who created the project"
+msgstr ""
+
+#: app/models/project.py:24
+msgid "A label used to describe the project"
+msgstr ""
+
+#: app/models/project.py:25
+msgid "More in-depth description of the project"
+msgstr ""
+
+#: app/models/project.py:27
+msgid ""
+"Whether this project has been marked for deletion. Projects that have "
+"running tasks need to wait for tasks to be properly cleaned up before they "
+"can be deleted."
+msgstr ""
+
+#: app/models/project.py:27
+msgid "Deleting"
+msgstr ""
+
+#: app/models/project.py:28
+msgid "Project tags"
+msgstr ""
+
+#: app/models/project.py:28 app/models/task.py:281
+msgid "Tags"
+msgstr ""
+
+#: app/models/project.py:65 app/models/task.py:429
+#, python-format
+msgid "Copy of %(task)s"
+msgstr ""
+
+#: app/models/project.py:90 app/models/task.py:243
+msgid "Project"
+msgstr ""
+
+#: app/models/project.py:91 app/templates/app/psm/project_planning.html:190
+#: app/templates/app/psm/psm.html:16
+#: coreplugins/projects-charts/templates/index.html:7
+msgid "Projects"
+msgstr "Projektek"
+
+#: app/models/setting.py:20
+msgid "The name of your application"
+msgstr ""
+
+#: app/models/setting.py:20
+msgid "App name"
+msgstr ""
+
+#: app/models/setting.py:21
+msgid "A 512x512 logo of your application (.png or .jpeg)"
+msgstr ""
+
+#: app/models/setting.py:21
+msgid "App logo"
+msgstr ""
+
+#: app/models/setting.py:31
+msgid "The name of your organization"
+msgstr ""
+
+#: app/models/setting.py:31
+msgid "Organization name"
+msgstr ""
+
+#: app/models/setting.py:32
+msgid "The website URL of your organization"
+msgstr ""
+
+#: app/models/setting.py:32
+msgid "Organization website"
+msgstr ""
+
+#: app/models/setting.py:33 app/models/theme.py:50 app/models/theme.py:51
+#: app/templates/app/logged_in_base.html:112
+msgid "Theme"
+msgstr "Téma"
+
+#: app/models/setting.py:34
+msgid "Active theme"
+msgstr "Aktív téma"
+
+#: app/models/setting.py:73 app/templates/app/logged_in_base.html:118
+msgid "Application"
+msgstr "Alkalmazás"
+
+#: app/models/setting.py:76 app/models/setting.py:77
+#: app/templates/app/psm/psm.html:33
+msgid "Settings"
+msgstr "Beállítások"
+
+#: app/models/task.py:240
+msgid "Id"
+msgstr ""
+
+#: app/models/task.py:242
+msgid "Identifier of the task (as returned by NodeODM API)"
+msgstr ""
+
+#: app/models/task.py:242
+msgid "UUID"
+msgstr ""
+
+#: app/models/task.py:243
+msgid "Project that this task belongs to"
+msgstr ""
+
+#: app/models/task.py:244
+msgid "A label for the task"
+msgstr ""
+
+#: app/models/task.py:245
+msgid ""
+"Number of milliseconds that elapsed since the beginning of this task (-1 "
+"indicates that no information is available)"
+msgstr ""
+
+#: app/models/task.py:245
+msgid "Processing Time"
+msgstr ""
+
+#: app/models/task.py:246
+msgid ""
+"Processing node assigned to this task (or null if this task has not been "
+"associated yet)"
+msgstr ""
+
+#: app/models/task.py:246 app/views/app.py:308 nodeodm/models.py:36
+msgid "Processing Node"
+msgstr ""
+
+#: app/models/task.py:247
+msgid ""
+"A flag indicating whether this task should be automatically assigned a "
+"processing node"
+msgstr ""
+
+#: app/models/task.py:247
+msgid "Auto Processing Node"
+msgstr ""
+
+#: app/models/task.py:248
+msgid "Current status of the task"
+msgstr ""
+
+#: app/models/task.py:248 app/templates/app/psm/add_project.html:19
+#: app/templates/app/psm/data_collection.html:32
+msgid "Status"
+msgstr "Státusz"
+
+#: app/models/task.py:249
+msgid "The last processing error received"
+msgstr ""
+
+#: app/models/task.py:249
+msgid "Last Error"
+msgstr ""
+
+#: app/models/task.py:250
+msgid "Options that are being used to process this task"
+msgstr ""
+
+#: app/models/task.py:251
+msgid "List of available assets to download"
+msgstr ""
+
+#: app/models/task.py:251
+msgid "Available Assets"
+msgstr ""
+
+#: app/models/task.py:253
+msgid "Extent of the orthophoto"
+msgstr ""
+
+#: app/models/task.py:253
+msgid "Orthophoto Extent"
+msgstr ""
+
+#: app/models/task.py:254
+msgid "DSM Extent"
+msgstr ""
+
+#: app/models/task.py:255
+msgid "DTM Extent"
+msgstr ""
+
+#: app/models/task.py:259
+msgid ""
+"A requested action to be performed on the task. The selected action will be "
+"performed by the worker at the next iteration."
+msgstr ""
+
+#: app/models/task.py:259
+msgid "Pending Action"
+msgstr ""
+
+#: app/models/task.py:261
+msgid "A flag indicating whether this task is available to the public"
+msgstr ""
+
+#: app/models/task.py:261
+msgid "Public"
+msgstr ""
+
+#: app/models/task.py:262
+msgid ""
+"When set to a value different than -1, indicates that the images for this "
+"task have been / will be resized to the size specified here before "
+"processing."
+msgstr ""
+
+#: app/models/task.py:262
+msgid "Resize To"
+msgstr ""
+
+#: app/models/task.py:265
+msgid ""
+"Value between 0 and 1 indicating the upload progress of this task's files to "
+"the processing node"
+msgstr ""
+
+#: app/models/task.py:266
+msgid "Upload Progress"
+msgstr ""
+
+#: app/models/task.py:269
+msgid ""
+"Value between 0 and 1 indicating the resize progress of this task's images"
+msgstr ""
+
+#: app/models/task.py:270
+msgid "Resize Progress"
+msgstr ""
+
+#: app/models/task.py:273
+msgid ""
+"Value between 0 and 1 indicating the running progress (estimated) of this "
+"task"
+msgstr ""
+
+#: app/models/task.py:274
+msgid "Running Progress"
+msgstr ""
+
+#: app/models/task.py:276
+msgid "URL this task is imported from (only for imported tasks)"
+msgstr ""
+
+#: app/models/task.py:276
+msgid "Import URL"
+msgstr ""
+
+#: app/models/task.py:277
+msgid "Number of images associated with this task"
+msgstr ""
+
+#: app/models/task.py:277
+msgid "Images Count"
+msgstr ""
+
+#: app/models/task.py:278
+msgid ""
+"A flag indicating whether this task is currently waiting for information or "
+"files to be uploaded before being considered for processing."
+msgstr ""
+
+#: app/models/task.py:278
+msgid "Partial"
+msgstr ""
+
+#: app/models/task.py:279
+msgid ""
+"Serialized potree scene information used to save/load measurements and "
+"camera view angle"
+msgstr ""
+
+#: app/models/task.py:279
+msgid "Potree Scene"
+msgstr ""
+
+#: app/models/task.py:280
+msgid "EPSG code of the dataset (if georeferenced)"
+msgstr ""
+
+#: app/models/task.py:281
+msgid "Task tags"
+msgstr ""
+
+#: app/models/task.py:282
+msgid "List of orthophoto bands"
+msgstr ""
+
+#: app/models/task.py:282
+msgid "Orthophoto Bands"
+msgstr ""
+
+#: app/models/task.py:283
+msgid "Size of the task on disk in megabytes"
+msgstr ""
+
+#: app/models/task.py:283
+msgid "Size"
+msgstr ""
+
+#: app/models/task.py:286
+msgid "Task"
+msgstr ""
+
+#: app/models/task.py:287
+msgid "Tasks"
+msgstr ""
+
+#: app/models/task.py:298
+msgid "unnamed"
+msgstr ""
+
+#: app/models/task.py:502
+msgid "Importing assets..."
+msgstr ""
+
+#: app/models/task.py:554 app/models/task.py:823
+msgid "Invalid zip file"
+msgstr ""
+
+#: app/models/task.py:649
+#, python-format
+msgid "Connection error: %(error)s"
+msgstr ""
+
+#: app/models/task.py:729
+msgid "Cannot restart a task that has no processing node"
+msgstr ""
+
+#: app/models/task.py:889
+#, python-format
+msgid "Unsupported SRS %(code)s. Please make sure you picked a supported SRS."
+msgstr ""
+
+#: app/models/task.py:903
+msgid "Done!"
+msgstr ""
+
+#: app/models/theme.py:18
+msgid "Name of theme"
+msgstr ""
+
+#: app/models/theme.py:21
+msgid "Most text, icons, and borders."
+msgstr ""
+
+#: app/models/theme.py:21
+msgid "Primary"
+msgstr ""
+
+#: app/models/theme.py:22
+msgid "The main background color, and text color of some buttons."
+msgstr ""
+
+#: app/models/theme.py:22
+msgid "Secondary"
+msgstr ""
+
+#: app/models/theme.py:23
+msgid "Navigation links."
+msgstr ""
+
+#: app/models/theme.py:23
+msgid "Tertiary"
+msgstr ""
+
+#: app/models/theme.py:25
+msgid "Primary button color."
+msgstr ""
+
+#: app/models/theme.py:25
+msgid "Button Primary"
+msgstr ""
+
+#: app/models/theme.py:26
+msgid "Default button color."
+msgstr ""
+
+#: app/models/theme.py:26
+msgid "Button Default"
+msgstr ""
+
+#: app/models/theme.py:27
+msgid "Delete button color."
+msgstr ""
+
+#: app/models/theme.py:27
+msgid "Button Danger"
+msgstr ""
+
+#: app/models/theme.py:29
+msgid "Background color of the site's header."
+msgstr ""
+
+#: app/models/theme.py:29
+msgid "Header Background"
+msgstr ""
+
+#: app/models/theme.py:30
+msgid "Text and icons in the site's header."
+msgstr ""
+
+#: app/models/theme.py:30
+msgid "Header Primary"
+msgstr ""
+
+#: app/models/theme.py:32
+msgid "The color of most borders."
+msgstr ""
+
+#: app/models/theme.py:32
+msgid "Border"
+msgstr ""
+
+#: app/models/theme.py:33
+msgid "The background color of panels and some borders."
+msgstr ""
+
+#: app/models/theme.py:33
+msgid "Highlight"
+msgstr ""
+
+#: app/models/theme.py:35
+msgid "The border color of warning dialogs."
+msgstr ""
+
+#: app/models/theme.py:35
+msgid "Dialog Warning"
+msgstr ""
+
+#: app/models/theme.py:37
+msgid "The background color of failed notifications."
+msgstr ""
+
+#: app/models/theme.py:37
+msgid "Failed"
+msgstr ""
+
+#: app/models/theme.py:38
+msgid "The background color of success notifications."
+msgstr ""
+
+#: app/models/theme.py:38
+msgid "Success"
+msgstr ""
+
+#: app/templates/app/404.html:6
+msgid "404 Page Not Found"
+msgstr ""
+
+#: app/templates/app/404.html:7
+msgid "Are you sure the address is correct?"
+msgstr ""
+
+#: app/templates/app/500.html:5
+msgid "500 Internal Server Error"
+msgstr ""
+
+#: app/templates/app/500.html:6
+msgid "Something happened. The server logs contain more information."
+msgstr ""
+
+#: app/templates/app/admin/404.html:4 app/templates/app/admin/404.html:8
+msgid "Page not found"
+msgstr ""
+
+#: app/templates/app/admin/404.html:10
+msgid "We're sorry, but the requested page could not be found."
+msgstr ""
+
+#: app/templates/app/admin/500.html:6 app/templates/app/admin/app_index.html:9
+#: app/templates/app/admin/auth/user/change_password.html:13
+#: app/templates/app/admin/base.html:19
+#: app/templates/app/admin/change_form.html:18
+#: app/templates/app/admin/change_list.html:31
+#: app/templates/app/admin/delete_confirmation.html:13
+#: app/templates/app/admin/delete_selected_confirmation.html:13
+#: app/templates/app/admin/invalid_setup.html:6
+#: app/templates/app/admin/object_history.html:6
+msgid "Home"
+msgstr ""
+
+#: app/templates/app/admin/500.html:7
+msgid "Server error"
+msgstr ""
+
+#: app/templates/app/admin/500.html:11
+msgid "Server error (500)"
+msgstr ""
+
+#: app/templates/app/admin/500.html:14
+msgid "Server Error (500)"
+msgstr ""
+
+#: app/templates/app/admin/500.html:15
+msgid ""
+"There's been an error. It's been reported to the site administrators via "
+"email and should be fixed shortly. Thanks for your patience."
+msgstr ""
+
+#: app/templates/app/admin/actions.html:4
+msgid "Run the selected action"
+msgstr ""
+
+#: app/templates/app/admin/actions.html:4
+msgid "Go"
+msgstr ""
+
+#: app/templates/app/admin/actions.html:10
+msgid "Click here to select the objects across all pages"
+msgstr ""
+
+#: app/templates/app/admin/actions.html:10
+#, python-format
+msgid "Select all %(total_count)s %(module_name)s"
+msgstr ""
+
+#: app/templates/app/admin/actions.html:12
+msgid "Clear selection"
+msgstr ""
+
+#: app/templates/app/admin/auth/user/add_form.html:6
+msgid ""
+"First, enter a username and password. Then, you'll be able to edit more user "
+"options."
+msgstr ""
+
+#: app/templates/app/admin/auth/user/add_form.html:8
+msgid "Enter a username and password."
+msgstr ""
+
+#: app/templates/app/admin/auth/user/change_password.html:17
+#: app/templates/app/admin/auth/user/change_password.html:54
+msgid "Change password"
+msgstr ""
+
+#: app/templates/app/admin/auth/user/change_password.html:27
+#: app/templates/app/admin/change_form.html:47
+#: app/templates/app/admin/change_list.html:58
+#: app/templates/app/admin/login.html:21
+#: app/templates/app/registration/password_change_form.html:7
+#: app/templates/app/registration/password_reset_confirm.html:9
+#: app/templates/app/registration/password_reset_form.html:7
+msgid "Please correct the error below."
+msgid_plural "Please correct the errors below."
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/templates/app/admin/auth/user/change_password.html:27
+#: app/templates/app/admin/change_form.html:47
+#: app/templates/app/admin/change_list.html:58
+#: app/templates/app/admin/login.html:21
+msgid "Please correct the errors below."
+msgstr ""
+
+#: app/templates/app/admin/auth/user/change_password.html:31
+#, python-format
+msgid "Enter a new password for the user <strong>%(username)s</strong>."
+msgstr ""
+
+#: app/templates/app/admin/base_site.html:3
+msgid "Django site admin"
+msgstr ""
+
+#: app/templates/app/admin/base_site.html:6
+msgid "Django administration"
+msgstr ""
+
+#: app/templates/app/admin/change_form.html:21
+#: app/templates/app/admin/change_list.html:49
+#, python-format
+msgid "Add %(name)s"
+msgstr ""
+
+#: app/templates/app/admin/change_form.html:33
+#: app/templates/app/admin/object_history.html:10
+msgid "History"
+msgstr ""
+
+#: app/templates/app/admin/change_form.html:35
+#: app/templates/app/admin/edit_inline/stacked.html:14
+#: app/templates/app/admin/edit_inline/tabular.html:36
+msgid "View on site"
+msgstr ""
+
+#: app/templates/app/admin/change_list.html:69
+msgid "Filter"
+msgstr ""
+
+#: app/templates/app/admin/change_list_plugin.html:24
+msgid "Load Plugin (.zip)"
+msgstr ""
+
+#: app/templates/app/admin/change_list_plugin.html:28
+msgid "Manage Plugins"
+msgstr ""
+
+#: app/templates/app/admin/change_list_results.html:17
+msgid "Remove from sorting"
+msgstr ""
+
+#: app/templates/app/admin/change_list_results.html:18
+#, python-format
+msgid "Sorting priority: %(priority_number)s"
+msgstr ""
+
+#: app/templates/app/admin/change_list_results.html:19
+msgid "Toggle sorting"
+msgstr ""
+
+#: app/templates/app/admin/delete_confirmation.html:17
+#: app/templates/app/admin/related_widget_wrapper.html:23
+#: app/templates/app/admin/submit_line.html:6
+#: app/templates/app/processing_node.html:54
+#: venv/lib/python3.10/site-packages/django/forms/formsets.py:375
+msgid "Delete"
+msgstr ""
+
+#: app/templates/app/admin/delete_confirmation.html:23
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would result in deleting "
+"related objects, but your account doesn't have permission to delete the "
+"following types of objects:"
+msgstr ""
+
+#: app/templates/app/admin/delete_confirmation.html:30
+#, python-format
+msgid ""
+"Deleting the %(object_name)s '%(escaped_object)s' would require deleting the "
+"following protected related objects:"
+msgstr ""
+
+#: app/templates/app/admin/delete_confirmation.html:37
+#, python-format
+msgid ""
+"Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? "
+"All of the following related items will be deleted:"
+msgstr ""
+
+#: app/templates/app/admin/delete_confirmation.html:39
+#: app/templates/app/admin/delete_selected_confirmation.html:38
+msgid "Objects"
+msgstr ""
+
+#: app/templates/app/admin/delete_confirmation.html:46
+#: app/templates/app/admin/delete_selected_confirmation.html:49
+msgid "Yes, I'm sure"
+msgstr ""
+
+#: app/templates/app/admin/delete_confirmation.html:47
+#: app/templates/app/admin/delete_selected_confirmation.html:50
+msgid "No, take me back"
+msgstr ""
+
+#: app/templates/app/admin/delete_selected_confirmation.html:16
+msgid "Delete multiple objects"
+msgstr ""
+
+#: app/templates/app/admin/delete_selected_confirmation.html:22
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would result in deleting related "
+"objects, but your account doesn't have permission to delete the following "
+"types of objects:"
+msgstr ""
+
+#: app/templates/app/admin/delete_selected_confirmation.html:29
+#, python-format
+msgid ""
+"Deleting the selected %(objects_name)s would require deleting the following "
+"protected related objects:"
+msgstr ""
+
+#: app/templates/app/admin/delete_selected_confirmation.html:36
+#, python-format
+msgid ""
+"Are you sure you want to delete the selected %(objects_name)s? All of the "
+"following objects and their related items will be deleted:"
+msgstr ""
+
+#: app/templates/app/admin/edit_inline/stacked.html:12
+#: app/templates/app/admin/edit_inline/tabular.html:34
+#: app/templates/app/admin/index.html:37
+#: app/templates/app/admin/related_widget_wrapper.html:9
+#: venv/lib/python3.10/site-packages/django/forms/widgets.py:397
+msgid "Change"
+msgstr ""
+
+#: app/templates/app/admin/edit_inline/tabular.html:20
+msgid "Delete?"
+msgstr ""
+
+#: app/templates/app/admin/filter.html:2
+#, python-format
+msgid " By %(filter_title)s "
+msgstr ""
+
+#: app/templates/app/admin/includes/object_delete_summary.html:2
+msgid "Summary"
+msgstr ""
+
+#: app/templates/app/admin/index.html:20
+#, python-format
+msgid "Models in the %(name)s application"
+msgstr ""
+
+#: app/templates/app/admin/index.html:31
+#: app/templates/app/admin/related_widget_wrapper.html:16
+msgid "Add"
+msgstr ""
+
+#: app/templates/app/admin/index.html:47
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: app/templates/app/admin/index.html:55
+msgid "Recent actions"
+msgstr ""
+
+#: app/templates/app/admin/index.html:56
+msgid "My actions"
+msgstr ""
+
+#: app/templates/app/admin/index.html:60
+msgid "None available"
+msgstr ""
+
+#: app/templates/app/admin/index.html:74
+msgid "Unknown content"
+msgstr ""
+
+#: app/templates/app/admin/invalid_setup.html:12
+msgid ""
+"Something's wrong with your database installation. Make sure the appropriate "
+"database tables have been created, and make sure the database is readable by "
+"the appropriate user."
+msgstr ""
+
+#: app/templates/app/admin/login.html:37
+#, python-format
+msgid ""
+"You are authenticated as %(username)s, but are not authorized to access this "
+"page. Would you like to login to a different account?"
+msgstr ""
+
+#: app/templates/app/admin/login.html:57
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: app/templates/app/admin/login.html:61
+#: app/templates/app/registration/login.html:25
+msgid "Log in"
+msgstr ""
+
+#: app/templates/app/admin/object_history.html:22
+msgid "Date/time"
+msgstr ""
+
+#: app/templates/app/admin/object_history.html:24
+msgid "Action"
+msgstr ""
+
+#: app/templates/app/admin/object_history.html:38
+msgid ""
+"This object doesn't have a change history. It probably wasn't added via this "
+"admin site."
+msgstr ""
+
+#: app/templates/app/admin/pagination.html:10
+#: app/templates/app/admin/search_form.html:9
+msgid "Show all"
+msgstr ""
+
+#: app/templates/app/admin/pagination.html:11
+#: app/templates/app/admin/submit_line.html:3
+msgid "Save"
+msgstr ""
+
+#: app/templates/app/admin/popup_response.html:3
+msgid "Popup closing..."
+msgstr ""
+
+#: app/templates/app/admin/related_widget_wrapper.html:8
+#, python-format
+msgid "Change selected %(model)s"
+msgstr ""
+
+#: app/templates/app/admin/related_widget_wrapper.html:15
+#, python-format
+msgid "Add another %(model)s"
+msgstr ""
+
+#: app/templates/app/admin/related_widget_wrapper.html:22
+#, python-format
+msgid "Delete selected %(model)s"
+msgstr ""
+
+#: app/templates/app/admin/search_form.html:7
+msgid "Search"
+msgstr ""
+
+#: app/templates/app/admin/search_form.html:9
+#, python-format
+msgid "%(counter)s result"
+msgid_plural "%(counter)s results"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/templates/app/admin/search_form.html:9
+#, python-format
+msgid "%(full_result_count)s total"
+msgstr ""
+
+#: app/templates/app/admin/submit_line.html:8
+msgid "Save as new"
+msgstr ""
+
+#: app/templates/app/admin/submit_line.html:9
+msgid "Save and add another"
+msgstr ""
+
+#: app/templates/app/admin/submit_line.html:10
+msgid "Save and continue editing"
+msgstr ""
+
+#: app/templates/app/dashboard.html:18 app/templates/app/dashboard.html:31
+#: app/templates/app/welcome.html:227
+msgid "Welcome!"
+msgstr ""
+
+#: app/templates/app/dashboard.html:19
+msgid "Add a Processing Node"
+msgstr ""
+
+#: app/templates/app/dashboard.html:22
+#, python-format
+msgid ""
+"To get started, \"%(add_processing_node)s\". A processing node is a computer "
+"running an instance of %(nodeodm_link)s or some other software implementing "
+"this %(api_link)s."
+msgstr ""
+
+#: app/templates/app/dashboard.html:32
+msgid "Select Images and GCP"
+msgstr ""
+
+#: app/templates/app/dashboard.html:34
+#, python-format
+msgid ""
+"To create a map, press the \"%(upload_images)s\" button, or drag and drop "
+"some images into a project."
+msgstr ""
+
+#: app/templates/app/dashboard.html:38
+msgid "You need at least 5 images, but 16-32 is typically the minimum."
+msgstr ""
+
+#: app/templates/app/dashboard.html:39
+#, python-format
+msgid "Images must overlap by 65%% or more. Aim for 70-72%%"
+msgstr ""
+
+#: app/templates/app/dashboard.html:40
+#, python-format
+msgid "For great 3D, images must overlap by 83%%"
+msgstr ""
+
+#: app/templates/app/dashboard.html:41
+#, python-format
+msgid ""
+"A %(link_start)sGCP File%(link_end)s is optional, but can increase "
+"georeferencing accuracy"
+msgstr ""
+
+#: app/templates/app/dev_tools.html:6 app/templates/app/logged_in_base.html:127
+#: app/templates/app/psm/psm.html:42 app/templates/app/tpfm/tpfm.html:30
+#: app/views/dev.py:78
+msgid "Developer Tools"
+msgstr "Fejlesztő eszközök"
+
+#: app/templates/app/dev_tools.html:9
+msgid "Close"
+msgstr ""
+
+#: app/templates/app/dev_tools.html:14
+msgid "Current Locale:"
+msgstr ""
+
+#: app/templates/app/dev_tools.html:15
+msgid ""
+"To change locale, modify your browser's locale settings, then refresh the "
+"page, or use the set locale button below."
+msgstr ""
+
+#: app/templates/app/dev_tools.html:18
+msgid "Translation Files (.zip):"
+msgstr ""
+
+#: app/templates/app/dev_tools.html:22
+msgid "Download and Replace Translation Files"
+msgstr ""
+
+#: app/templates/app/dev_tools.html:27
+msgid "Set locale:"
+msgstr ""
+
+#: app/templates/app/dev_tools.html:29
+msgid "Apply"
+msgstr ""
+
+#: app/templates/app/dev_tools.html:33
+msgid "Executing… do not refresh the page! This could take a while."
+msgstr ""
+
+#: app/templates/app/logged_in_base.html:16
+#, python-format
+msgid "Hello, %(user)s!"
+msgstr ""
+
+#: app/templates/app/logged_in_base.html:30
+#, python-format
+msgid "%(used)s of %(total)s used"
+msgstr ""
+
+#: app/templates/app/logged_in_base.html:43
+msgid "Logout"
+msgstr ""
+
+#: app/templates/app/logged_in_base.html:83 app/templates/app/psm/psm.html:11
+#: app/templates/app/tpfm/tpfm.html:8 app/views/app.py:51
+msgid "Dashboard"
+msgstr "Irányítópult"
+
+#: app/templates/app/logged_in_base.html:86
+msgid "Turbine Planner & Fluid Modelling"
+msgstr "Turbina és Folyadékmodellezés"
+
+#: app/templates/app/logged_in_base.html:91
+msgid "Planning Scenario Modelling"
+msgstr "Szcenárió Tervezés, Modellezés"
+
+#: app/templates/app/logged_in_base.html:96
+msgid "Administration"
+msgstr ""
+
+#: app/templates/app/logged_in_base.html:101
+msgid "Accounts"
+msgstr "Felhasználók"
+
+#: app/templates/app/logged_in_base.html:104
+msgid "Groups"
+msgstr "Csoportok"
+
+#: app/templates/app/logged_in_base.html:109
+msgid "Brand"
+msgstr "Beállítások"
+
+#: app/templates/app/logged_in_base.html:131 app/templates/app/psm/psm.html:46
+#: app/views/app.py:298
+msgid "About"
+msgstr "Névjegy"
+
+#: app/templates/app/processing_node.html:11 nodeodm/models.py:23
+msgid "Hostname"
+msgstr ""
+
+#: app/templates/app/processing_node.html:15 nodeodm/models.py:24
+msgid "Port"
+msgstr ""
+
+#: app/templates/app/processing_node.html:19 nodeodm/models.py:25
+msgid "API Version"
+msgstr ""
+
+#: app/templates/app/processing_node.html:23 nodeodm/models.py:33
+msgid "Engine"
+msgstr ""
+
+#: app/templates/app/processing_node.html:27 nodeodm/models.py:31
+msgid "Engine Version"
+msgstr ""
+
+#: app/templates/app/processing_node.html:31 nodeodm/models.py:27
+msgid "Queue Count"
+msgstr ""
+
+#: app/templates/app/processing_node.html:35
+msgid "Max Images Limit"
+msgstr ""
+
+#: app/templates/app/processing_node.html:39 nodeodm/models.py:32
+msgid "Label"
+msgstr ""
+
+#: app/templates/app/processing_node.html:43 nodeodm/models.py:26
+msgid "Last Refreshed"
+msgstr ""
+
+#: app/templates/app/processing_node.html:44
+msgctxt "5 minutes ago"
+msgid "ago"
+msgstr ""
+
+#: app/templates/app/processing_node.html:47
+msgid "Options (JSON)"
+msgstr ""
+
+#: app/templates/app/processing_node.html:53
+msgid "Edit"
+msgstr ""
+
+#: app/templates/app/psm/add_project.html:11
+msgid "Project name"
+msgstr "Projekt neve"
+
+#: app/templates/app/psm/add_project.html:27
+#: app/templates/app/psm/data_collection.html:31
+msgid "Deadline"
+msgstr "Határidő"
+
+#: app/templates/app/psm/add_project.html:31
+msgid "Team"
+msgstr "Csapat"
+
+#: app/templates/app/psm/data_collection.html:5
+msgid "Hydrological surveys"
+msgstr "Hidrológiai felmérések"
+
+#: app/templates/app/psm/data_collection.html:33
+msgid "Location"
+msgstr "Hely"
+
+#: app/templates/app/psm/data_collection.html:34
+msgid "Water Surface"
+msgstr "Vízfelület"
+
+#: app/templates/app/psm/data_collection.html:35
+msgid "Flow Direction"
+msgstr "Áramlás iránya"
+
+#: app/templates/app/psm/data_collection.html:36
+msgid "Measured Flow Speed"
+msgstr "Áramlás mért sebessége"
+
+#: app/templates/app/psm/data_collection.html:37
+msgid "Segment Width"
+msgstr "Szelvény szélessége"
+
+#: app/templates/app/psm/data_collection.html:38
+msgid "Segment Depth"
+msgstr "Szelvény mélysége"
+
+#: app/templates/app/psm/data_collection.html:39
+msgid "Estimated Water Flow"
+msgstr "Becsült vízhozam"
+
+#: app/templates/app/psm/data_collection.html:40
+msgid "Estimated Energy Production"
+msgstr "Becsült energia termelés"
+
+#: app/templates/app/psm/data_collection_form.html:5
+msgid "Hydrological Survey"
+msgstr "Hidrológiai felmérés"
+
+#: app/templates/app/psm/project_planning.html:54
+#: app/templates/app/psm/psm.html:18
+msgid "Reports"
+msgstr "Jelentések"
+
+#: app/templates/app/psm/psm.html:14 app/views/app.py:149 app/views/app.py:151
+#: app/views/app.py:181 app/views/app.py:183 app/views/app.py:184
+#: app/views/app.py:197 app/views/app.py:213 app/views/app.py:233
+msgid "Project Planning"
+msgstr "Projekttervezés"
+
+#: app/templates/app/psm/psm.html:17
+msgid "Create New Project"
+msgstr "Új projekt létrehozása"
+
+#: app/templates/app/psm/psm.html:19
+msgid "Open Current Project"
+msgstr "Jelenlegi projekt megnyitása"
+
+#: app/templates/app/psm/psm.html:20
+msgid "Export Project Data"
+msgstr "Projekt adatok exportálása"
+
+#: app/templates/app/psm/psm.html:24
+msgid "Data collection"
+msgstr "Adatgyűjtés"
+
+#: app/templates/app/psm/psm.html:27
+msgid "Compliance and Reporting"
+msgstr "Megfelelés és jelentés"
+
+#: app/templates/app/psm/psm.html:30
+msgid "Tools"
+msgstr "Eszközök"
+
+#: app/templates/app/psm/psm.html:36 app/templates/app/tpfm/tpfm.html:24
+msgid "Go Back to Main Project"
+msgstr "Vissza a fő projekthez"
+
+#: app/templates/app/quota.html:9
+#, python-format
+msgid ""
+"The disk quota is being exceeded (%(used)s of %(total)s used). The most "
+"recent tasks will be automatically deleted %(when)s, until usage falls below "
+"%(total)s."
+msgstr ""
+
+#: app/templates/app/quota.html:14
+#, python-format
+msgid ""
+"Your account does not have a storage quota. Any new task will be "
+"automatically deleted %(when)s"
+msgstr ""
+
+#: app/templates/app/registration/logged_out.html:5
+msgid "You have been logged out."
+msgstr ""
+
+#: app/templates/app/registration/logged_out.html:6
+msgid "Log In"
+msgstr "Bejelentkezés"
+
+#: app/templates/app/registration/login.html:8
+msgid "Invalid credentials."
+msgstr ""
+
+#: app/templates/app/registration/login.html:8
+msgid "Note that both fields are case-sensitive."
+msgstr ""
+
+#: app/templates/app/registration/login.html:29
+#: app/templates/app/registration/login.html:31
+msgid "Forgot your password?"
+msgstr "Elfelejtett jelszó"
+
+#: app/templates/app/registration/password_change_done.html:5
+msgid "Password Changed Successfully"
+msgstr ""
+
+#: app/templates/app/registration/password_change_done.html:6
+msgid "Back"
+msgstr ""
+
+#: app/templates/app/registration/password_change_form.html:14
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+
+#: app/templates/app/registration/password_change_form.html:22
+msgid "Change my password"
+msgstr ""
+
+#: app/templates/app/registration/password_change_form.html:23
+msgid "Cancel"
+msgstr ""
+
+#: app/templates/app/registration/password_reset_complete.html:5
+msgid "Password Reset Complete"
+msgstr ""
+
+#: app/templates/app/registration/password_reset_complete.html:6
+msgid "Your password has been set.  You can log in now."
+msgstr ""
+
+#: app/templates/app/registration/password_reset_confirm.html:15
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: app/templates/app/registration/password_reset_confirm.html:22
+msgid "Change My Password"
+msgstr ""
+
+#: app/templates/app/registration/password_reset_confirm.html:26
+msgid "Password Reset Failed"
+msgstr ""
+
+#: app/templates/app/registration/password_reset_confirm.html:28
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+msgstr ""
+
+#: app/templates/app/registration/password_reset_done.html:5
+msgid "Password Reset Successful"
+msgstr ""
+
+#: app/templates/app/registration/password_reset_done.html:6
+msgid ""
+"We have sent an e-mail with instructions for resetting your password. You "
+"should be receiving it shortly."
+msgstr ""
+
+#: app/templates/app/registration/password_reset_form.html:16
+msgid "loading"
+msgstr ""
+
+#: app/templates/app/registration/password_reset_form.html:16
+msgid "Reset My Password"
+msgstr ""
+
+#: app/templates/app/tpfm/tpfm.html:11
+msgid "Flow simulation"
+msgstr "Áramlásszimuláció"
+
+#: app/templates/app/tpfm/tpfm.html:14
+msgid "Pressure analysis"
+msgstr "Nyomásanalízis"
+
+#: app/templates/app/tpfm/tpfm.html:18
+msgid "Turbine efficiency modelling"
+msgstr "Turbina hatékonyság modell"
+
+#: app/templates/app/tpfm/tpfm.html:21
+msgid "3D modelling"
+msgstr "3D modellezés"
+
+#: app/templates/app/tpfm/tpfm_dashboard.html:7
+msgid "Upload Water / Surface Model"
+msgstr "Töltsön fel víz / felszín modellt"
+
+#: app/templates/app/tpfm/tpfm_dashboard.html:8
+msgid "Select Turbine"
+msgstr "Válasszon turbinát"
+
+#: app/templates/app/tpfm/tpfm_dashboard.html:13
+msgid "Upload fluid model"
+msgstr "Áramlási modell feltöltése"
+
+#: app/templates/app/tpfm/tpfm_dashboard.html:16
+msgid "File uploaded successfully!"
+msgstr "Fájlfeltöltés sikeres!"
+
+#: app/templates/app/welcome.html:224
+msgid "Uh oh! Could you please check the errors below?"
+msgstr ""
+
+#: app/templates/app/welcome.html:228
+msgid ""
+"Before we get started, we need to create an administrator account for you:"
+msgstr ""
+
+#: app/templates/app/welcome.html:237
+msgid "Create Account"
+msgstr ""
+
+#: app/templatetags/settings.py:57
+#, python-format
+msgid "in %(num)s days"
+msgstr ""
+
+#: app/templatetags/settings.py:59
+#, python-format
+msgid "in %(num)s hours"
+msgstr ""
+
+#: app/templatetags/settings.py:61
+#, python-format
+msgid "in %(num)s minutes"
+msgstr ""
+
+#: app/templatetags/settings.py:63
+msgid "very soon"
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:4
+msgid "Import images from external sources directly"
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:5
+msgid "Compute, preview and export contours from DEMs"
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:6
+msgid "Display program version, memory and disk space usage statistics"
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:7
+msgid "Integrate WebODM with DroneDB: import images and share results"
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:8
+msgid "Create editable short links when sharing task URLs"
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:9
+msgid "Add a fullscreen button to the 2D map view"
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:10
+msgid "Sync accounts from webodm.net"
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:11
+msgid "Compute volume, area and length measurements on Leaflet"
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:12
+msgid "A plugin to upload orthophotos to OpenAerialMap"
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:13
+msgid ""
+"A plugin to add a button for quickly opening OpenStreetMap's iD editor and "
+"setup a TMS basemap."
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:14
+#: app/translations/plugin_manifest_autogenerated.py:18
+msgid "A plugin to create GCP files from images"
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:15
+msgid "A plugin to show charts of projects and tasks"
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:16
+msgid "Create short links when sharing task URLs"
+msgstr ""
+
+#: app/translations/plugin_manifest_autogenerated.py:17
+msgid ""
+"Get notified when a task has finished processing, has been removed or has "
+"failed"
+msgstr ""
+
+#: app/views/app.py:49
+msgid "First Project"
+msgstr ""
+
+#: app/views/app.py:75
+msgid "Turbine planner & Fluid modelling"
+msgstr ""
+
+#: app/views/app.py:127
+msgid "Flow Simulation"
+msgstr ""
+
+#: app/views/app.py:131
+msgid "Pressure Analysis"
+msgstr ""
+
+#: app/views/app.py:135
+msgid "Turbine Efficiency Modelling"
+msgstr ""
+
+#: app/views/app.py:139
+msgid "ThreeD Modelling"
+msgstr ""
+
+#: app/views/app.py:143
+#, fuzzy
+#| msgid "Planning Scenario Modelling"
+msgid "Planning scenario modelling"
+msgstr "Szcenárió Tervezés, Modellezés"
+
+#: app/views/app.py:237
+#, fuzzy
+#| msgid "Projects"
+msgid "Project statistics"
+msgstr "Projektek"
+
+#: app/views/app.py:241
+msgid "Data Collection"
+msgstr ""
+
+#: app/views/app.py:248 app/views/public.py:27
+msgid "Map"
+msgstr ""
+
+#: app/views/app.py:275
+msgid "3D Model Display"
+msgstr ""
+
+#: app/views/app.py:304
+#, python-format
+msgid "%(node)s seems to be offline."
+msgstr ""
+
+#: app/views/app.py:342
+msgid "Welcome"
+msgstr ""
+
+#: app/views/dev.py:59
+msgid "Cannot find locale/ folder in .zip archive"
+msgstr ""
+
+#: app/views/dev.py:71
+msgid "Translation files reloaded!"
+msgstr ""
+
+#: app/views/dev.py:75
+msgid "Invalid action"
+msgstr ""
+
+#: coreplugins/contours/api.py:86
+msgid "No DSM layer is available."
+msgstr ""
+
+#: coreplugins/contours/api.py:88
+msgid "No DTM layer is available."
+msgstr ""
+
+#: coreplugins/contours/api.py:118
+msgid "Could not generate contour file. This might be a bug."
+msgstr ""
+
+#: coreplugins/diagnostic/plugin.py:36
+msgid "Diagnostic"
+msgstr "Diagnosztika"
+
+#: coreplugins/diagnostic/templates/diagnostic.html:6
+msgid "Diagnostic Information"
+msgstr ""
+
+#: coreplugins/diagnostic/templates/diagnostic.html:10
+msgid "Storage Space"
+msgstr ""
+
+#: coreplugins/diagnostic/templates/diagnostic.html:14
+#: coreplugins/diagnostic/templates/diagnostic.html:40
+#: coreplugins/diagnostic/templates/diagnostic.html:45
+msgctxt "Megabytes of storage space"
+msgid "Free"
+msgstr ""
+
+#: coreplugins/diagnostic/templates/diagnostic.html:15
+#: coreplugins/diagnostic/templates/diagnostic.html:39
+#: coreplugins/diagnostic/templates/diagnostic.html:45
+msgctxt "Megabytes of storage space"
+msgid "Used"
+msgstr ""
+
+#: coreplugins/diagnostic/templates/diagnostic.html:16
+msgctxt "Megabytes of storage space"
+msgid "Total"
+msgstr ""
+
+#: coreplugins/diagnostic/templates/diagnostic.html:20
+msgctxt "Computer memory (RAM)"
+msgid "Memory"
+msgstr ""
+
+#: coreplugins/diagnostic/templates/diagnostic.html:24
+#: coreplugins/diagnostic/templates/diagnostic.html:75
+#: coreplugins/diagnostic/templates/diagnostic.html:80
+msgctxt "Megabytes of memory space"
+msgid "Free"
+msgstr ""
+
+#: coreplugins/diagnostic/templates/diagnostic.html:25
+#: coreplugins/diagnostic/templates/diagnostic.html:74
+#: coreplugins/diagnostic/templates/diagnostic.html:80
+msgctxt "Megabytes of memory space"
+msgid "Used"
+msgstr ""
+
+#: coreplugins/diagnostic/templates/diagnostic.html:26
+msgctxt "Megabytes of memory space"
+msgid "Total"
+msgstr ""
+
+#: coreplugins/diagnostic/templates/diagnostic.html:33
+msgid "Note!"
+msgstr ""
+
+#: coreplugins/diagnostic/templates/diagnostic.html:33
+#, python-format
+msgid ""
+"These values might be relative to the virtualization environment in which "
+"the application is running, not necessarily the values of the your machine. "
+"See instructions for %(win_hyperv_link)s, %(win_wsl2_link)s, and "
+"%(mac_link)s for changing these values in a Docker setup."
+msgstr ""
+
+#: coreplugins/diagnostic/templates/diagnostic.html:47
+#: coreplugins/diagnostic/templates/diagnostic.html:82
+msgid "Disk Space"
+msgstr ""
+
+#: coreplugins/editshortlinks/api.py:59
+msgid ""
+"Short URLs can only include letters, numbers, underscore and dash characters "
+"(A-Z, 0-9, _, -)."
+msgstr ""
+
+#: coreplugins/editshortlinks/api.py:63
+msgid "This short URL is already taken."
+msgstr ""
+
+#: coreplugins/lightning/plugin.py:25 coreplugins/lightning/plugin.py:39
+msgid "Lightning Network"
+msgstr ""
+
+#: coreplugins/measure/api.py:21
+msgid ""
+"No surface model available. From the Dashboard, select this task, press "
+"Edit, from the options make sure to check \"dsm\", then press Restart --> "
+"From DEM."
+msgstr ""
+
+#: coreplugins/posm-gcpi/plugin.py:9
+msgid "GCP Interface"
+msgstr "GCP felület"
+
+#: coreplugins/projects-charts/plugin.py:55
+msgid "Charts"
+msgstr ""
+
+#: coreplugins/projects-charts/templates/index.html:11
+msgid "Year"
+msgstr ""
+
+#: coreplugins/projects-charts/templates/index.html:23
+msgid "Next"
+msgstr ""
+
+#: coreplugins/projects-charts/templates/index.html:69
+msgid "Projects by month"
+msgstr ""
+
+#: coreplugins/projects-charts/templates/index.html:111
+msgid "Tasks by month"
+msgstr ""
+
+#: coreplugins/tasknotification/plugin.py:84
+msgid "Task Notification"
+msgstr ""
+
+#: coreplugins/tasknotification/templates/index.html:5
+msgid "Tasks Notification"
+msgstr ""
+
+#: nodeodm/apps.py:8
+msgid "Node Management"
+msgstr ""
+
+#: nodeodm/models.py:23
+msgid ""
+"Hostname or IP address where the node is located (can be an internal "
+"hostname as well). If you are using Docker, this is never 127.0.0.1 or "
+"localhost. Find the IP address of your host machine by running ifconfig on "
+"Linux or by checking your network settings."
+msgstr ""
+
+#: nodeodm/models.py:24
+msgid "Port that connects to the node's API"
+msgstr ""
+
+#: nodeodm/models.py:25
+msgid "API version used by the node"
+msgstr ""
+
+#: nodeodm/models.py:26
+msgid "When was the information about this node last retrieved?"
+msgstr ""
+
+#: nodeodm/models.py:27
+msgid ""
+"Number of tasks currently being processed by this node (as reported by the "
+"node itself)"
+msgstr ""
+
+#: nodeodm/models.py:28
+msgid "Available Options"
+msgstr ""
+
+#: nodeodm/models.py:28
+msgid "Description of the options that can be used for processing"
+msgstr ""
+
+#: nodeodm/models.py:29
+msgid "Token"
+msgstr ""
+
+#: nodeodm/models.py:29
+msgid ""
+"Token to use for authentication. If the node doesn't have authentication, "
+"you can leave this field blank."
+msgstr ""
+
+#: nodeodm/models.py:30
+msgid "Max Images"
+msgstr ""
+
+#: nodeodm/models.py:30
+msgid "Maximum number of images accepted by this node."
+msgstr ""
+
+#: nodeodm/models.py:31
+msgid "Engine version used by the node."
+msgstr ""
+
+#: nodeodm/models.py:32
+msgid ""
+"Optional label for this node. When set, this label will be shown instead of "
+"the hostname:port name."
+msgstr ""
+
+#: nodeodm/models.py:33
+msgid "Engine used by the node."
+msgstr ""
+
+#: nodeodm/models.py:37
+msgid "Processing Nodes"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/_termui_impl.py:518
+#, python-brace-format
+msgid "{editor}: Editing failed"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/_termui_impl.py:522
+#, python-brace-format
+msgid "{editor}: Editing failed: {e}"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:1120
+msgid "Aborted!"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:1309
+#: venv/lib/python3.10/site-packages/click/decorators.py:559
+msgid "Show this message and exit."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:1340
+#: venv/lib/python3.10/site-packages/click/core.py:1370
+#, python-brace-format
+msgid "(Deprecated) {text}"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:1413
+#, python-brace-format
+msgid "Got unexpected extra argument ({args})"
+msgid_plural "Got unexpected extra arguments ({args})"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:1429
+msgid "DeprecationWarning: The command {name!r} is deprecated."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:1636
+msgid "Commands"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:1668
+msgid "Missing command."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:1746
+msgid "No such command {name!r}."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:2310
+msgid "Value must be an iterable."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:2331
+#, python-brace-format
+msgid "Takes {nargs} values but 1 was given."
+msgid_plural "Takes {nargs} values but {len} were given."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:2778
+#, python-brace-format
+msgid "env var: {var}"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:2808
+msgid "(dynamic)"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:2821
+#, python-brace-format
+msgid "default: {default}"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/core.py:2834
+msgid "required"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/decorators.py:465
+#, python-format
+msgid "%(prog)s, version %(version)s"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/decorators.py:528
+msgid "Show the version and exit."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/exceptions.py:44
+#: venv/lib/python3.10/site-packages/click/exceptions.py:80
+#, python-brace-format
+msgid "Error: {message}"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/exceptions.py:72
+#, python-brace-format
+msgid "Try '{command} {option}' for help."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/exceptions.py:121
+#, python-brace-format
+msgid "Invalid value: {message}"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/exceptions.py:123
+#, python-brace-format
+msgid "Invalid value for {param_hint}: {message}"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/exceptions.py:179
+msgid "Missing argument"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/exceptions.py:181
+msgid "Missing option"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/exceptions.py:183
+msgid "Missing parameter"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/exceptions.py:185
+#, python-brace-format
+msgid "Missing {param_type}"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/exceptions.py:192
+#, python-brace-format
+msgid "Missing parameter: {param_name}"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/exceptions.py:212
+#, python-brace-format
+msgid "No such option: {name}"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/exceptions.py:224
+#, python-brace-format
+msgid "Did you mean {possibility}?"
+msgid_plural "(Possible options: {possibilities})"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/click/exceptions.py:262
+msgid "unknown error"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/exceptions.py:269
+msgid "Could not open file {filename!r}: {message}"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/parser.py:231
+msgid "Argument {name!r} takes {nargs} values."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/parser.py:413
+msgid "Option {name!r} does not take a value."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/parser.py:474
+msgid "Option {name!r} requires an argument."
+msgid_plural "Option {name!r} requires {nargs} arguments."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/click/shell_completion.py:319
+msgid "Shell completion is not supported for Bash versions older than 4.4."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/shell_completion.py:326
+msgid "Couldn't detect Bash version, shell completion is not supported."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/termui.py:158
+msgid "Repeat for confirmation"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/termui.py:174
+msgid "Error: The value you entered was invalid."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/termui.py:176
+#, python-brace-format
+msgid "Error: {e.message}"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/termui.py:187
+msgid "Error: The two entered values do not match."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/termui.py:243
+msgid "Error: invalid input"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/termui.py:773
+msgid "Press any key to continue..."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:266
+#, python-brace-format
+msgid ""
+"Choose from:\n"
+"\t{choices}"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:298
+msgid "{value!r} is not {choice}."
+msgid_plural "{value!r} is not one of {choices}."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:392
+msgid "{value!r} does not match the format {format}."
+msgid_plural "{value!r} does not match the formats {formats}."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:414
+msgid "{value!r} is not a valid {number_type}."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:470
+#, python-brace-format
+msgid "{value} is not in the range {range}."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:611
+msgid "{value!r} is not a valid boolean."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:635
+msgid "{value!r} is not a valid UUID."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:822
+msgid "file"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:824
+msgid "directory"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:826
+msgid "path"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:877
+msgid "{name} {filename!r} does not exist."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:886
+msgid "{name} {filename!r} is a file."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:894
+#, python-brace-format
+msgid "{name} '{filename}' is a directory."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:903
+msgid "{name} {filename!r} is not readable."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:912
+msgid "{name} {filename!r} is not writable."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:921
+msgid "{name} {filename!r} is not executable."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/click/types.py:988
+#, python-brace-format
+msgid "{len_type} values are required, but {len_value} was given."
+msgid_plural "{len_type} values are required, but {len_value} were given."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/crispy_forms/tests/test_form_helper.py:130
+#: venv/lib/python3.10/site-packages/crispy_forms/tests/test_form_helper.py:140
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:53
+msgid "This field is required."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/crispy_forms/tests/test_layout.py:392
+msgid "i18n text"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/crispy_forms/tests/test_layout.py:394
+msgid "i18n legend"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/crispy_forms/tests/test_layout_objects.py:143
+#: venv/lib/python3.10/site-packages/django/core/validators.py:31
+msgid "Enter a valid value."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/contrib/messages/apps.py:7
+msgid "Messages"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/contrib/sitemaps/apps.py:7
+msgid "Site Maps"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/contrib/staticfiles/apps.py:9
+msgid "Static Files"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/contrib/syndication/apps.py:7
+msgid "Syndication"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/paginator.py:45
+msgid "That page number is not an integer"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/paginator.py:47
+msgid "That page number is less than 1"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/paginator.py:52
+msgid "That page contains no results"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:102
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:658
+msgid "Enter a valid URL."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:157
+msgid "Enter a valid integer."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:168
+msgid "Enter a valid email address."
+msgstr ""
+
+#. Translators: "letters" means latin letters: a-z and A-Z.
+#: venv/lib/python3.10/site-packages/django/core/validators.py:242
+msgid ""
+"Enter a valid 'slug' consisting of letters, numbers, underscores or hyphens."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:249
+msgid ""
+"Enter a valid 'slug' consisting of Unicode letters, numbers, underscores, or "
+"hyphens."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:258
+#: venv/lib/python3.10/site-packages/django/core/validators.py:268
+#: venv/lib/python3.10/site-packages/django/core/validators.py:290
+msgid "Enter a valid IPv4 address."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:275
+#: venv/lib/python3.10/site-packages/django/core/validators.py:291
+msgid "Enter a valid IPv6 address."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:285
+#: venv/lib/python3.10/site-packages/django/core/validators.py:289
+msgid "Enter a valid IPv4 or IPv6 address."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:319
+msgid "Enter only digits separated by commas."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:325
+#, python-format
+msgid "Ensure this value is %(limit_value)s (it is %(show_value)s)."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:357
+#, python-format
+msgid "Ensure this value is less than or equal to %(limit_value)s."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:366
+#, python-format
+msgid "Ensure this value is greater than or equal to %(limit_value)s."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:376
+#, python-format
+msgid ""
+"Ensure this value has at least %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at least %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:391
+#, python-format
+msgid ""
+"Ensure this value has at most %(limit_value)d character (it has "
+"%(show_value)d)."
+msgid_plural ""
+"Ensure this value has at most %(limit_value)d characters (it has "
+"%(show_value)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:410
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:290
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:325
+msgid "Enter a number."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:412
+#, python-format
+msgid "Ensure that there are no more than %(max)s digit in total."
+msgid_plural "Ensure that there are no more than %(max)s digits in total."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:417
+#, python-format
+msgid "Ensure that there are no more than %(max)s decimal place."
+msgid_plural "Ensure that there are no more than %(max)s decimal places."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:422
+#, python-format
+msgid ""
+"Ensure that there are no more than %(max)s digit before the decimal point."
+msgid_plural ""
+"Ensure that there are no more than %(max)s digits before the decimal point."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:484
+#, python-format
+msgid ""
+"File extension '%(extension)s' is not allowed. Allowed extensions are: "
+"'%(allowed_extensions)s'."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/core/validators.py:536
+msgid "Null characters are not allowed."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/base.py:1165
+#: venv/lib/python3.10/site-packages/django/forms/models.py:756
+msgid "and"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/base.py:1167
+#, python-format
+msgid "%(model_name)s with this %(field_labels)s already exists."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:104
+#, python-format
+msgid "Value %(value)r is not a valid choice."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:105
+msgid "This field cannot be null."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:106
+msgid "This field cannot be blank."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:107
+#, python-format
+msgid "%(model_name)s with this %(field_label)s already exists."
+msgstr ""
+
+#. Translators: The 'lookup_type' is one of 'date', 'year' or 'month'.
+#. Eg: "Title must be unique for pub_date year"
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:111
+#, python-format
+msgid ""
+"%(field_label)s must be unique for %(date_field_label)s %(lookup_type)s."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:128
+#, python-format
+msgid "Field of type: %(field_type)s"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:905
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1772
+msgid "Integer"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:909
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1770
+#, python-format
+msgid "'%(value)s' value must be an integer."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:984
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1850
+msgid "Big (8 byte) integer"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:996
+#, python-format
+msgid "'%(value)s' value must be either True or False."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:997
+#, python-format
+msgid "'%(value)s' value must be either True, False, or None."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:999
+msgid "Boolean (Either True or False)"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1040
+#, python-format
+msgid "String (up to %(max_length)s)"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1104
+msgid "Comma-separated integers"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1153
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid date format. It must be in YYYY-MM-DD "
+"format."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1155
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1298
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (YYYY-MM-DD) but it is an invalid "
+"date."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1158
+msgid "Date (without time)"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1296
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
+"uuuuuu]][TZ] format."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1300
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
+"[TZ]) but it is an invalid date/time."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1304
+msgid "Date (with time)"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1452
+#, python-format
+msgid "'%(value)s' value must be a decimal number."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1454
+msgid "Decimal number"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1593
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in [DD] [HH:[MM:]]ss[."
+"uuuuuu] format."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1596
+msgid "Duration"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1646
+msgid "Email address"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1669
+msgid "File path"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1735
+#, python-format
+msgid "'%(value)s' value must be a float."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1737
+msgid "Floating point number"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1866
+msgid "IPv4 address"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1897
+msgid "IP address"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1977
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1978
+#, python-format
+msgid "'%(value)s' value must be either None, True or False."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:1980
+msgid "Boolean (Either True, False or None)"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2015
+msgid "Positive integer"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2028
+msgid "Positive small integer"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2042
+#, python-format
+msgid "Slug (up to %(max_length)s)"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2074
+msgid "Small integer"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2081
+msgid "Text"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2109
+#, python-format
+msgid ""
+"'%(value)s' value has an invalid format. It must be in HH:MM[:ss[.uuuuuu]] "
+"format."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2111
+#, python-format
+msgid ""
+"'%(value)s' value has the correct format (HH:MM[:ss[.uuuuuu]]) but it is an "
+"invalid time."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2114
+msgid "Time"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2240
+msgid "URL"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2262
+msgid "Raw binary data"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2312
+#, python-format
+msgid "'%(value)s' is not a valid UUID."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/__init__.py:2314
+msgid "Universally unique identifier"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/files.py:222
+msgid "File"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/files.py:362
+msgid "Image"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/related.py:778
+#, python-format
+msgid "%(model)s instance with %(field)s %(value)r does not exist."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/related.py:780
+msgid "Foreign Key (type determined by related field)"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/related.py:1007
+msgid "One-to-one relationship"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/related.py:1057
+#, python-format
+msgid "%(from)s-%(to)s relationship"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/related.py:1058
+#, python-format
+msgid "%(from)s-%(to)s relationships"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/db/models/fields/related.py:1100
+msgid "Many-to-many relationship"
+msgstr ""
+
+#. Translators: If found as last label character, these punctuation
+#. characters will prevent the default label_suffix to be appended to the label
+#: venv/lib/python3.10/site-packages/django/forms/boundfield.py:146
+msgid ":?.!"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:245
+msgid "Enter a whole number."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:396
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:1126
+msgid "Enter a valid date."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:420
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:1127
+msgid "Enter a valid time."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:442
+msgid "Enter a valid date/time."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:471
+msgid "Enter a valid duration."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:472
+#, python-brace-format
+msgid "The number of days must be between {min_days} and {max_days}."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:532
+msgid "No file was submitted. Check the encoding type on the form."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:533
+msgid "No file was submitted."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:534
+msgid "The submitted file is empty."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:536
+#, python-format
+msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid_plural ""
+"Ensure this filename has at most %(max)d characters (it has %(length)d)."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:539
+msgid "Please either submit a file or check the clear checkbox, not both."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:600
+msgid ""
+"Upload a valid image. The file you uploaded was either not an image or a "
+"corrupted image."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:762
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:852
+#: venv/lib/python3.10/site-packages/django/forms/models.py:1270
+#, python-format
+msgid "Select a valid choice. %(value)s is not one of the available choices."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:853
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:968
+#: venv/lib/python3.10/site-packages/django/forms/models.py:1269
+msgid "Enter a list of values."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:969
+msgid "Enter a complete value."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/fields.py:1185
+msgid "Enter a valid UUID."
+msgstr ""
+
+#. Translators: This is the default suffix added to form field labels
+#: venv/lib/python3.10/site-packages/django/forms/forms.py:86
+msgid ":"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/forms.py:212
+#, python-format
+msgid "(Hidden field %(name)s) %(error)s"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/formsets.py:91
+msgid "ManagementForm data is missing or has been tampered with"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/formsets.py:338
+#, python-format
+msgid "Please submit %d or fewer forms."
+msgid_plural "Please submit %d or fewer forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/forms/formsets.py:345
+#, python-format
+msgid "Please submit %d or more forms."
+msgid_plural "Please submit %d or more forms."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/forms/formsets.py:371
+#: venv/lib/python3.10/site-packages/django/forms/formsets.py:373
+msgid "Order"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/models.py:751
+#, python-format
+msgid "Please correct the duplicate data for %(field)s."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/models.py:755
+#, python-format
+msgid "Please correct the duplicate data for %(field)s, which must be unique."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/models.py:761
+#, python-format
+msgid ""
+"Please correct the duplicate data for %(field_name)s which must be unique "
+"for the %(lookup)s in %(date_field)s."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/models.py:770
+msgid "Please correct the duplicate values below."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/models.py:1091
+msgid "The inline value did not match the parent instance."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/models.py:1158
+msgid "Select a valid choice. That choice is not one of the available choices."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/models.py:1272
+#, python-format
+msgid "\"%(pk)s\" is not a valid value."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/utils.py:162
+#, python-format
+msgid ""
+"%(datetime)s couldn't be interpreted in time zone %(current_timezone)s; it "
+"may be ambiguous or it may not exist."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/widgets.py:395
+msgid "Clear"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/widgets.py:396
+msgid "Currently"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/widgets.py:709
+msgid "Unknown"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/widgets.py:710
+msgid "Yes"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/forms/widgets.py:711
+msgid "No"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/template/defaultfilters.py:800
+msgid "yes,no,maybe"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/template/defaultfilters.py:829
+#: venv/lib/python3.10/site-packages/django/template/defaultfilters.py:846
+#, python-format
+msgid "%(size)d byte"
+msgid_plural "%(size)d bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/template/defaultfilters.py:848
+#, python-format
+msgid "%s KB"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/template/defaultfilters.py:850
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/template/defaultfilters.py:852
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/template/defaultfilters.py:854
+#, python-format
+msgid "%s TB"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/template/defaultfilters.py:856
+#, python-format
+msgid "%s PB"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dateformat.py:62
+msgid "p.m."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dateformat.py:63
+msgid "a.m."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dateformat.py:68
+msgid "PM"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dateformat.py:69
+msgid "AM"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dateformat.py:150
+msgid "midnight"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dateformat.py:152
+msgid "noon"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:6
+msgid "Monday"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:6
+msgid "Tuesday"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:6
+msgid "Wednesday"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:6
+msgid "Thursday"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:6
+msgid "Friday"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:7
+msgid "Saturday"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:7
+msgid "Sunday"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:10
+msgid "Mon"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:10
+msgid "Tue"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:10
+msgid "Wed"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:10
+msgid "Thu"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:10
+msgid "Fri"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:11
+msgid "Sat"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:11
+msgid "Sun"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:14
+msgid "January"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:14
+msgid "February"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:14
+msgid "March"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:14
+msgid "April"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:14
+msgid "May"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:14
+msgid "June"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:15
+msgid "July"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:15
+msgid "August"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:15
+msgid "September"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:15
+msgid "October"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:15
+msgid "November"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:16
+msgid "December"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:19
+msgid "jan"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:19
+msgid "feb"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:19
+msgid "mar"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:19
+msgid "apr"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:19
+msgid "may"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:19
+msgid "jun"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:20
+msgid "jul"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:20
+msgid "aug"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:20
+msgid "sep"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:20
+msgid "oct"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:20
+msgid "nov"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:20
+msgid "dec"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:23
+msgctxt "abbrev. month"
+msgid "Jan."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:24
+msgctxt "abbrev. month"
+msgid "Feb."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:25
+msgctxt "abbrev. month"
+msgid "March"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:26
+msgctxt "abbrev. month"
+msgid "April"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:27
+msgctxt "abbrev. month"
+msgid "May"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:28
+msgctxt "abbrev. month"
+msgid "June"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:29
+msgctxt "abbrev. month"
+msgid "July"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:30
+msgctxt "abbrev. month"
+msgid "Aug."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:31
+msgctxt "abbrev. month"
+msgid "Sept."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:32
+msgctxt "abbrev. month"
+msgid "Oct."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:33
+msgctxt "abbrev. month"
+msgid "Nov."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:34
+msgctxt "abbrev. month"
+msgid "Dec."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:37
+msgctxt "alt. month"
+msgid "January"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:38
+msgctxt "alt. month"
+msgid "February"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:39
+msgctxt "alt. month"
+msgid "March"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:40
+msgctxt "alt. month"
+msgid "April"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:41
+msgctxt "alt. month"
+msgid "May"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:42
+msgctxt "alt. month"
+msgid "June"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:43
+msgctxt "alt. month"
+msgid "July"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:44
+msgctxt "alt. month"
+msgid "August"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:45
+msgctxt "alt. month"
+msgid "September"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:46
+msgctxt "alt. month"
+msgid "October"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:47
+msgctxt "alt. month"
+msgid "November"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/dates.py:48
+msgctxt "alt. month"
+msgid "December"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/ipv6.py:8
+msgid "This is not a valid IPv6 address."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/text.py:68
+#, python-format
+msgctxt "String to return when truncating text"
+msgid "%(truncated_text)s…"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/text.py:237
+msgid "or"
+msgstr ""
+
+#. Translators: This string is used as a separator between list elements
+#: venv/lib/python3.10/site-packages/django/utils/text.py:256
+#: venv/lib/python3.10/site-packages/django/utils/timesince.py:83
+msgid ", "
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/utils/timesince.py:9
+#, python-format
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/utils/timesince.py:10
+#, python-format
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/utils/timesince.py:11
+#, python-format
+msgid "%d week"
+msgid_plural "%d weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/utils/timesince.py:12
+#, python-format
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/utils/timesince.py:13
+#, python-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/utils/timesince.py:14
+#, python-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.10/site-packages/django/utils/timesince.py:72
+msgid "0 minutes"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/csrf.py:110
+msgid "Forbidden"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/csrf.py:111
+msgid "CSRF verification failed. Request aborted."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/csrf.py:115
+msgid ""
+"You are seeing this message because this HTTPS site requires a 'Referer "
+"header' to be sent by your Web browser, but none was sent. This header is "
+"required for security reasons, to ensure that your browser is not being "
+"hijacked by third parties."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/csrf.py:120
+msgid ""
+"If you have configured your browser to disable 'Referer' headers, please re-"
+"enable them, at least for this site, or for HTTPS connections, or for 'same-"
+"origin' requests."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/csrf.py:124
+msgid ""
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
+"including the 'Referrer-Policy: no-referrer' header, please remove them. The "
+"CSRF protection requires the 'Referer' header to do strict referer checking. "
+"If you're concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" ...> for links to third-party sites."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/csrf.py:132
+msgid ""
+"You are seeing this message because this site requires a CSRF cookie when "
+"submitting forms. This cookie is required for security reasons, to ensure "
+"that your browser is not being hijacked by third parties."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/csrf.py:137
+msgid ""
+"If you have configured your browser to disable cookies, please re-enable "
+"them, at least for this site, or for 'same-origin' requests."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/csrf.py:142
+msgid "More information is available with DEBUG=True."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:41
+msgid "No year specified"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:61
+#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:111
+#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:208
+msgid "Date out of range"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:90
+msgid "No month specified"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:142
+msgid "No day specified"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:188
+msgid "No week specified"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:338
+#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:367
+#, python-format
+msgid "No %(verbose_name_plural)s available"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:589
+#, python-format
+msgid ""
+"Future %(verbose_name_plural)s not available because %(class_name)s."
+"allow_future is False."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/generic/dates.py:623
+#, python-format
+msgid "Invalid date string '%(datestr)s' given format '%(format)s'"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/generic/detail.py:54
+#, python-format
+msgid "No %(verbose_name)s found matching the query"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/generic/list.py:67
+msgid "Page is not 'last', nor can it be converted to an int."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/generic/list.py:72
+#, python-format
+msgid "Invalid page (%(page_number)s): %(message)s"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/generic/list.py:154
+#, python-format
+msgid "Empty list and '%(class_name)s.allow_empty' is False."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/static.py:40
+msgid "Directory indexes are not allowed here."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/static.py:42
+#, python-format
+msgid "\"%(path)s\" does not exist"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/static.py:80
+#, python-format
+msgid "Index of %(directory)s"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:6
+msgid "Django: the Web framework for perfectionists with deadlines."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:345
+#, python-format
+msgid ""
+"View <a href=\"https://docs.djangoproject.com/en/%(version)s/releases/\" "
+"target=\"_blank\" rel=\"noopener\">release notes</a> for Django %(version)s"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:367
+msgid "The install worked successfully! Congratulations!"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:368
+#, python-format
+msgid ""
+"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
+"%(version)s/ref/settings/#debug\" target=\"_blank\" "
+"rel=\"noopener\">DEBUG=True</a> is in your settings file and you have not "
+"configured any URLs."
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:383
+msgid "Django Documentation"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:384
+msgid "Topics, references, &amp; how-to's"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:395
+msgid "Tutorial: A Polling App"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:396
+msgid "Get started with Django"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:407
+msgid "Django Community"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/django/views/templates/default_urlconf.html:408
+msgid "Connect, get help, or contribute"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/imagekit/admin.py:10
+msgid "Thumbnail"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/kombu/transport/qpid.py:1311
+#, python-format
+msgid "Attempting to connect to qpid with SASL mechanism %s"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/kombu/transport/qpid.py:1316
+#, python-format
+msgid "Connected to qpid with SASL mechanism %s"
+msgstr ""
+
+#: venv/lib/python3.10/site-packages/kombu/transport/qpid.py:1334
+#, python-format
+msgid "Unable to connect to qpid with SASL mechanism %s"
+msgstr ""
+
+#~ msgid "Simulation and Analysis Tool"
+#~ msgstr "Szimulációs és elemző eszköz"
+
+#~ msgid "Turbine and Water Flow Planner"
+#~ msgstr "Turbina és vízáramlás tervező"
+
+#~ msgid "closed"
+#~ msgstr "lezárt"
+
+#~ msgid "open"
+#~ msgstr "nyitott"
+
+#~ msgid "done"
+#~ msgstr "kész"
+
+#~ msgid "In progress"
+#~ msgstr "folyamatban"

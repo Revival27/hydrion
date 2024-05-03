@@ -1,33 +1,27 @@
 {% extends "app/base.html"%}
 {% load i18n static settings %}
 {% block navbar-sidebar %}
+{% load i18n %}
+
+
 <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
             <li>
-                <a href="/psm/"><i class="fa fa-tachometer-alt fa-fw"></i> {% trans 'Dashboard' %}</a>
+                <a href="/psm/"><i class="fa fa-tachometer-alt fa-fw"></i>{% trans 'Dashboard' %}</a>
             </li>
             <li>
                 <a href="#"><i class="fa-solid fa-thumbtack"></i> {% trans 'Project Planning' %}<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a href="/psm/project_planning/"></i> {% trans 'Projects' %}</a></li>
-                    <li><a href="/psm/project_planning/add_project/"></i> {% trans 'Create New Project' %}</a></li>
-                    <li><a href="/psm/project_planning/reports/"></i> {% trans 'Reports' %}</a></li>
-                    <li><a href="#"></i> {% trans 'Open Current Project' %}</a></li>
-                    <li><a href="#"></i> {% trans 'Export Project Data' %}</a></li>
+                    <li><a href="/psm/project_planning/"> {% trans 'Projects' %}</a></li>
+                    <li><a href="/psm/project_planning/add_project/"> {% trans 'Create New Project' %}</a></li>
+                    <li><a href="/psm/project_planning/reports/"> {% trans 'Reports' %}</a></li>
+                    <li><a href="#"> {% trans 'Open Current Project' %}</a></li>
+                    <li><a href="#"> {% trans 'Export Project Data' %}</a></li>
                 </ul>
             </li>
             <li>
-                <a href="/psm/data_collection/"> <i class="fa-solid fa-gear"></i> {% trans 'Data collection' %}</span></a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-regular fa-user"></i> {% trans 'Simulation and Analysis Tool' %}</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa-solid fa-cube"></i> {% trans '3D modelling' %}</a>
-            </li>
-            <li>
-                <a href="/tpfm/"><i class="fa fa-tornado"></i> {% trans 'Turbine and Water Flow Planner' %}</a>
+                <a href="/psm/data_collection/"> <i class="fa-solid fa-gear"></i> {% trans 'Data collection' %}</a>
             </li>
             <li>
                 <a href="#"><i class="fa-regular fa-clipboard"></i> {% trans 'Compliance and Reporting' %}</a>
@@ -39,7 +33,7 @@
                 <a href="#"><i class="fa-solid fa-sliders"></i> {% trans 'Settings' %}</a>
             </li>
             <li>
-                <a href="/dashboard/"><i class="fa-solid fa-arrow-left"></i> {% trans 'Go Back to Main Project' %}</a>
+                <a href="/"><i class="fa-solid fa-arrow-left"></i> {% trans 'Go Back to Main Project' %}</a>
             </li>
 
             {% is_dev_mode as dev_mode %}
