@@ -148,7 +148,8 @@ def report(request, report_id=None):
     if request.method == "GET" and "reports" in request.path:
         reports = Report.objects.all()
         return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'reports':reports})
-    report = Report.objects.get(id=report_id)
+    
+    report = get_object_or_404(Report, pk=report_id)
     return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'report':report}) #, 'tasks_status': tasks_status
 
 @login_required
@@ -186,6 +187,8 @@ def project_planning(request, project_id=None):
 
 @login_required
 def calendar_view(request, project_id=None):
+    if project_id == None:
+        return redirect('app/psm/fullcalendar.html')
     project = get_object_or_404(HydroProject, pk=int(project_id))
     tasks = HydroTask.objects.filter(project=project.id)
     return render(request, 'app/psm/fullcalendar.html', {'tasks':tasks})

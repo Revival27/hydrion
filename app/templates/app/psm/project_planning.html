@@ -164,11 +164,20 @@
                 <input class="form-control" type="date" value="{{project.deadline|date:'Y-m-d'}}" name="project_deadline">
                 <button class="btn btn-primary" type="submit">Save</button>            
             </form>
-            <form action="/psm/project_planning/report/{{project.report_id}}/" method="post">
-                {% csrf_token %}
-                <input type="text" name="project_id" value="{{project.id}}" hidden>
-                <button class="btn btn-secondary"><i class="fa-solid fa-chart-simple"></i> Report</button>
-            </form>
+            {% if project.report_id %}
+                <form action="/psm/project_planning/{{project.report_id}}/" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="project_id" value="{{project.id}}" hidden>
+                    <button class="btn btn-secondary"><i class="fa-solid fa-chart-simple"></i> Report</button>
+                </form>     
+            {% else %}
+                <form action="/psm/project_planning/report/0/" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="project_id" value="{{project.id}}" hidden>
+                    <button class="btn btn-secondary"><i class="fa-solid fa-chart-simple"></i> Report</button>
+                </form>    
+            {% endif %}
+
             <form action="/psm/calendar/project/{{project.id}}/" method="post">
                 {% csrf_token %}
                 <input class="btn btn-secondary" type="submit" value="Calendar view" name="Submit" id="frm1_submit" />
