@@ -96,6 +96,26 @@ def export_to_csv(request, hydrosurvey_pk=None):
     return response
 
 @login_required
+def export_project_to_csv(request, project_id=None):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="project.csv"'
+
+    writer = csv.writer(response)
+    project_fields = ['name', 'created_at', 'project_status', 'deadline', 'team', 'description', 'report']
+    
+    writer.writerow(project_fields)
+
+    if project_id:
+        
+        survey_all = list(vars(get_object_or_404(HydroProject, pk=project_id)).values())[2:]
+        print(list(survey_all))
+    
+    # Assuming the HydroSurvey model has its fields in the same order as the project_fields variable
+    writer.writerow(survey_all)
+        
+    return response
+
+@login_required
 def hydro_survey(request, hydrosurvey_pk=None):
     form = HydroSurveyForm(request.POST)
     if request.method == 'POST':

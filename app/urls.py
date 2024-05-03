@@ -47,6 +47,7 @@ urlpatterns = [
     url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/save/$', app_views.save_project, name='save_project'),
     url(r'^psm/project_planning/add_project/$', app_views.add_project, name='project_planning'),
     url(r'^psm/calendar/project/(?P<project_id>[^/.]+)/$', app_views.calendar_view, name='calendar-view'),
+    url(r'^psm/project_planning/(?P<project_id>[^/.]+)/csv/$', app_views.export_project_to_csv, name='export_project_to_csv'),
     url(r'^psm/project_planning/reports/$', app_views.report, name='report'),
     url(r'^psm/project_planning/report/(?P<report_id>[^/.]+)/$', app_views.report, name='report'),
     
