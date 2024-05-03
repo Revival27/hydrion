@@ -2,7 +2,7 @@
 
 
 {% block content %}
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css">-->
+
 <div id="calendar"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.11/index.global.min.js"></script>
 <script>
@@ -16,7 +16,8 @@
                         title: '{{ task.name }}',
                         start: '{{ task.start_date|date:"Y-m-d" }}',
                         end: '{{ task.deadline|date:"Y-m-d" }}',
-                        
+                        backgroundColor: '{{ task.color }}'
+
                     },
                 {% endfor %}
             ]

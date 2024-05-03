@@ -14,7 +14,8 @@ class HydroTask(models.Model):
     description = models.TextField(db_column='description', max_length=1000)
     project = models.ForeignKey('HydroProject', on_delete=models.CASCADE)
     start_date = models.DateField(db_column='start_date')
-
+    color = models.CharField(db_column='color', max_length=100)
+    
     def __str__(self):
         return self.name
     
