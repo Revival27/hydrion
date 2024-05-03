@@ -169,6 +169,11 @@
                 <input type="text" name="project_id" value="{{project.id}}" hidden>
                 <button class="btn btn-secondary"><i class="fa-solid fa-chart-simple"></i> Report</button>
             </form>
+            <form action="/psm/calendar/project/{{project.id}}/" method="post">
+                {% csrf_token %}
+                <input class="btn btn-secondary" type="submit" value="Calendar view" name="Submit" id="frm1_submit" />
+            </form>  
+          
             <hr>
             <button class="btn btn-primary">Close Project</button>
             <form action="/psm/project_planning/project/{{project.id}}/delete/" method="post">
