@@ -2,7 +2,7 @@
 {% load i18n static crispy_forms_tags %}
 {% block content %}
 
-<h1>Hidrológiai felmérések</h1>
+<h1>{% trans 'Hydrological surveys' %}</h1>
 
 <div class="container">
     <div class="row">   
@@ -28,16 +28,16 @@
 <h2>{{ sruvey.name }}</h2>
 
 <ul>
- <li>Határidő: {{ survey.deadline }}</li>
- <li>Státusz: {{ survey.status }}</li>
- <li>Hely: {{ survey.location }}</li>
- <li>Vízfelület: {{ survey.water_surface }}</li>
- <li>Áramlás iránya: {{ survey.flow_direction }}</li>
- <li>Áramlás mért sebessége: {{ survey.flow_direction_speed }}</li>
- <li>Szelvény szélessége: {{ survey.segment_width }}</li>
- <li>Szelvény mélysége: {{ survey.segment_depth }}</li>
- <li>Becsült vízhozam: {{ survey.estimated_waterflow }}</li>
- <li>Becsült energia termelés: {{ survey.estimated_energy_production }}</li>
+ <li>{% trans 'Deadline' %}: {{ survey.deadline }}</li>
+ <li>{% trans 'Status'%}: {{ survey.status }}</li>
+ <li>{% trans 'Location'%}: {{ survey.location }}</li>
+ <li>{% trans 'Water Surface'%}: {{ survey.water_surface }}</li>
+ <li>{% trans 'Flow Direction'%}: {{ survey.flow_direction }}</li>
+ <li>{% trans 'Measured Flow Speed'%}: {{ survey.flow_direction_speed }}</li>
+ <li>{% trans 'Segment Width'%}: {{ survey.segment_width }}</li>
+ <li>{% trans 'Segment Depth'%}: {{ survey.segment_depth }}</li>
+ <li>{% trans 'Estimated Water Flow'%}: {{ survey.estimated_waterflow }}</li>
+ <li>{% trans 'Estimated Energy Production'%}: {{ survey.estimated_energy_production }}</li>
 </ul>
 {% endif %}
 

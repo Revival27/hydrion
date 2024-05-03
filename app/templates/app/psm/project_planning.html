@@ -51,7 +51,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h4><b>Reports</b></h4>
+            <h4><b>{% trans 'Reports' %}</b></h4>
             <ul class="list-group">
                 {% for report in reports %}
                 <li class="list-group-item">
@@ -123,7 +123,7 @@
                 <label for="task_status" class="form-label" >Status</label>
                 <select name="task_status" id="task_status" class="form-control" required>
                     {% for task_status in task_statuses %}
-                        <option value="{{task_status.id}}" {%if task.status.id == task_status.id%} selected {%endif%}>{{task_status.name}}</option>
+                    <option value="{{task_status.id}}" {%if task.status.id == task_status.id%} selected {%endif%}>{{task_status.name}}</option>
                     {% endfor %}
                 </select>
                 <label for="task_description" class="form-label">Description</label>
@@ -187,7 +187,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h4><b>Projects</b></h4>
+            <h4><b>{% trans 'Projects' %}</b></h4>
             <ul class="list-group">
                 {% for project in projects %}
                 <li class="list-group-item">
