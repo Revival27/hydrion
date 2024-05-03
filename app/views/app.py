@@ -4,7 +4,7 @@ from django.contrib.auth import login
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from django.http import Http404
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from guardian.shortcuts import get_objects_for_user
 
 from nodeodm.models import ProcessingNode
@@ -15,7 +15,6 @@ from django.utils.translation import ugettext as _
 from django import forms
 from webodm import settings
 from app.models.modelform import HydroSurveyForm
-from django.shortcuts import HttpResponse, get_object_or_404
 import csv
 import datetime
 
@@ -202,12 +201,12 @@ def save_project(request, project_id):
     if project_id is not None and request.method == "POST":
         project = HydroProject.objects.get(id=project_id)
         statuses = ProjectStatus.objects.all()
-        tasks = HydroTask.objects.all()
+        tasks = HydroTask.objects.filter(project=project_id)
         task_statuses = TaskStatus.objects.all()
         team_id = project.team
         team_members = TeamMember.objects.filter(team = team_id)
         status = ProjectStatus.objects.get(id = request.POST.get('project_status'))
-        project.status = status
+        project.project_status = status
         project.deadline = request.POST.get('project_deadline')
         project.save()
         project = HydroProject.objects.get(id=project_id)    
