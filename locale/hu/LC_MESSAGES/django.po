@@ -1718,8 +1718,8 @@ msgid "3D modelling"
 msgstr "3D modellezés"
 
 #: app/templates/app/tpfm/tpfm_dashboard.html:7
-msgid "Upload Water / Surface Model"
-msgstr "Töltsön fel víz / felszín modellt"
+msgid "Upload Water and Surface Model"
+msgstr "Töltsön fel víz és felszín modellt"
 
 #: app/templates/app/tpfm/tpfm_dashboard.html:8
 msgid "Select Turbine"
