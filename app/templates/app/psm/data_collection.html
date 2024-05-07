@@ -1,44 +1,96 @@
 {% extends 'app/psm/psm.html' %}
 {% load i18n static crispy_forms_tags %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/data_collection.css' %}">
 
-<h1>{% trans 'Hydrological surveys' %}</h1>
-
+<h1 style="font-size: 400; margin-bottom: 20px">{% trans 'Hydrological surveys' %}</h1>
+{% if not survey.id %}
 <div class="container">
     <div class="row">   
         <div class="col">
             <ul class="list-group">
-                {% for hydrosurvey in hydrosurveys %}
-                <li class="list-group-item">
-                    {{hydrosurvey.deadline}}
-                    {{hydrosurvey.status}}
-                    {{hydrosurvey.location}}
-                    <a href="/psm/hydrosurvey/{{hydrosurvey.id}}/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </li>
-                {% endfor %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>{% trans 'Deadline' %}</th>
+                            <th>{% trans 'Status' %}</th>
+                            <th>{% trans 'Location' %}</th>
+                            <th>{% trans 'Details' %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for hydrosurvey in hydrosurveys %}
+                        <tr>
+                            <td>{{ hydrosurvey.deadline|date:"Y-m-d" }}</td>
+                            <td>{{ hydrosurvey.status }}</td>
+                            <td>{{ hydrosurvey.location }}</td>
+                            <td style="text-align: center;"><a href="/psm/hydrosurvey/{{ hydrosurvey.id }}/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </ul>
-            <div class="btn_container"><button id="add_new_project_btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> <a href="/psm/project_planning/">New Survey</a></button></div>
-            
+            <div class="btn_container"><button id="add_new_project_btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> <a href="/psm/project_planning/">{% trans 'New Survey' %}</a></button></div>
         </div>
-        
     </div>
 </div>
+{% endif %}
 
 {% if survey.id %}
-<h2>{{ sruvey.name }}</h2>
-
-<ul>
- <li>{% trans 'Deadline' %}: {{ survey.deadline }}</li>
- <li>{% trans 'Status'%}: {{ survey.status }}</li>
- <li>{% trans 'Location'%}: {{ survey.location }}</li>
- <li>{% trans 'Water Surface'%}: {{ survey.water_surface }}</li>
- <li>{% trans 'Flow Direction'%}: {{ survey.flow_direction }}</li>
- <li>{% trans 'Measured Flow Speed'%}: {{ survey.flow_direction_speed }}</li>
- <li>{% trans 'Segment Width'%}: {{ survey.segment_width }}</li>
- <li>{% trans 'Segment Depth'%}: {{ survey.segment_depth }}</li>
- <li>{% trans 'Estimated Water Flow'%}: {{ survey.estimated_waterflow }}</li>
- <li>{% trans 'Estimated Energy Production'%}: {{ survey.estimated_energy_production }}</li>
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3>{{ survey.location }}</h3>
+            <table class="data-sheet">
+                <tr>
+                    <td class="data-sheet-label">{% trans 'Deadline' %}:</td>
+                    <td>{{ survey.deadline }}</td>
+                </tr>
+                <tr>
+                    <td class="data-sheet-label">{% trans 'Status' %}:</td>
+                    <td>{{ survey.status }}</td>
+                </tr>
+                <tr>
+                    <td class="data-sheet-label">{% trans 'Location' %}:</td>
+                    <td>{{ survey.location }}</td>
+                </tr>
+                <tr>
+                    <td class="data-sheet-label">{% trans 'Water Surface' %}:</td>
+                    <td>{{ survey.water_surface }}</td>
+                </tr>
+                <tr>
+                    <td class="data-sheet-label">{% trans 'Flow Direction' %}:</td>
+                    <td>{{ survey.flow_direction }}</td>
+                </tr>
+                <tr>
+                    <td class="data-sheet-label">{% trans 'Measured Flow Speed' %}:</td>
+                    <td>{{ survey.flow_direction_speed }}</td>
+                </tr>
+                <tr>
+                    <td class="data-sheet-label">{% trans 'Segment Width' %}:</td>
+                    <td>{{ survey.segment_width }}</td>
+                </tr>
+                <tr>
+                    <td class="data-sheet-label">{% trans 'Segment Depth' %}:</td>
+                    <td>{{ survey.segment_depth }}</td>
+                </tr>
+                <tr>
+                    <td class="data-sheet-label">{% trans 'Estimated Water Flow' %}:</td>
+                    <td>{{ survey.estimated_waterflow }}</td>
+                </tr>
+                <tr>
+                    <td class="data-sheet-label">{% trans 'Estimated Energy Production' %}:</td>
+                    <td>{{ survey.estimated_energy_production }}</td>
+                </tr>
+            </table>
+            <div class="btn_container">
+                <button id="add_new_project_btn" class="btn btn-primary">
+                    <i class="fa-solid fa-arrow-left"></i> <a href="/psm/data_collection/">{% trans 'Back' %}</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endif %}
 
 

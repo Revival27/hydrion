@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-03 23:21+0200\n"
+"POT-Creation-Date: 2024-05-07 16:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,7 +63,9 @@ msgid "HTML (footer)"
 msgstr ""
 
 #: app/admin.py:115 app/models/project.py:25
-#: app/templates/app/psm/add_project.html:15
+#: app/templates/app/psm/add_project.html:16
+#: app/templates/app/psm/project_planning.html:58
+#: app/templates/app/psm/project_planning.html:92
 msgid "Description"
 msgstr "Leírás"
 
@@ -370,8 +372,10 @@ msgstr ""
 
 #: app/models/plugin.py:5 app/models/preset.py:10 app/models/project.py:24
 #: app/models/task.py:244 app/models/theme.py:18
+#: app/templates/app/psm/project_planning.html:80
+#: app/templates/app/psm/project_planning.html:158
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 #: app/models/plugin.py:6
 msgid "Whether this plugin is turned on."
@@ -455,8 +459,9 @@ msgid "Creation date"
 msgstr ""
 
 #: app/models/preset.py:13 app/models/project.py:26 app/models/task.py:258
+#: app/templates/app/psm/project_planning.html:45
 msgid "Created at"
-msgstr ""
+msgstr "Készítve"
 
 #: app/models/preset.py:14
 msgid ""
@@ -524,7 +529,7 @@ msgstr ""
 msgid "Project"
 msgstr ""
 
-#: app/models/project.py:91 app/templates/app/psm/project_planning.html:190
+#: app/models/project.py:91 app/templates/app/psm/project_planning.html:154
 #: app/templates/app/psm/psm.html:16
 #: coreplugins/projects-charts/templates/index.html:7
 msgid "Projects"
@@ -576,7 +581,7 @@ msgid "Application"
 msgstr "Alkalmazás"
 
 #: app/models/setting.py:76 app/models/setting.py:77
-#: app/templates/app/psm/psm.html:33
+#: app/templates/app/psm/psm.html:31
 msgid "Settings"
 msgstr "Beállítások"
 
@@ -634,8 +639,12 @@ msgstr ""
 msgid "Current status of the task"
 msgstr ""
 
-#: app/models/task.py:248 app/templates/app/psm/add_project.html:19
-#: app/templates/app/psm/data_collection.html:32
+#: app/models/task.py:248 app/templates/app/psm/add_project.html:20
+#: app/templates/app/psm/data_collection.html:16
+#: app/templates/app/psm/data_collection.html:50
+#: app/templates/app/psm/project_planning.html:86
+#: app/templates/app/psm/project_planning.html:120
+#: app/templates/app/psm/project_planning.html:161
 msgid "Status"
 msgstr "Státusz"
 
@@ -789,29 +798,29 @@ msgstr ""
 msgid "Size of the task on disk in megabytes"
 msgstr ""
 
-#: app/models/task.py:283
+#: app/models/task.py:283 app/templates/app/psm/project_planning.html:112
 msgid "Size"
-msgstr ""
+msgstr "Méret"
 
 #: app/models/task.py:286
 msgid "Task"
-msgstr ""
+msgstr "Feladat"
 
 #: app/models/task.py:287
 msgid "Tasks"
-msgstr ""
+msgstr "Feladatok"
 
 #: app/models/task.py:298
 msgid "unnamed"
-msgstr ""
+msgstr "névtelen"
 
 #: app/models/task.py:502
 msgid "Importing assets..."
-msgstr ""
+msgstr "Eszközök importálása..."
 
 #: app/models/task.py:554 app/models/task.py:823
 msgid "Invalid zip file"
-msgstr ""
+msgstr "Érvénytelen ZIP file"
 
 #: app/models/task.py:649
 #, python-format
@@ -1269,8 +1278,9 @@ msgstr ""
 
 #: app/templates/app/admin/pagination.html:11
 #: app/templates/app/admin/submit_line.html:3
+#: app/templates/app/psm/project_planning.html:128
 msgid "Save"
-msgstr ""
+msgstr "Mentés"
 
 #: app/templates/app/admin/popup_response.html:3
 msgid "Popup closing..."
@@ -1369,7 +1379,7 @@ msgid ""
 msgstr ""
 
 #: app/templates/app/dev_tools.html:6 app/templates/app/logged_in_base.html:127
-#: app/templates/app/psm/psm.html:42 app/templates/app/tpfm/tpfm.html:30
+#: app/templates/app/psm/psm.html:40 app/templates/app/tpfm/tpfm.html:30
 #: app/views/dev.py:78
 msgid "Developer Tools"
 msgstr "Fejlesztő eszközök"
@@ -1427,7 +1437,7 @@ msgstr ""
 msgid "Dashboard"
 msgstr "Irányítópult"
 
-#: app/templates/app/logged_in_base.html:86
+#: app/templates/app/logged_in_base.html:87
 msgid "Turbine Planner & Fluid Modelling"
 msgstr "Turbina és Folyadékmodellezés"
 
@@ -1451,7 +1461,7 @@ msgstr "Csoportok"
 msgid "Brand"
 msgstr "Beállítások"
 
-#: app/templates/app/logged_in_base.html:131 app/templates/app/psm/psm.html:46
+#: app/templates/app/logged_in_base.html:131 app/templates/app/psm/psm.html:44
 #: app/views/app.py:298
 msgid "About"
 msgstr "Névjegy"
@@ -1505,63 +1515,161 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: app/templates/app/psm/add_project.html:11
+#: app/templates/app/psm/add_project.html:5 app/templates/app/psm/psm.html:17
+msgid "Create New Project"
+msgstr "Új projekt létrehozása"
+
+#: app/templates/app/psm/add_project.html:12
 msgid "Project name"
 msgstr "Projekt neve"
 
-#: app/templates/app/psm/add_project.html:27
-#: app/templates/app/psm/data_collection.html:31
+#: app/templates/app/psm/add_project.html:28
+#: app/templates/app/psm/data_collection.html:15
+#: app/templates/app/psm/data_collection.html:46
+#: app/templates/app/psm/project_planning.html:84
+#: app/templates/app/psm/project_planning.html:126
+#: app/templates/app/psm/project_planning.html:160
 msgid "Deadline"
 msgstr "Határidő"
 
-#: app/templates/app/psm/add_project.html:31
+#: app/templates/app/psm/add_project.html:32
 msgid "Team"
 msgstr "Csapat"
 
-#: app/templates/app/psm/data_collection.html:5
+#: app/templates/app/psm/data_collection.html:6
 msgid "Hydrological surveys"
 msgstr "Hidrológiai felmérések"
 
-#: app/templates/app/psm/data_collection.html:33
+#: app/templates/app/psm/data_collection.html:17
+#: app/templates/app/psm/data_collection.html:54
 msgid "Location"
 msgstr "Hely"
 
-#: app/templates/app/psm/data_collection.html:34
+#: app/templates/app/psm/data_collection.html:18
+#: app/templates/app/psm/project_planning.html:162
+msgid "Details"
+msgstr "Részletek"
+
+#: app/templates/app/psm/data_collection.html:33
+msgid "New Survey"
+msgstr "Új felmérés"
+
+#: app/templates/app/psm/data_collection.html:58
 msgid "Water Surface"
 msgstr "Vízfelület"
 
-#: app/templates/app/psm/data_collection.html:35
+#: app/templates/app/psm/data_collection.html:62
 msgid "Flow Direction"
 msgstr "Áramlás iránya"
 
-#: app/templates/app/psm/data_collection.html:36
+#: app/templates/app/psm/data_collection.html:66
 msgid "Measured Flow Speed"
 msgstr "Áramlás mért sebessége"
 
-#: app/templates/app/psm/data_collection.html:37
+#: app/templates/app/psm/data_collection.html:70
 msgid "Segment Width"
 msgstr "Szelvény szélessége"
 
-#: app/templates/app/psm/data_collection.html:38
+#: app/templates/app/psm/data_collection.html:74
 msgid "Segment Depth"
 msgstr "Szelvény mélysége"
 
-#: app/templates/app/psm/data_collection.html:39
+#: app/templates/app/psm/data_collection.html:78
 msgid "Estimated Water Flow"
 msgstr "Becsült vízhozam"
 
-#: app/templates/app/psm/data_collection.html:40
+#: app/templates/app/psm/data_collection.html:82
 msgid "Estimated Energy Production"
 msgstr "Becsült energia termelés"
+
+#: app/templates/app/psm/data_collection.html:88
+#: app/templates/app/registration/password_change_done.html:6
+msgid "Back"
+msgstr "Vissza"
 
 #: app/templates/app/psm/data_collection_form.html:5
 msgid "Hydrological Survey"
 msgstr "Hidrológiai felmérés"
 
-#: app/templates/app/psm/project_planning.html:54
-#: app/templates/app/psm/psm.html:18
-msgid "Reports"
-msgstr "Jelentések"
+#: app/templates/app/psm/project_planning.html:24
+#, fuzzy
+#| msgid "Project statistics"
+msgid "Statistics"
+msgstr "Projekt statisztikák"
+
+#: app/templates/app/psm/project_planning.html:46
+msgid "Project owner"
+msgstr "Projekt tulajdonosa"
+
+#: app/templates/app/psm/project_planning.html:49
+msgid "Project Team"
+msgstr "Projekt csapat"
+
+#: app/templates/app/psm/project_planning.html:62
+msgid "More"
+msgstr ""
+
+#: app/templates/app/psm/project_planning.html:68
+msgid "Tasks list"
+msgstr "Feladatlista"
+
+#: app/templates/app/psm/project_planning.html:76
+#, fuzzy
+#| msgid "New task"
+msgid "New Task"
+msgstr "Új feladat"
+
+#: app/templates/app/psm/project_planning.html:82
+msgid "Start Date"
+msgstr "Kezdés dátum"
+
+#: app/templates/app/psm/project_planning.html:95
+msgid "Invite"
+msgstr "Meghív"
+
+#: app/templates/app/psm/project_planning.html:96
+msgid "New task"
+msgstr "Új feladat"
+
+#: app/templates/app/psm/project_planning.html:101
+msgid "Successfully added new task!"
+msgstr "Új feladat felvétele sikeres!"
+
+#: app/templates/app/psm/project_planning.html:106
+msgid "Attachments"
+msgstr "Mellékletek"
+
+#: app/templates/app/psm/project_planning.html:110
+msgid "Uploaded"
+msgstr "Feltöltve"
+
+#: app/templates/app/psm/project_planning.html:111
+msgid "Format"
+msgstr "Formátum"
+
+#: app/templates/app/psm/project_planning.html:115
+msgid "New Attachment"
+msgstr "Új melléklet"
+
+#: app/templates/app/psm/project_planning.html:130
+msgid "Calendar view"
+msgstr "Naptár nézet"
+
+#: app/templates/app/psm/project_planning.html:134
+msgid "Report"
+msgstr "Jelentés"
+
+#: app/templates/app/psm/project_planning.html:137
+msgid "Close Project"
+msgstr "Projekt lezárása"
+
+#: app/templates/app/psm/project_planning.html:140
+msgid "Delete Project"
+msgstr "Projekt törlése"
+
+#: app/templates/app/psm/project_planning.html:159
+msgid "Created"
+msgstr "Készült"
 
 #: app/templates/app/psm/psm.html:14 app/views/app.py:149 app/views/app.py:151
 #: app/views/app.py:181 app/views/app.py:183 app/views/app.py:184
@@ -1569,31 +1677,23 @@ msgstr "Jelentések"
 msgid "Project Planning"
 msgstr "Projekttervezés"
 
-#: app/templates/app/psm/psm.html:17
-msgid "Create New Project"
-msgstr "Új projekt létrehozása"
+#: app/templates/app/psm/psm.html:18
+msgid "Reports"
+msgstr "Jelentések"
 
-#: app/templates/app/psm/psm.html:19
-msgid "Open Current Project"
-msgstr "Jelenlegi projekt megnyitása"
-
-#: app/templates/app/psm/psm.html:20
-msgid "Export Project Data"
-msgstr "Projekt adatok exportálása"
-
-#: app/templates/app/psm/psm.html:24
+#: app/templates/app/psm/psm.html:22
 msgid "Data collection"
 msgstr "Adatgyűjtés"
 
-#: app/templates/app/psm/psm.html:27
+#: app/templates/app/psm/psm.html:25
 msgid "Compliance and Reporting"
 msgstr "Megfelelés és jelentés"
 
-#: app/templates/app/psm/psm.html:30
+#: app/templates/app/psm/psm.html:28
 msgid "Tools"
 msgstr "Eszközök"
 
-#: app/templates/app/psm/psm.html:36 app/templates/app/tpfm/tpfm.html:24
+#: app/templates/app/psm/psm.html:34 app/templates/app/tpfm/tpfm.html:24
 msgid "Go Back to Main Project"
 msgstr "Vissza a fő projekthez"
 
@@ -1635,10 +1735,6 @@ msgstr "Elfelejtett jelszó"
 
 #: app/templates/app/registration/password_change_done.html:5
 msgid "Password Changed Successfully"
-msgstr ""
-
-#: app/templates/app/registration/password_change_done.html:6
-msgid "Back"
 msgstr ""
 
 #: app/templates/app/registration/password_change_form.html:14
@@ -1717,19 +1813,19 @@ msgstr "Turbina hatékonyság modell"
 msgid "3D modelling"
 msgstr "3D modellezés"
 
-#: app/templates/app/tpfm/tpfm_dashboard.html:7
+#: app/templates/app/tpfm/tpfm_dashboard.html:10
 msgid "Upload Water and Surface Model"
 msgstr "Töltsön fel víz és felszín modellt"
 
-#: app/templates/app/tpfm/tpfm_dashboard.html:8
+#: app/templates/app/tpfm/tpfm_dashboard.html:11
 msgid "Select Turbine"
 msgstr "Válasszon turbinát"
 
-#: app/templates/app/tpfm/tpfm_dashboard.html:13
+#: app/templates/app/tpfm/tpfm_dashboard.html:16
 msgid "Upload fluid model"
 msgstr "Áramlási modell feltöltése"
 
-#: app/templates/app/tpfm/tpfm_dashboard.html:16
+#: app/templates/app/tpfm/tpfm_dashboard.html:19
 msgid "File uploaded successfully!"
 msgstr "Fájlfeltöltés sikeres!"
 
@@ -1857,10 +1953,8 @@ msgid "Planning scenario modelling"
 msgstr "Szcenárió Tervezés, Modellezés"
 
 #: app/views/app.py:237
-#, fuzzy
-#| msgid "Projects"
 msgid "Project statistics"
-msgstr "Projektek"
+msgstr "Projekt statisztikák"
 
 #: app/views/app.py:241
 msgid "Data Collection"
@@ -1913,58 +2007,58 @@ msgstr "Diagnosztika"
 
 #: coreplugins/diagnostic/templates/diagnostic.html:6
 msgid "Diagnostic Information"
-msgstr ""
+msgstr "Diagnosztikai információk"
 
 #: coreplugins/diagnostic/templates/diagnostic.html:10
 msgid "Storage Space"
-msgstr ""
+msgstr "Tárhely"
 
 #: coreplugins/diagnostic/templates/diagnostic.html:14
 #: coreplugins/diagnostic/templates/diagnostic.html:40
 #: coreplugins/diagnostic/templates/diagnostic.html:45
 msgctxt "Megabytes of storage space"
 msgid "Free"
-msgstr ""
+msgstr "Szabad"
 
 #: coreplugins/diagnostic/templates/diagnostic.html:15
 #: coreplugins/diagnostic/templates/diagnostic.html:39
 #: coreplugins/diagnostic/templates/diagnostic.html:45
 msgctxt "Megabytes of storage space"
 msgid "Used"
-msgstr ""
+msgstr "Használt"
 
 #: coreplugins/diagnostic/templates/diagnostic.html:16
 msgctxt "Megabytes of storage space"
 msgid "Total"
-msgstr ""
+msgstr "Összes"
 
 #: coreplugins/diagnostic/templates/diagnostic.html:20
 msgctxt "Computer memory (RAM)"
 msgid "Memory"
-msgstr ""
+msgstr "Memória"
 
 #: coreplugins/diagnostic/templates/diagnostic.html:24
 #: coreplugins/diagnostic/templates/diagnostic.html:75
 #: coreplugins/diagnostic/templates/diagnostic.html:80
 msgctxt "Megabytes of memory space"
 msgid "Free"
-msgstr ""
+msgstr "Szabad"
 
 #: coreplugins/diagnostic/templates/diagnostic.html:25
 #: coreplugins/diagnostic/templates/diagnostic.html:74
 #: coreplugins/diagnostic/templates/diagnostic.html:80
 msgctxt "Megabytes of memory space"
 msgid "Used"
-msgstr ""
+msgstr "Használt"
 
 #: coreplugins/diagnostic/templates/diagnostic.html:26
 msgctxt "Megabytes of memory space"
 msgid "Total"
-msgstr ""
+msgstr "Összes"
 
 #: coreplugins/diagnostic/templates/diagnostic.html:33
 msgid "Note!"
-msgstr ""
+msgstr "Figyelem!"
 
 #: coreplugins/diagnostic/templates/diagnostic.html:33
 #, python-format
@@ -1974,11 +2068,15 @@ msgid ""
 "See instructions for %(win_hyperv_link)s, %(win_wsl2_link)s, and "
 "%(mac_link)s for changing these values in a Docker setup."
 msgstr ""
+"Ezek a változók relatívak lehetnek a virtualizációs környezettől amelyben az "
+"applikáció fut, nem feltétlenül a számítógép értékei. Nézze meg az "
+"instrukciókat: %(win_hyperv_link)s, %(win_wsl2_link)s, és %(mac_link)s -re, "
+"hogy megváltoztassa a beállításokat Dockerben."
 
 #: coreplugins/diagnostic/templates/diagnostic.html:47
 #: coreplugins/diagnostic/templates/diagnostic.html:82
 msgid "Disk Space"
-msgstr ""
+msgstr "Lemezterület"
 
 #: coreplugins/editshortlinks/api.py:59
 msgid ""
@@ -3580,6 +3678,12 @@ msgstr ""
 #, python-format
 msgid "Unable to connect to qpid with SASL mechanism %s"
 msgstr ""
+
+#~ msgid "Open Current Project"
+#~ msgstr "Jelenlegi projekt megnyitása"
+
+#~ msgid "Export Project Data"
+#~ msgstr "Projekt adatok exportálása"
 
 #~ msgid "Simulation and Analysis Tool"
 #~ msgstr "Szimulációs és elemző eszköz"
