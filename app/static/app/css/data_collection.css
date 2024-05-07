@@ -1,0 +1,52 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: left;
+}
+
+.table td {
+  text-align: left;
+}
+
+.table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.container{
+  margin-left: 0;
+}
+
+.data-sheet {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.data-sheet td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-sheet .data-sheet-label {
+  font-weight: bold;
+  width: 150px;
+}
+
+.btn_container {
+  margin-top: 20px;
+}

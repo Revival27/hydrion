@@ -1,37 +1,7 @@
 {% extends "app/psm/psm.html"%}
 {% load i18n static settings %}
 {% block content %}
-<style>
-    .row{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-    .btn_container{
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-    }
-    ul, li{
-    
-        list-style-type: none;
-    }
-    .btn{
-        border: 2px solid lightblue;
-    }
-    a {
-        all: unset;
-    }
-    #add_new_project_btn{
-        position: relative;
-    }
-    #task_form{
-        padding: 5px;
-        margin: 5px;
-        border: 2px solid rgb(247, 247, 247);
-        border-radius: 5px;
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/project_planning.css' %}">
 {% if report %}
 <div class="container">
     <div class="row">
@@ -50,7 +20,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h4><b>{% trans 'Reports' %}</b></h4>
+            <h1 style="font-size: 400; margin-bottom: 20px;"><b>{% trans 'Statistics' %}</b></h1>
             <ul class="list-group">
                {% for report in reports %}
                  <h4>{{report.project.name}}</h4>
@@ -72,11 +42,11 @@
     <div class="row">
         <div class="col">
                 <h4><b>{{project.name}}</b></h4>
-                <div>Created at: {{project.created_at}}</div>
-                <div>Project owner: Test User 01</div>
+                <div>{% trans 'Created at'%}: {{project.created_at}}</div>
+                <div>{% trans 'Project owner' %}: Test User 01</div>
                 <a href="/psm/edit_project"><i class="fa-solid fa-pen"></i></a>
             <hr>
-            <h5>Project Team {{project.team_id}}</h5>
+            <h5>{% trans 'Project Team' %} {{project.team_id}}</h5>
             <ul>
                {% for team_member in team_members %}
                <li>
@@ -85,17 +55,17 @@
                {% endfor %}
             </ul>
             <hr>
-            <h5>Description</h5>
+            <h5>{% trans 'Description' %}</h5>
             {% if project.description|length > 500 %}
             <p>{{project.description|slice:":500"}}
             <span id="more_text" style="display: none;">{{project.description|slice:"500:"}}</span>
-            <button class="btn btn-secondary" id="btn-description" onclick="toggleText()">More</button>
+            <button class="btn btn-secondary" id="btn-description" onclick="toggleText()">{% trans 'More' %}</button>
             </p>
             {% else %}
             <p>{{project.description}}</p>
             {% endif %}
             <hr>
-            <h5><b>Tasks list</b></h5>
+            <h5><b>{% trans 'Tasks list' %}</b></h5>
             <ul>
                 {% for task in tasks %}
                     <li>
@@ -103,78 +73,72 @@
                     </li>
                 {% endfor %}
             </ul>
-            <button class="btn btn-secondary" type="button" onclick="toggleForm()"><i class="fa-solid fa-plus"></i> New Task</button>
+            <button class="btn btn-secondary" type="button" onclick="toggleForm()"><i class="fa-solid fa-plus"></i> {% trans 'New Task' %}</button>
             <div >
                 <form action="/psm/project_planning/project/{{project.id}}/" method="post" id="task_form" style="display: none;">
                 {% csrf_token %}
-                <label for="task_name" class="form-label">Name</label>
+                <label for="task_name" class="form-label">{% trans 'Name' %}</label>
                 <input type="text" class="form-control" id="task_name" name="task_name" required>
-
-                <label for="task_start_date" class="form-label">Start Date</label>
+                <label for="task_start_date" class="form-label">{% trans 'Start Date' %}</label>
                 <input type="date" id="task_start_date" class="form-control" name="task_start_date" required>
-
-                <label for="task_deadline" class="form-label">Deadline</label>
+                <label for="task_deadline" class="form-label">{% trans 'Deadline' %}</label>
                 <input type="date" id="task_deadline" class="form-control" name="task_deadline" required>
-                
-                <label for="task_color" class="form-label" >Color for the calendar view</label>
-                <input type="color" id="task_color" class="form-control" name="task_color" value="#3498DB" required>
-                
-
-                <label for="task_status" class="form-label" >Status</label>
+                <label for="task_status" class="form-label" >{% trans 'Status' %}</label>
                 <select name="task_status" id="task_status" class="form-control" required>
                     {% for task_status in task_statuses %}
-                    <option value="{{task_status.id}}" {%if task.status.id == task_status.id%} selected {%endif%}>{{task_status.name}}</option>
+                        <option value="{{task_status.id}}" {%if task.status.id == task_status.id%} selected {%endif%}>{{task_status.name}}</option>
                     {% endfor %}
                 </select>
-                <label for="task_description" class="form-label">Description</label>
+                <label for="task_description" class="form-label">{% trans 'Description' %}</label>
                 <input type="text" class="form-control" id="task_description" name="task_description">
                 <input type="number" name="project_id" value="{{project.id}}" hidden>
-                <button class="btn btn-primary">Invite</button>
-                <button type="submit" class="btn btn-primary"> New task</button>
+                <button class="btn btn-primary">{% trans 'Invite' %}</button>
+                <button type="submit" class="btn btn-primary"> {% trans 'New task' %}</button>
                 
             </form>
             {% if add_new_task %}
                 <div class="alert alert-success" role="alert">
-                    Successfully added new task !
+                    {% trans 'Successfully added new task!' %}
                 </div>
             {% endif %} 
             </div>
             <hr>
-            <h5><b>Attachments</b></h5>
+            <h5><b>{% trans 'Attachments' %}</b></h5>
             <ul>
                 <li>
                     Attachment 01
-                    Uploaded: 2024.02.02.
-                    Format: PDF
-                    Size: 3.7 MB
+                    {% trans 'Uploaded' %}: 2024.02.02.
+                    {% trans 'Format' %}: PDF
+                    {% trans 'Size' %}: 3.7 MB
                 </li>
             </ul>
-            <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i> New Attachment</button>
+            <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i>{% trans 'New Attachment' %}</button>
         </div>
         <div class="col">
             <form action="/psm/project_planning/project/{{project.id}}/save/" method="post">
                 {% csrf_token %}
-                <label class="form-label" for="status" >Status</label>
+                <label class="form-label" for="status" >{% trans 'Status' %}</label>
                 <select class="form-control" id="status" name="project_status">
                     {% for status in statuses %}
-                        <option value="{{status.id}}" {%if project.project_status.id == status.id%} selected {%endif%}>{{status.name}}</option>
+                        <option value="{{status.id}}" {%if project.status.id == status.id%} selected {%endif%}>{{status.name}}</option>
                     {% endfor %}
                 </select>
-                <label class="form-label" for="deadline">Deadline</label>
+                <label class="form-label" for="deadline">{% trans 'Deadline' %}</label>
                 <input class="form-control" type="date" value="{{project.deadline|date:'Y-m-d'}}" name="project_deadline">
-                <button class="btn btn-primary" type="submit">Save</button>            
+                <button class="btn btn-primary" type="submit">{% trans 'Save' %}</button>            
             </form>
+            <button class="btn btn-secondary">{% trans 'Calendar view' %}</button>
             <a href="/psm/project_planning/reports"><button class="btn btn-secondary"><i class="fa-solid fa-chart-simple"></i> Reports</button></a>
+            <hr>
+            <button class="btn btn-primary">{% trans 'Close Project' %}</button>
+            <form action="/psm/project_planning/project/{{project.id}}/delete/" method="post">
+                {% csrf_token %}
+                <input class="btn btn-secondary" name="project.id" value="{% trans 'Delete Project' %}" type="submit">
+            </form>
             <form action="/psm/calendar/project/{{project.id}}/" method="post">
                 {% csrf_token %}
                 <input class="btn btn-secondary" type="submit" value="Calendar view" name="Submit" id="frm1_submit" />
             </form>  
-            <hr>
-            <button class="btn btn-primary">Close Project</button>
-            <form action="/psm/project_planning/project/{{project.id}}/delete/" method="post">
-                {% csrf_token %}
-                <input class="btn btn-secondary" name="project.id" value="Delete Project" type="submit">
-            </form>
         </div>
     </div>
 </div>
@@ -183,18 +147,30 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h4><b>{% trans 'Projects' %}</b></h4>
-            <ul class="list-group">
-                {% for project in projects %}
-                <li class="list-group-item">
-                    {{project.name}}
-                    {{project.created_at}}
-                    {{project.project_status}}
-                    <a href="/psm/project_planning/project/{{project.id}}/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                </li>
-                {% endfor %}
-            </ul>
-            <div class="btn_container"><button id="add_new_project_btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> <a href="/psm/project_planning/add_project/">New Project</a></button></div>  
+            <h1 style="font-size: 400; margin-bottom: 20px;"><b>{% trans 'Projects' %}</b></h1>
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th>{% trans 'Name' %}</th>
+                        <th>{% trans 'Created' %}</th>
+                        <th>{% trans 'Deadline' %}</th>
+                        <th>{% trans 'Status' %}</th>
+                        <th>{% trans 'Details' %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for project in projects %}
+                    <tr>
+                        <td>{{ project.name }}</td>
+                        <td>{{ project.created_at|date:"Y-m-d" }}</td>
+                        <td>{{ project.deadline|date:"Y-m-d" }}</td>
+                        <td>{{ project.project_status }}</td>
+                        <td style="text-align: center;"><a href="/psm/project_planning/project/{{ project.id }}/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="btn_container"><button id="add_new_project_btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i> <a href="/psm/project_planning/add_project/">New Project</a></button></div>
         </div>
     </div>
 </div>

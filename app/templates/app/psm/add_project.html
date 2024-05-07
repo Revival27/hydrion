@@ -1,8 +1,9 @@
 {% extends "app/psm/psm.html"%}
 {% load i18n static settings %}
 {% block content %}
-<div class="container">
-    <div class="row-sm" style="max-width: 60%;">
+<div class="container" style="padding: 0; margin-left: 0;">
+    <h1 style="font-size:400; margin-bottom: 20px"><b>{% trans 'Create New Project' %}</b></h1>
+    <div class="row-sm justify-content-start" style="max-width: 60%;">
         <div class="col">
             
             <form action="/psm/project_planning/add_project/" method="post">
@@ -35,7 +36,7 @@
                         {% endfor %}
                     </select>
                 </div>
-                <input type="submit" name="" id="" class="btn btn-primary">
+                <input type="submit" name="" id="" class="btn btn-primary" style="margin-top: 20px;">
             </form>
 
         </div>

@@ -2,18 +2,23 @@
 {% load i18n static settings %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/tpfm_dashboard.css' %}">
   <div class="container">
-    <ol>
-      <li>{% trans 'Upload Water / Surface Model' %}</li>
-      <li>{% trans 'Select Turbine' %}</li>
-    </ol><br />
-    <form method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      <input type="file" name="fluid_model" />
-      <button type="submit" class="btn">{% trans 'Upload fluid model' %}</button>
-    </form>
-    {% if upload_success %}
-      <div class="alert alert-success" role="alert">{% trans 'File uploaded successfully!' %}</div>
-    {% endif %}
+    <div class="dashboard-content">
+    <div class="form-container">
+  <ol class="dashboard-steps">
+    <li>{% trans 'Upload Water and Surface Model' %}</li>
+    <li>{% trans 'Select Turbine' %}</li>
+  </ol>
+  <form class="upload-form" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="fluid_model" class="file-input" />
+    <button type="submit" class="upload-btn">{% trans 'Upload fluid model' %}</button>
+  </form>
+  {% if upload_success %}
+    <div class="alert alert-success" role="alert">{% trans 'File uploaded successfully!' %}</div>
+  {% endif %}
+</div>
+    </div>
   </div>
 {% endblock %}
