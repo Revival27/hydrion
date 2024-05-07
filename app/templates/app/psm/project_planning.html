@@ -39,9 +39,8 @@
             <h4><b>{{report.name}}</b></h4>
             <div>Created at: {{report.created_at}}</div>
             <div>{{report.efficiency}}</div>
-           {% for ts in tasks_statu %}
-           {{ts}}
-           {% endfor %}
+            {{ html|safe }}  {# Use |safe filter to render HTML content #}
+           
         <hr>
         </div>
     </div>
@@ -53,7 +52,8 @@
         <div class="col">
             <h4><b>{% trans 'Reports' %}</b></h4>
             <ul class="list-group">
-                {% for report in reports %}
+               {% for report in reports %}
+                 <h4>{{report.project.name}}</h4>
                 <li class="list-group-item">
                     {{report}}
                     {{report.name}}
@@ -164,11 +164,7 @@
                 <input class="form-control" type="date" value="{{project.deadline|date:'Y-m-d'}}" name="project_deadline">
                 <button class="btn btn-primary" type="submit">Save</button>            
             </form>
-            <form action="/psm/project_planning/report/{{project.report_id}}/" method="post">
-                {% csrf_token %}
-                <input type="text" name="project_id" value="{{project.id}}" hidden>
-                <button class="btn btn-secondary"><i class="fa-solid fa-chart-simple"></i> Report</button>
-            </form>
+            <a href="/psm/project_planning/reports"><button class="btn btn-secondary"><i class="fa-solid fa-chart-simple"></i> Reports</button></a>
             <form action="/psm/calendar/project/{{project.id}}/" method="post">
                 {% csrf_token %}
                 <input class="btn btn-secondary" type="submit" value="Calendar view" name="Submit" id="frm1_submit" />

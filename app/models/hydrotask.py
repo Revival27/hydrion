@@ -4,8 +4,6 @@ from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from datetime import timedelta
 
-
-
 class HydroTask(models.Model):
     id = models.BigAutoField(db_column='id', primary_key=True)
     name = models.CharField(db_column='name', max_length=250)

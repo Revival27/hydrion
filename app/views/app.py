@@ -1,5 +1,7 @@
 import json
 import os
+import csv
+import datetime
 from django.contrib.auth import login
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
@@ -15,8 +17,9 @@ from django.utils.translation import ugettext as _
 from django import forms
 from webodm import settings
 from app.models.modelform import HydroSurveyForm
-import csv
-import datetime
+import matplotlib.pyplot as plt
+import base64
+import io
 
 
 def index(request):
@@ -144,12 +147,31 @@ def planning_scenario_modelling(request):
 
 @login_required
 def report(request, report_id=None):
-    if request.method == "GET" and "reports" in request.path:
-        reports = Report.objects.all()
-        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'reports':reports})
-    report = Report.objects.get(id=report_id)
-    return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'report':report}) #, 'tasks_status': tasks_status
+    if report_id:
+        report = Report.objects.get(id=report_id)
+        tasks,completion_ratios = report.tasks_completion()
+        print(tasks)
+        print(completion_ratios)
+                # Create a bar plot
+        plt.figure(figsize=(8, 6))
+        plt.bar(tasks, completion_ratios, color='skyblue')
 
+        # Adding labels and title
+        plt.xlabel('Tasks')
+        plt.ylabel('Completion Ratio')
+        plt.title('Task Completion Ratio')
+
+        buffer = io.BytesIO()
+        plt.savefig(buffer, format='png')
+        buffer.seek(0)
+        plot_data = base64.b64encode(buffer.getvalue()).decode()
+        html = f'<img src="data:image/png;base64,{plot_data}" alt="Task Completion Ratio">'
+# Encode the BytesIO object to base64
+       
+        return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'report':report, 'html': html}) #, 'tasks_status': tasks_status
+    reports = Report.objects.order_by('project')
+    return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'reports':reports})
+    
 @login_required
 def project_planning(request, project_id=None):
     projects = HydroProject.objects.all()
@@ -160,6 +182,7 @@ def project_planning(request, project_id=None):
         task_statuses = TaskStatus.objects.all()
         team_id = project.team
         team_members = TeamMember.objects.filter(team = team_id)
+        project_reports = Report.objects.filter(project=project_id)
         if request.method == "POST":
             task_name = request.POST.get('task_name')
             task_deadline = request.POST.get('task_deadline')
@@ -178,9 +201,9 @@ def project_planning(request, project_id=None):
                     start_date = task_start_date,
                     color = task_color
                 )
-            return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'team_members':team_members,'add_new_task': True})
+            return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'team_members':team_members, 'project_reports':project_reports, 'add_new_task': True})
         elif request.method == "GET":
-            return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'team_members':team_members,'add_new_task': False})
+            return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'project':project, 'statuses':statuses, 'tasks':tasks, 'task_statuses': task_statuses, 'team_members':team_members, 'project_reports':project_reports, 'add_new_task': False})
     return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'projects':projects})
 
 @login_required

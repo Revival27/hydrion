@@ -3,7 +3,6 @@ from django.contrib.postgres import fields
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
-
 class HydroProject(models.Model):
     id = models.BigAutoField(db_column='id', primary_key=True)
     name = models.CharField(db_column='name', max_length=250)
@@ -12,7 +11,7 @@ class HydroProject(models.Model):
     deadline = models.DateField(db_column='deadline')
     team = models.ForeignKey('Team', on_delete=models.CASCADE)
     description = models.TextField(db_column='description')
-    report = models.ForeignKey('Report', on_delete=models.CASCADE, blank=True, null=True, default=None)
+    
     class Meta:
         verbose_name = ('Hydro Project')
         db_table = 'hydroproject'
