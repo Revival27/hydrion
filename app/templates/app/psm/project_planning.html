@@ -127,7 +127,10 @@
                 <input class="form-control" type="date" value="{{project.deadline|date:'Y-m-d'}}" name="project_deadline">
                 <button class="btn btn-primary" type="submit">{% trans 'Save' %}</button>            
             </form>
-            <button class="btn btn-secondary">{% trans 'Calendar view' %}</button>
+            <form action="/psm/calendar/project/{{project.id}}/" method="post">
+                {% csrf_token %}
+                <input class="btn btn-secondary" type="submit" value="Calendar view" name="Submit" id="frm1_submit" />
+            </form>  
             <a href="/psm/project_planning/reports"><button class="btn btn-secondary"><i class="fa-solid fa-chart-simple"></i> Reports</button></a>
             <hr>
             <button class="btn btn-primary">{% trans 'Close Project' %}</button>
@@ -135,10 +138,6 @@
                 {% csrf_token %}
                 <input class="btn btn-secondary" name="project.id" value="{% trans 'Delete Project' %}" type="submit">
             </form>
-            <form action="/psm/calendar/project/{{project.id}}/" method="post">
-                {% csrf_token %}
-                <input class="btn btn-secondary" type="submit" value="Calendar view" name="Submit" id="frm1_submit" />
-            </form>  
         </div>
     </div>
 </div>
