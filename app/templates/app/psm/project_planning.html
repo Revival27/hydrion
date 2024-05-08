@@ -112,8 +112,15 @@
                     {% trans 'Size' %}: 3.7 MB
                 </li>
             </ul>
-            <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i>{% trans 'New Attachment' %}</button>
+            <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i> {% trans 'New Attachment' %}</button>
+    
+            <form action="/psm/project_planning/{{project.id}}/csv/" method="post">
+                {% csrf_token %}
+                <input class="btn btn-secondary" type="submit" value="Export to csv" name="Submit" id="export_scv_btn"/>
+            </form>  
         </div>
+
+      
         <div class="col">
             <form action="/psm/project_planning/project/{{project.id}}/save/" method="post">
                 {% csrf_token %}
@@ -126,6 +133,11 @@
                 <label class="form-label" for="deadline">{% trans 'Deadline' %}</label>
                 <input class="form-control" type="date" value="{{project.deadline|date:'Y-m-d'}}" name="project_deadline">
                 <button class="btn btn-primary" type="submit">{% trans 'Save' %}</button>            
+            </form>
+            <form action="/psm/project_planning/report/{{project.report_id}}/" method="post">
+                {% csrf_token %}
+                <input type="text" name="project_id" value="{{project.id}}" hidden>
+                <button class="btn btn-secondary"><i class="fa-solid fa-chart-simple"></i> Report</button>
             </form>
             <form action="/psm/calendar/project/{{project.id}}/" method="post">
                 {% csrf_token %}
