@@ -3,14 +3,10 @@ from django.contrib.postgres import fields
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
-
-#CARDINAL_DIRECTIONS = ["Észak", "Kelet","Dél", "Nyugat"]
-#CARDINAL_DIRECTIONS_SORTED= sorted([(item, item) for item in CARDINAL_DIRECTIONS])
 CARDINAL_DIRECTIONS_TUPLE = (("N", "Észak"), ("E", "Kelet"), ("S", "Dél"), ("W", "Nyugat"))
 
 class HydroSurvey(models.Model):
     id = models.BigAutoField(db_column='id', primary_key=True)
-    #name = models.CharField(db_column='name', max_length=250)
     deadline = models.DateTimeField(db_column='deadline', verbose_name="Határidő")
     status = models.CharField(db_column='status', max_length=250, verbose_name="Státusz")
     water_surface = models.CharField(db_column='water_surface', max_length=250, verbose_name="Vízfelület")

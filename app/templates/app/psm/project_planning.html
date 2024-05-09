@@ -114,7 +114,11 @@
                     {% trans 'Size' %}: 3.7 MB
                 </li>
             </ul>
-            <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i>{% trans 'New Attachment' %}</button>
+            <button class="btn btn-secondary"><i class="fa-solid fa-plus"></i> {% trans 'New Attachment' %}</button>
+            <form action="/psm/project_planning/{{project.id}}/csv/" method="post">
+                {% csrf_token %}
+                <input class="btn btn-secondary" type="submit" value="Export to csv" name="Submit" id="export_scv_btn"/>
+            </form>  
         </div>
         <div class="col">
             <form action="/psm/project_planning/project/{{project.id}}/save/" method="post">

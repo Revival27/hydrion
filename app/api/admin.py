@@ -7,8 +7,7 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.hashers import make_password
-from app import models
-from ..models import Team, HydroProject, ProjectStatus
+from ..models import Team, HydroProject, ProjectStatus, TaskStatus, Report
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -100,3 +99,13 @@ class HydroProjectAdmin(admin.ModelAdmin):
 class StatusAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')  
     search_fields = ('name',)
+
+@admin.register(TaskStatus)
+class TaskStatusAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')  
+    search_fields = ('name',)
+
+@admin.register(Report)
+class ReportAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'created_at', 'efficiency', 'project')
+    search_fields = ('name', 'created_at', 'project')

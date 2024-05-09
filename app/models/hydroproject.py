@@ -12,6 +12,9 @@ class HydroProject(models.Model):
     team = models.ForeignKey('Team', on_delete=models.CASCADE)
     description = models.TextField(db_column='description')
     
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = ('Hydro Project')
         db_table = 'hydroproject'
