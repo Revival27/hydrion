@@ -7,7 +7,7 @@ CARDINAL_DIRECTIONS_TUPLE = (("N", "Észak"), ("E", "Kelet"), ("S", "Dél"), ("W
 
 class HydroSurvey(models.Model):
     id = models.BigAutoField(db_column='id', primary_key=True)
-    deadline = models.DateTimeField(db_column='deadline', verbose_name="Határidő")
+    deadline = models.DateField(db_column='deadline', verbose_name="Határidő")
     status = models.CharField(db_column='status', max_length=250, verbose_name="Státusz")
     water_surface = models.CharField(db_column='water_surface', max_length=250, verbose_name="Vízfelület")
     location = models.CharField(db_column='location', max_length=250, verbose_name="Helyszín")

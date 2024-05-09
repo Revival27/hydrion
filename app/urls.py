@@ -32,15 +32,13 @@ urlpatterns = [
     url(r'^tpfm/3d_modelling/$', app_views.threed_modelling, name='3d_modelling'),
     url(r'^tpfm/pressure_analysis/$', app_views.pressure_analysis, name='pressure_analysis'),
     url(r'^psm/$', app_views.planning_scenario_modelling, name='planning_scenario_modelling'),
-    # url(r'^turbine-planner/$', app_views.turbine_planner, name='turbine_planner'),
-    
+    #Data Collection/Hydrological survey
     url(r'^psm/data_collection/$', app_views.hydro_survey_list, name='data_collection'),
-    
+    url(r'^psm/add_survey/$', app_views.add_survey, name='add_survey'),
     url(r'^psm/hydrosurvey/(?P<hydrosurvey_pk>[^/.]+)/csv/$', app_views.export_to_csv, name='data_collection'),
-    
     url(r'^psm/hydrosurvey/(?P<hydrosurvey_pk>[^/.]+)/$', app_views.hydro_survey, name='data_collection'),
     url(r'^psm/hydrosurveys/$', app_views.hydro_survey, name='data_collection'),
-    
+    #Project Planning
     url(r'^psm/project_planning/$', app_views.project_planning, name='project_planning'),
     url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/$', app_views.project_planning, name='project_planning'),
     url(r'^psm/project_planning/project/(?P<project_id>[^/.]+)/delete/$', app_views.delete_project, name='project_planning'),

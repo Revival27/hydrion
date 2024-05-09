@@ -176,24 +176,16 @@ def report(request, report_id=None):
     if report_id:
         report = Report.objects.get(id=report_id)
         tasks,completion_ratios = report.tasks_completion()
-        print(tasks)
-        print(completion_ratios)
-                # Create a bar plot
         plt.figure(figsize=(8, 6))
         plt.bar(tasks, completion_ratios, color='skyblue')
-
-        # Adding labels and title
         plt.xlabel('Tasks')
         plt.ylabel('Completion Ratio')
         plt.title('Task Completion Ratio')
-
         buffer = io.BytesIO()
         plt.savefig(buffer, format='png')
         buffer.seek(0)
         plot_data = base64.b64encode(buffer.getvalue()).decode()
         html = f'<img src="data:image/png;base64,{plot_data}" alt="Task Completion Ratio">'
-# Encode the BytesIO object to base64
-       
         return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'report':report, 'html': html}) #, 'tasks_status': tasks_status
     reports = Report.objects.order_by('project')
     return render(request, 'app/psm/project_planning.html', {'title': _('Project Planning'), 'reports':reports})
@@ -280,19 +272,38 @@ def add_project(request):
                                               description = description,
                                               project_status = status,
                                               deadline = deadline,
-                                              team =  team)
+                                              team = team)
     return render(request, 'app/psm/add_project.html', {'title': _('Project Planning'), 'statuses':statuses, 'teams':teams})
-
-@login_required
-def statistics(request):
-    return render(request, 'app/psm/project_planning.html', {'title': _('Project statistics')}) 
 
 @login_required
 def data_collection(request):
     return render(request, 'app/psm/data_collection.html', {'title': _('Data Collection')})
 
-# def turbine_planner(request):
-#     return render(request, 'app/templates/app/public/3d_model_turbine.html', {'title': _('Turbine and waterflow planner'), 'version': settings.VERSION})
+@login_required
+def add_survey(request):
+    if request.method == "POST":
+        deadline = request.POST.get('deadline')
+        status = request.POST.get('status')
+        water_surface = request.POST.get('water_surface')
+        location = request.POST.get('location')
+        flow_direction = request.POST.get('flow_direction')
+        flow_direction_speed = request.POST.get('flow_direction_speed')
+        segment_width = request.POST.get('segment_width')
+        segment_depth = request.POST.get('segment_depth')
+        estimated_waterflow = request.POST.get('estimated_waterflow')
+        estimated_energy_production = request.POST.get('estimated_energy_production')
+        HydroSurvey.objects.create(deadline = deadline,
+                                   status = status,
+                                   water_surface = water_surface,
+                                   location = location,
+                                   flow_direction = flow_direction,
+                                   flow_direction_speed = flow_direction_speed,
+                                   segment_width = segment_width,
+                                   segment_depth = segment_depth,
+                                   estimated_waterflow = estimated_waterflow,
+                                   estimated_energy_production = estimated_energy_production)
+
+    return render(request, 'app/psm/add_survey.html', {'title': _('Add Hydrological Survey')})
 
 @login_required
 def map(request, project_pk=None, task_pk=None):

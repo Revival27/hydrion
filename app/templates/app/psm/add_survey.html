@@ -1,0 +1,62 @@
+{% extends "app/psm/psm.html"%}
+{% load i18n static settings %}
+{% block content %}
+<div class="container" style="padding: 0; margin-left: 0;">
+    <h1 style="font-size:400; margin-bottom: 20px"><b>{% trans 'Create New Survey' %}</b></h1>
+    <div class="row-sm justify-content-start" style="max-width: 60%;">
+        <div class="col">
+            
+            <form action="/psm/add_survey/" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label" for="deadline">{% trans 'Deadline' %}</label>
+                    <input class="form-control" type="date" name="deadline" id="deadline" required>
+                </div>
+                <div class="mb-3">
+                    <label for="status" class="form-label">{% trans 'Status' %}</label>
+                    <input type="text" class="form-control" name="status">
+                </div>
+                <div class="mb-3">
+                    <label for="water_surface" class="form-label">{% trans 'Water Surface' %}</label>
+                    <input type="text" class="form-control" name="water_surface" required>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">{% trans 'Location' %}</label>
+                    <input type="text" class="form-control" name="location" required>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">{% trans 'Flow direction' %}</label>
+                    <select name="flow_direction" id="" class="form-control">
+                        <option value="">North</option>
+                        <option value="">South</option>
+                        <option value="">East</option>
+                        <option value="">West</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">{% trans 'Flow direction speed' %}</label>
+                    <input type="text" class="form-control" name="location" required>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">{% trans 'Segment Width' %}</label>
+                    <input type="text" class="form-control" name="location" required>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">{% trans 'Segment Depth' %}</label>
+                    <input type="text" class="form-control" name="location" required>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">{% trans 'Estimated waterflow' %}</label>
+                    <input type="text" class="form-control" name="location" required>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">{% trans 'Estimated energy production' %}</label>
+                    <input type="text" class="form-control" name="location" required>
+                </div>
+                <input type="submit" name="" id="" class="btn btn-primary" style="margin-top: 20px;">
+            </form>
+
+        </div>
+    </div>
+</div>
+    {% endblock %}
