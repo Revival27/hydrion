@@ -16,11 +16,11 @@ class Report(models.Model):
     def tasks_completion(self):
         tasks = HydroTask.objects.filter(project=self.project)
         completion_statuses = []
-        status_to_value = {'Preparing': 0, 'In progress': 0.5, 'Done': 1}
         task_names = []
         for task in tasks:
             completion_statuses.append(task.status.name)
             task_names.append(task.name)
+        status_to_value = {completion_statuses[0]: 0, completion_statuses[1]: 0.5, completion_statuses[2]: 1}
         completion_ratios = [status_to_value[status] for status in completion_statuses]
         return(task_names, completion_ratios)
 
