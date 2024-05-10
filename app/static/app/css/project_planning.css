@@ -1,7 +1,10 @@
     .row{
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-start;
+    }
+    .container{
+        margin-left: 0;
     }
     .btn_container{
         position: fixed;
