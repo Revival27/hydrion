@@ -151,8 +151,8 @@
 {% if projects %}
 <div class="container">
     <div class="row">
-        <div class="col">
-            <h1 style="font-size: 400; margin-bottom: 20px;"><b>{% trans 'Projects' %}</b></h1>
+        <div class="col-md-10 ">
+            <h1 class="h1 mb-5"><b>{% trans 'Projects' %}</b></h1>
             <table class="project-table">
                 <thead>
                     <tr>
@@ -170,7 +170,7 @@
                         <td>{{ project.created_at|date:"Y-m-d" }}</td>
                         <td>{{ project.deadline|date:"Y-m-d" }}</td>
                         <td>{{ project.project_status }}</td>
-                        <td style="text-align: center;"><a href="/psm/project_planning/project/{{ project.id }}/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
+                        <td class="text-center"><a href="/psm/project_planning/project/{{ project.id }}/"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
