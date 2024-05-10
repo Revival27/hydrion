@@ -10,7 +10,7 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from guardian.shortcuts import get_objects_for_user
 
 from nodeodm.models import ProcessingNode
-from app.models import Project, Task, HydroProject, ProjectStatus, HydroTask, Team, HydroSurvey, TaskStatus, TeamMember, Report
+from app.models import Project, Task, HydroProject, ProjectStatus, HydroTask, Team, HydroSurvey, TaskStatus, TeamMember, Report, HydroSurveyFlowDirection
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
@@ -281,12 +281,15 @@ def data_collection(request):
 
 @login_required
 def add_survey(request):
+    flow_directions = HydroSurveyFlowDirection.objects.all()
     if request.method == "POST":
         deadline = request.POST.get('deadline')
         status = request.POST.get('status')
         water_surface = request.POST.get('water_surface')
         location = request.POST.get('location')
-        flow_direction = request.POST.get('flow_direction')
+        flow_direction_id = request.POST.get('flow_direction_id')
+        flow_direction_id = HydroSurveyFlowDirection.objects.get(id=flow_direction_id)
+        print(flow_direction_id)
         flow_direction_speed = request.POST.get('flow_direction_speed')
         segment_width = request.POST.get('segment_width')
         segment_depth = request.POST.get('segment_depth')
@@ -296,14 +299,14 @@ def add_survey(request):
                                    status = status,
                                    water_surface = water_surface,
                                    location = location,
-                                   flow_direction = flow_direction,
+                                   flow_direction = flow_direction_id,
                                    flow_direction_speed = flow_direction_speed,
                                    segment_width = segment_width,
                                    segment_depth = segment_depth,
                                    estimated_waterflow = estimated_waterflow,
                                    estimated_energy_production = estimated_energy_production)
 
-    return render(request, 'app/psm/add_survey.html', {'title': _('Add Hydrological Survey')})
+    return render(request, 'app/psm/add_survey.html', {'title': _('Add Hydrological Survey'), 'flow_directions':flow_directions })
 
 @login_required
 def map(request, project_pk=None, task_pk=None):

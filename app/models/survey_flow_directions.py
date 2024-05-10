@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 class HydroSurveyFlowDirection(models.Model):
     id = models.BigAutoField(db_column='id', primary_key=True)
-    name = models.DateField(db_column='name', verbose_name="Áramlási irány")
+    name = models.CharField(db_column='name', max_length=50, verbose_name="Áramlási irány")
     
     def __str__(self):
         return self.name

@@ -14,44 +14,44 @@
                 </div>
                 <div class="mb-3">
                     <label for="status" class="form-label">{% trans 'Status' %}</label>
-                    <input type="text" class="form-control" name="status">
+                    <input type="text" class="form-control" name="status" id="status">
                 </div>
                 <div class="mb-3">
                     <label for="water_surface" class="form-label">{% trans 'Water Surface' %}</label>
-                    <input type="text" class="form-control" name="water_surface" required>
+                    <input type="text" class="form-control" name="water_surface" id="water_surface" required>
                 </div>
                 <div class="mb-3">
                     <label for="location" class="form-label">{% trans 'Location' %}</label>
                     <input type="text" class="form-control" name="location" required>
                 </div>
                 <div class="mb-3">
-                    <label for="location" class="form-label">{% trans 'Flow direction' %}</label>
-                    <select name="flow_direction" id="" class="form-control">
-                        <option value="">North</option>
-                        <option value="">South</option>
-                        <option value="">East</option>
-                        <option value="">West</option>
+                    <label for="flow_direction" class="form-label">{% trans 'Flow direction' %}</label>
+                    <select name="flow_direction_id" id="flow_direction" class="form-control">
+                        {% for flow_direction in flow_directions %}
+                        <option value="{{flow_direction.id}}" {%if hydrosurvey.flow_direction.id == flow_direction.id%}selected{%endif%}>{{flow_direction}}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="location" class="form-label">{% trans 'Flow direction speed' %}</label>
-                    <input type="text" class="form-control" name="location" required>
+                    <label for="flow_direction_speed" class="form-label">{% trans 'Flow direction speed' %}</label>
+                    <input type="text" class="form-control" name="flow_direction_speed" id="flow_direction_speed" placeholder="km/h" required>
                 </div>
                 <div class="mb-3">
-                    <label for="location" class="form-label">{% trans 'Segment Width' %}</label>
-                    <input type="text" class="form-control" name="location" required>
+                    <label for="segment_width" class="form-label">{% trans 'Segment Width' %}</label>
+                    <input type="text" class="form-control" name="segment_width" id="segment_width" placeholder="m" required>
                 </div>
                 <div class="mb-3">
-                    <label for="location" class="form-label">{% trans 'Segment Depth' %}</label>
-                    <input type="text" class="form-control" name="location" required>
+                    <label for="segment_depth" class="form-label">{% trans 'Segment Depth' %}</label>
+                    <input type="text" class="form-control" name="segment_depth" id="segment_depth" placeholder="m" required>
                 </div>
                 <div class="mb-3">
-                    <label for="location" class="form-label">{% trans 'Estimated waterflow' %}</label>
-                    <input type="text" class="form-control" name="location" required>
+                    <label for="estimated_waterflow" class="form-label">{% trans 'Estimated waterflow' %}</label>
+                    
+                    <input type="text" class="form-control" name="estimated_waterflow" id="estimated_waterflow" placeholder="m²/s"required>
                 </div>
                 <div class="mb-3">
-                    <label for="location" class="form-label">{% trans 'Estimated energy production' %}</label>
-                    <input type="text" class="form-control" name="location" required>
+                    <label for="estimated_energy_production" class="form-label">{% trans 'Estimated energy production' %}</label>
+                    <input type="text" class="form-control" name="estimated_energy_production" id="estimated_energy_production" placeholder="MWh" required>
                 </div>
                 <input type="submit" name="" id="" class="btn btn-primary" style="margin-top: 20px;">
             </form>
