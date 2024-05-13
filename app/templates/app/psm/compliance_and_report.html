@@ -1,0 +1,14 @@
+{% extends 'app/psm/psm.html' %}
+{% load i18n static crispy_forms_tags %}
+{% block content %}
+<form action="/psm/compliance_and_report/" method="post">
+    {% csrf_token %}
+<div class="btn_container">
+    <a href="/psm/compliance_and_report/">
+    <button id="add_new_project_btn" class="btn btn-primary">
+        <i class="fa-solid fa-arrow-down"></i> {% trans 'Download reports' %}
+    </button>
+    </a>
+</div>
+</form>
+{% endblock %}

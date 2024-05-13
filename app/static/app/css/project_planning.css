@@ -1,7 +1,7 @@
     .row{
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: flex;
     }
     .container{
         margin-left: 0;
@@ -16,7 +16,7 @@
         list-style-type: none;
     }
     .btn{
-        border: 2px solid lightblue;
+        border: 2px solid rgb(35, 45, 48);
     }
     a {
         all: unset;

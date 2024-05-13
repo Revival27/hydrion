@@ -127,27 +127,19 @@ def export_project_to_csv(request, project_id=None):
 def hydro_survey(request, hydrosurvey_pk=None):
     form = HydroSurveyForm(request.POST)
     if request.method == 'POST':
-        
         if form.is_valid():
-            
             survey = form.save()
-            
             return redirect('data_collection')
     else:
         form = HydroSurveyForm()
-        
     if hydrosurvey_pk:
         survey = get_object_or_404(HydroSurvey, pk=hydrosurvey_pk)
         return render(request, 'app/psm/data_collection.html', {'survey': survey}, {'form': form})
-    
     return render(request, 'app/psm/data_collection.html', {'form': form})
 
 @login_required
 def hydro_survey_list(request):
-    
     hydrosurveys = HydroSurvey.objects.all()
-    
-    
     return render(request, 'app/psm/data_collection.html', {'hydrosurveys': hydrosurveys}) 
 
 
@@ -307,6 +299,22 @@ def add_survey(request):
                                    estimated_energy_production = estimated_energy_production)
 
     return render(request, 'app/psm/add_survey.html', {'title': _('Add Hydrological Survey'), 'flow_directions':flow_directions })
+
+@login_required
+def compliance_and_report(request):
+    if request.method == 'POST':
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="reports.csv"'
+        writer = csv.writer(response)
+        reports_head = ['id', 'name', 'created_at', 'efficiency', 'project'] 
+        writer.writerow(reports_head)        
+        reports = Report.objects.all()
+        for report in reports:
+            csv_list = [getattr(report, field) for field in reports_head]
+            writer.writerow(csv_list)
+        
+        return response
+    return render(request, 'app/psm/compliance_and_report.html', {'title': _('Download reports')})
 
 @login_required
 def map(request, project_pk=None, task_pk=None):
