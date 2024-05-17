@@ -313,15 +313,13 @@ def data_collection(request):
 
 @login_required
 def add_survey(request):
-    flow_directions = HydroSurveyFlowDirection.objects.all()
+    
     if request.method == "POST":
         deadline = request.POST.get('deadline')
         status = request.POST.get('status')
         water_surface = request.POST.get('water_surface')
         location = request.POST.get('location')
-        flow_direction_id = request.POST.get('flow_direction_id')
-        flow_direction_id = HydroSurveyFlowDirection.objects.get(id=flow_direction_id)
-        print(flow_direction_id)
+        flow_direction = request.POST.get('flow_direction')
         flow_direction_speed = request.POST.get('flow_direction_speed')
         segment_width = request.POST.get('segment_width')
         segment_depth = request.POST.get('segment_depth')
@@ -331,14 +329,14 @@ def add_survey(request):
                                    status = status,
                                    water_surface = water_surface,
                                    location = location,
-                                   flow_direction = flow_direction_id,
+                                   flow_direction = flow_direction,
                                    flow_direction_speed = flow_direction_speed,
                                    segment_width = segment_width,
                                    segment_depth = segment_depth,
                                    estimated_waterflow = estimated_waterflow,
                                    estimated_energy_production = estimated_energy_production)
 
-    return render(request, 'app/psm/add_survey.html', {'title': _('Add Hydrological Survey'), 'flow_directions':flow_directions })
+    return render(request, 'app/psm/add_survey.html', {'title': _('Add Hydrological Survey')})
 
 @login_required
 def compliance_and_report(request):

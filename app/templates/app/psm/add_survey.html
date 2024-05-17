@@ -26,9 +26,9 @@
                 </div>
                 <div class="mb-3">
                     <label for="flow_direction" class="form-label">{% trans 'Flow direction' %}</label>
-                    <select name="flow_direction_id" id="flow_direction" class="form-control">
+                    <select name="flow_direction" id="flow_direction" class="form-control">
                         {% for flow_direction in flow_directions %}
-                        <option value="{{flow_direction.id}}" {%if hydrosurvey.flow_direction.id == flow_direction.id%}selected{%endif%}>{{flow_direction}}</option>
+                        <option value="{{flow_direction}}" {%if hydrosurvey.flow_direction == flow_direction%}selected{%endif%}>{{flow_direction}}</option>
                         {% endfor %}
                     </select>
                 </div>
