@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^tpfm/$', app_views.tpfm_dashboard, name='tpfm_dashboard'),
     url(r'^tpfm/upload/$', app_views.tpfm_dashboard, name='upload_water_surface_model'),
     url(r'^tpfm/flow_simulation/$', app_views.flow_simulation, name='flow_simulation'),
+    #Turbine efficiency modelling
     url(r'^tpfm/turbine_efficiency_modelling/$', app_views.turbine_efficiency_modelling, name='turbine_efficiency_modelling'),
     url(r'^tpfm/3d_modelling/$', app_views.threed_modelling, name='3d_modelling'),
     url(r'^tpfm/pressure_analysis/$', app_views.pressure_analysis, name='pressure_analysis'),

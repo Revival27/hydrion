@@ -1,1 +1,189 @@
 {% extends "app/tpfm/tpfm.html" %}
+{% load i18n static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/tpfm_dashboard.css' %}">
+<style>
+    input{
+      text-align: center;
+    }
+    .form{
+      margin: 10px;
+    }
+    .btn{
+      margin: 10px;
+    }
+    .row{
+      margin: auto;
+      margin-right: 35%;
+    }
+    body {font-family: Arial;}
+    
+    /* Style the tab */
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+    
+    /* Style the buttons inside the tab */
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+    
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #ddd;
+    }
+    
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: #ccc;
+    }
+    
+    /* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+
+    </style>
+    <div class="container">
+                <div class="tab">
+                    <button class="tablinks" onclick="openTurbine(event, 'Turbulent')">Turbulent</button>
+                    <button class="tablinks" onclick="openTurbine(event, 'Lucid Energy')">Lucid Energy</button>
+                    <button class="tablinks" onclick="openTurbine(event, 'Ossberger')">Ossberger</button>
+                    <button class="tablinks" onclick="openTurbine(event, 'HydroWatt')">HydroWatt</button>
+                  </div>
+                  
+                  <div id="Turbulent" class="tabcontent">
+                    <h3>Turbulent</h3>
+                    <div>
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th>Name</th>
+                                  <th>Vortex</th>
+                                  <th>Type</th>
+                                  <th>Water Level</th>
+                                  <th>Continous</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              {% for turbine in turbines %}
+                              <tr onclick="selectTurbine(this)">
+                                  <td>{{turbine.name}}</td>
+                                  <td>{{turbine.vortex}} kW</td>
+                                  <td>{{turbine.turbine_type}}</td>
+                                  <td>{{turbine.water_level}}</td>
+                                  <td>{{turbine.continous}}</td>
+                                  <!-- <td><img src="/static/app/img/pelton.png" alt="pelton turbine"></td> -->
+                              </tr>
+                              {% endfor %}
+                          </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div id="Lucid Energy" class="tabcontent">
+                    <h3>Lucid Energy</h3>
+                    <img src="/static/app/img/pipe-turbine.jpg" alt="">
+                  </div>
+                  <div id="Ossberger" class="tabcontent">
+                    <h3>Ossberger</h3>
+                    <img src="/static/app/img/ossberger.png" alt="">
+                  </div>
+                  <div id="HydroWatt" class="tabcontent">
+                      <h3>HydroWatt</h3>
+                  </div>
+        
+                    <div>{% trans 'General formula of Turbine Efficiency' %}
+                        η=  ⅹ
+
+                    </div>
+                    <form action="/tpfm/turbine_efficiency_modelling/" method="post" class="form">
+                        {% csrf_token %}
+                        <fieldset id="efficiencyForm" disabled >
+                            <legend>{% trans 'Calculate turbine efficiency' %}</legend>
+                            <h3>{% trans 'Selected turbine:' %}<span id="selectedTurbineName"></span></h3>
+                            <div class="mb-3">
+                              <label for="rho" class="form-label">{% trans 'ρ: Densitiy of water in kg/m³' %}</label>
+                              <input type="number" id="rho" class="form-control" value="{{rho}}" name="rho" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="g" class="form-label">{% trans 'g: Acceleration due to gravity in m/s²' %}</label>
+                                <input type="number" id="g" class="form-control" value="{{g}}" name="g">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Q" class="form-label">{% trans 'Q: Volumetric flow rate in m³/s' %}</label>
+                                <input type="number" id="Q" class="form-control" value="{{Q}}" name="Q">
+                            </div>
+                            <div class="mb-3">
+                                <label for="H" class="form-label">{% trans 'H: effective head in meter' %}</label>
+                                <input type="number" id="H" class="form-control" value="{{H}}" name="H">
+                            </div>
+                            <div class="mb-3">
+                                <label for="P_out" class="form-label">{% trans 'Output power in Kw' %}</label>
+                                <input type="number" id="P_out" class="form-control" value="{{P_out}}" name="P_out">
+                            </div>
+                            <div class="mb-3">
+                                <label for="P_in" class="form-label">{% trans 'Input power in watts:' %}</label>
+                                <input type="number" id="inputPower" class="form-control" value="{{P_in}}" name="input_power" disabled>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calculate</button>
+                          </fieldset>
+                    </form>
+                    <label for="efficiency" class="form-label">Calculated efficiency</label>
+                    <div name="efficiency">{{efficiency}} %</div>
+           
+      
+    </div>
+   
+   
+
+    
+    
+    <script>
+    function selectTurbine(row) {
+        // Deselect previously selected row
+        var selected = document.querySelectorAll(".selected");
+        selected.forEach(function(row) {
+            row.classList.remove("selected");
+        });
+
+        // Select the clicked row
+        row.classList.add("selected");
+
+        // Enable the form and set selected turbine name
+        var form = document.getElementById("efficiencyForm");
+        form.removeAttribute("disabled");
+
+        var selectedTurbineName = row.cells[0].innerText;
+        document.getElementById("selectedTurbineName").innerText = selectedTurbineName;
+
+        // Set values for inputs if needed (example with placeholder input)
+        document.getElementById("disabledTextInput").value = selectedTurbineName; // Or other relevant data
+    }
+    function openTurbine(evt, turbineName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(turbineName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+    </script>
+{% endblock %}
+       

@@ -38,9 +38,9 @@ fi
 
 if [ "$1" = "--setup-devenv" ] || [ "$2" = "--setup-devenv" ]; then
     echo Setup git modules...
-    
+
     git submodule update --init
-    
+
     echo Setup npm dependencies...
     npm install
 

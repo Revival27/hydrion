@@ -10,7 +10,7 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from guardian.shortcuts import get_objects_for_user
 
 from nodeodm.models import ProcessingNode
-from app.models import Project, Task, HydroProject, ProjectStatus, HydroTask, Team, HydroSurvey, TaskStatus, TeamMember, Report, HydroSurveyFlowDirection
+from app.models import Project, Task, HydroProject, ProjectStatus, HydroTask, Team, HydroSurvey, TaskStatus, TeamMember, Report, HydroSurveyFlowDirection, Turbine
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
@@ -20,6 +20,7 @@ from app.models.modelform import HydroSurveyForm
 import matplotlib.pyplot as plt
 import base64
 import io
+import numpy as np
 
 
 def index(request):
@@ -153,7 +154,46 @@ def pressure_analysis(request):
 
 @login_required
 def turbine_efficiency_modelling(request):
-    return render(request, 'app/tpfm/turbine_efficiency_modelling.html', {'title': _('Turbine Efficiency Modelling')})
+    turbines = Turbine.objects.all()
+    if request.method == 'GET':
+        # Constants
+        g = 9.81  # acceleration due to gravity in m/s^2
+        rho = 1000  # density of water in kg/m^3
+
+        # Inputs
+        Q = 3  # volumetric flow rate in m^3/s
+        H = 10  # effective head in meters
+        P_out = 250  # output power in kW
+
+        # Calculations
+        P_in = rho * g * Q * H  # input power in watts
+        P_in_kW = P_in / 1000  # convert to kW
+
+        # Efficiency
+        efficiency = (P_out / P_in_kW) * 100
+        print(f"Turbine efficiency: {efficiency:.2f}%")
+        return render(request, 'app/tpfm/turbine_efficiency_modelling.html', {'title': _('Turbine Efficiency Modelling'),
+                                                                              'turbines':turbines,
+                                                                              'rho':rho,
+                                                                              'g':g,
+                                                                              'Q':Q,
+                                                                              'H':H,   
+                                                                              'P_out':P_out,
+                                                                              'P_in':P_in,
+                                                                              'P_in_kW':P_in_kW,
+                                                                              'efficiency': efficiency })
+    if request.method == 'POST':
+        turbines = Turbine.objects.all()
+        density_of_water = float(request.POST.get('rho'))
+        acceleration_due_gravity = float(request.POST.get('g'))
+        volumetric_flow_rate = float(request.POST.get('Q'))
+        effective_head = float(request.POST.get('H'))
+        output_power_in_kW = float(request.POST.get('P_out'))
+        #P_in = rho * g * Q * H
+        P_in = density_of_water * acceleration_due_gravity * volumetric_flow_rate * effective_head
+        P_in_kW = P_in / 1000
+        efficiency = (output_power_in_kW / P_in_kW) * 100
+        return render(request, 'app/tpfm/turbine_efficiency_modelling.html', {'title': _('Turbine Efficiency Modelling'), 'efficiency':efficiency,'turbines':turbines,} )
 
 @login_required
 def threed_modelling(request):

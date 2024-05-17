@@ -14,7 +14,8 @@ from .hydrotask import HydroTask
 from .task_status import TaskStatus
 from .team_member import TeamMember
 from .report import Report
-from .survey_flow_directions import HydroSurveyFlowDirection
+from .turbine import Turbine
+from .turbine_efficiency import Efficiency
 # deprecated
 def image_directory_path(image_upload, filename):
     raise Exception("Deprecated")
