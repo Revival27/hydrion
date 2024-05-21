@@ -11,15 +11,15 @@
                 {% csrf_token %}
                 <div class="mb-3">
                     <label class="form-label" for="pressure_point_1">{% trans 'Pressure at point 1 (kPa)' %}</label>
-                    <input class="form-control" type="text" name="pressure_point_1" id="pressure_point_1" value={% language 'en'%}{{P1|floatformat:4}}{% endlanguage %} required>
+                    <input class="form-control" type="text" name="pressure_point_1" id="pressure_point_1" value={% language 'en'%}{{P1|floatformat:3}}{% endlanguage %} required>
                 </div>
                 <div class="mb-3">
                     <label for="temperature_1" class="form-label">{% trans 'Temperature at point 1 (C)' %}</label>
-                    <input type="text" class="form-control" name="temperature_1" id="temperature_1" value={% language 'en'%}{{T1|floatformat:4}}{% endlanguage %} required>
+                    <input type="text" class="form-control" name="temperature_1" id="temperature_1" value={% language 'en'%}{{T1|floatformat:2}}{% endlanguage %} required>
                 </div>
                 <div class="mb-3">
                     <label for="temperature_2" class="form-label">{% trans 'Temperature at point 2 (C)' %}</label>
-                    <input type="text" class="form-control" name="temperature_2" id="temperature_2" value={% language 'en'%}{{T2|floatformat:4}}{% endlanguage %} required>
+                    <input type="text" class="form-control" name="temperature_2" id="temperature_2" value={% language 'en'%}{{T2|floatformat:2}}{% endlanguage %} required>
                 </div>
                 
 
