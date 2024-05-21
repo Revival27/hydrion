@@ -105,7 +105,7 @@ def export_project_to_csv(request, project_id=None):
     response['Content-Disposition'] = 'attachment; filename="project.csv"'
 
     writer = csv.writer(response)
-    project_fields = ['name', 'created_at', 'project_status_id', 'deadline', 'team_id', 'description', 'report_id']
+    project_fields = ['id', 'name', 'created_at', 'project_status_id', 'deadline', 'team_id', 'description', 'report_id']
     
     writer.writerow(project_fields)
 
