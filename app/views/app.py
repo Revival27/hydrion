@@ -11,6 +11,7 @@ from guardian.shortcuts import get_objects_for_user
 
 from nodeodm.models import ProcessingNode
 from app.models import Project, Task, HydroProject, ProjectStatus, HydroTask, Team, HydroSurvey, TaskStatus, TeamMember, Report, Turbine
+from app.models.hydrosurvey import CARDINAL_DIRECTIONS_TUPLE
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import ugettext as _
@@ -308,7 +309,10 @@ def data_collection(request):
 
 @login_required
 def add_survey(request):
-    
+    directions = CARDINAL_DIRECTIONS_TUPLE
+    directions_list = []
+    for d in directions:
+        directions_list.append(d[1])
     if request.method == "POST":
         deadline = request.POST.get('deadline')
         status = request.POST.get('status')
@@ -331,7 +335,7 @@ def add_survey(request):
                                    estimated_waterflow = estimated_waterflow,
                                    estimated_energy_production = estimated_energy_production)
 
-    return render(request, 'app/psm/add_survey.html', {'title': _('Add Hydrological Survey')})
+    return render(request, 'app/psm/add_survey.html', {'title': _('Add Hydrological Survey'), 'directions':directions_list})
 
 @login_required
 def compliance_and_report(request):
