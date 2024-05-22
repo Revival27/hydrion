@@ -57,8 +57,12 @@
   img{
     max-width: 750px;
   }
+  .selected {
+        background-color: #cceeff; /* Light blue background */
+    }
 </style>
   <div class="container">
+    <h2 class="h2">{% trans 'Turbine efficiency modelling' %}</h2>
     <div class="tab">
       <button class="tablinks" onclick="openTurbine(event, 'Turbulent')">{% trans 'Turbulent' %}</button>
       <button class="tablinks" onclick="openTurbine(event, 'Lucid Energy')">Lucid Energy</button>
@@ -66,21 +70,21 @@
       <button class="tablinks" onclick="openTurbine(event, 'HydroWatt')">HydroWatt</button>
     </div>        
     <div id="Turbulent" class="tabcontent">
-      <h3>Turbulent</h3>
+      <h3>{% trans 'Turbulent' %}</h3>
       <div>
         <table class="table">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Vortex</th>
-                    <th>Type</th>
-                    <th>Water Level</th>
-                    <th>Continous</th>
+                    <th>{% trans 'Name' %}</th>
+                    <th>{% trans 'Vortex' %}</th>
+                    <th>{% trans 'Type' %}</th>
+                    <th>{% trans 'Water Level' %}</th>
+                    <th>{% trans 'Continous' %}</th>
                 </tr>
             </thead>
             <tbody>
                 {% for turbine in turbines %}
-                <tr onclick="selectTurbine(this)">
+                <tr class="table-row" onclick="selectTurbine(this)">
                     <td>{{turbine.name}}</td>
                     <td>{{turbine.vortex}} kW</td>
                     <td>{{turbine.turbine_type}}</td>
@@ -106,13 +110,13 @@
     </div>
         
     <div>
-      {% trans 'General formula of Turbine Efficiency' %}
-        η=  ⅹ
+      {% trans 'General formula of Turbine Efficiency:' %}
+        η = ⅹ
     </div>
     <form action="/tpfm/turbine_efficiency_modelling/" method="post" class="form">
         {% csrf_token %}
         <fieldset id="efficiencyForm" disabled >
-            <legend>{% trans 'Calculate turbine efficiency' %}</legend>
+          <legend>{% trans 'Calculate turbine efficiency' %}</legend>
             <h3>{% trans 'Selected turbine:' %}<span id="selectedTurbineName"></span></h3>
             <div class="mb-3">
               <label for="rho" class="form-label">{% trans 'ρ: Densitiy of water in kg/m³' %}</label>

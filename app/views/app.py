@@ -159,19 +159,15 @@ def turbine_efficiency_modelling(request):
         # Constants
         g = 9.81  # acceleration due to gravity in m/s^2
         rho = 1000  # density of water in kg/m^3
-
         # Inputs
         Q = 3  # volumetric flow rate in m^3/s
         H = 10  # effective head in meters
         P_out = 250  # output power in kW
-
         # Calculations
         P_in = rho * g * Q * H  # input power in watts
         P_in_kW = P_in / 1000  # convert to kW
-
         # Efficiency
         efficiency = (P_out / P_in_kW) * 100
-        print(f"Turbine efficiency: {efficiency:.2f}%")
         return render(request, 'app/tpfm/turbine_efficiency_modelling.html', {'title': _('Turbine Efficiency Modelling'),
                                                                               'turbines':turbines,
                                                                               'rho':rho,
@@ -180,8 +176,7 @@ def turbine_efficiency_modelling(request):
                                                                               'H':H,   
                                                                               'P_out':P_out,
                                                                               'P_in':P_in,
-                                                                              'P_in_kW':P_in_kW,
-                                                                              'efficiency': efficiency })
+                                                                              'P_in_kW':P_in_kW})
     if request.method == 'POST':
         turbines = Turbine.objects.all()
         density_of_water = float(request.POST.get('rho'))
