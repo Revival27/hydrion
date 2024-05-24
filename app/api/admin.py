@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.hashers import make_password
-from ..models import Team, HydroProject, ProjectStatus, TaskStatus, Report, Turbine
+from ..models import Team, HydroProject, ProjectStatus, TaskStatus, Report, Turbine, Efficiency
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -114,3 +114,8 @@ class ReportAdmin(admin.ModelAdmin):
 class Turbine(admin.ModelAdmin):
     list_display = ('id', 'name', 'vortex', 'turbine_type', 'water_level', 'continous')
     search_fields = ('id', 'name', 'vortex', 'turbine_type', 'water_level', 'continous')
+
+@admin.register(Efficiency)
+class EfficiencyAdmin(admin.ModelAdmin):
+    list_display = ('id', 'rho', 'g', 'Q', 'H', 'P_out', 'P_in')
+    search_fields = ('id', 'rho', 'g', 'Q', 'H', 'P_out', 'P_in')

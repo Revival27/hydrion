@@ -54,99 +54,101 @@
     border: 1px solid #ccc;
     border-top: none;
   }
-  img{
-    max-width: 750px;
-  }
   .selected {
         background-color: #cceeff; /* Light blue background */
     }
 </style>
   <div class="container">
-    <h2 class="h2">{% trans 'Turbine efficiency modelling' %}</h2>
-    <div class="tab">
-      <button class="tablinks" onclick="openTurbine(event, 'Turbulent')">{% trans 'Turbulent' %}</button>
-      <button class="tablinks" onclick="openTurbine(event, 'Lucid Energy')">Lucid Energy</button>
-      <button class="tablinks" onclick="openTurbine(event, 'Ossberger')">Ossberger</button>
-      <button class="tablinks" onclick="openTurbine(event, 'HydroWatt')">HydroWatt</button>
-    </div>        
-    <div id="Turbulent" class="tabcontent">
-      <h3>{% trans 'Turbulent' %}</h3>
-      <div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>{% trans 'Name' %}</th>
-                    <th>{% trans 'Vortex' %}</th>
-                    <th>{% trans 'Type' %}</th>
-                    <th>{% trans 'Water Level' %}</th>
-                    <th>{% trans 'Continous' %}</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for turbine in turbines %}
-                <tr class="table-row" onclick="selectTurbine(this)">
-                    <td>{{turbine.name}}</td>
-                    <td>{{turbine.vortex}} kW</td>
-                    <td>{{turbine.turbine_type}}</td>
-                    <td>{{turbine.water_level}}</td>
-                    <td>{{turbine.continous}}</td>
-                    <!-- <td><img src="/static/app/img/pelton.png" alt="pelton turbine"></td> -->
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <div class="row">
+      <div class="col-md-8 col-lg-8">
+        <h2 class="h2">{% trans 'Turbine efficiency modelling' %}</h2>
+        <div class="tab">
+          <button class="tablinks" onclick="openTurbine(event, 'Turbulent')">{% trans 'Turbulent' %}</button>
+          <button class="tablinks" onclick="openTurbine(event, 'Lucid Energy')">Lucid Energy</button>
+          <button class="tablinks" onclick="openTurbine(event, 'Ossberger')">Ossberger</button>
+          <button class="tablinks" onclick="openTurbine(event, 'HydroWatt')">HydroWatt</button>
+        </div>        
+        <div id="Turbulent" class="tabcontent">
+          <h3>{% trans 'Turbulent' %}</h3>
+          <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>{% trans 'Name' %}</th>
+                        <th>{% trans 'Vortex' %}</th>
+                        <th>{% trans 'Type' %}</th>
+                        <th>{% trans 'Water Level' %}</th>
+                        <th>{% trans 'Continous' %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for turbine in turbines %}
+                    <tr class="table-row" onclick="selectTurbine(this)">
+                        <td>{{turbine.name}}</td>
+                        <td>{{turbine.vortex}} kW</td>
+                        <td>{{turbine.turbine_type}}</td>
+                        <td>{{turbine.water_level}}</td>
+                        <td>{{turbine.continous}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <div id="Lucid Energy" class="tabcontent">
+          <h3>Lucid Energy</h3>
+          <img src="/static/app/img/pipe-turbine.jpg" alt="lucid turbine" class="img-responsive">
+        </div>
+        <div id="Ossberger" class="tabcontent">
+          <h3>Ossberger</h3>
+          <img src="/static/app/img/ossberger.png" alt="ossberger turbine" class="img-responsive">
+        </div>
+        <div id="HydroWatt" class="tabcontent">
+            <h3>HydroWatt</h3>
+        </div>
+        <div>
+          {% trans 'General formula of Turbine Efficiency:' %}
+            η = ⅹ
+        </div>
+        <form action="/tpfm/turbine_efficiency_modelling/" method="post" class="form">
+            {% csrf_token %}
+            <fieldset id="efficiencyForm" disabled >
+              <legend>{% trans 'Calculate turbine efficiency' %}</legend>
+                <h3>{% trans 'Selected turbine:' %}<span id="selectedTurbineName"></span></h3>
+                <div class="mb-3">
+                  <label for="rho" class="form-label">{% trans 'ρ: Densitiy of water in kg/m³' %}</label>
+                  <input type="number" id="rho" class="form-control" value="{{rho}}" name="rho" >
+                </div>
+                <div class="mb-3">
+                    <label for="g" class="form-label">{% trans 'g: Acceleration due to gravity in m/s²' %}</label>
+                    <input type="number" id="g" class="form-control" value="{{g}}" name="g">
+                </div>
+                <div class="mb-3">
+                    <label for="Q" class="form-label">{% trans 'Q: Volumetric flow rate in m³/s' %}</label>
+                    <input type="number" id="Q" class="form-control" value="{{Q}}" name="Q">
+                </div>
+                <div class="mb-3">
+                    <label for="H" class="form-label">{% trans 'H: effective head in meter' %}</label>
+                    <input type="number" id="H" class="form-control" value="{{H}}" name="H">
+                </div>
+                <div class="mb-3">
+                    <label for="P_out" class="form-label">{% trans 'Output power in Kw' %}</label>
+                    <input type="number" id="P_out" class="form-control" value="{{P_out}}" name="P_out">
+                </div>
+                <div class="mb-3">
+                    <label for="P_in" class="form-label">{% trans 'Input power in watts:' %}</label>
+                    <input type="number" id="inputPower" class="form-control" value="{{P_in}}" name="input_power" disabled>
+                </div>
+                <button type="submit" class="btn btn-primary">{% trans 'Calculate' %}</button>
+              </fieldset>
+        </form>
+      </div>
+      
+      <div class="col-md-4 col-lg-4">
+        <label for="efficiency" class="form-label">{% trans 'Calculated efficiency' %}</label>
+        <div name="efficiency">{{efficiency}} %</div>     
       </div>
     </div>
-    <div id="Lucid Energy" class="tabcontent">
-      <h3>Lucid Energy</h3>
-      <img src="/static/app/img/pipe-turbine.jpg" alt="">
-    </div>
-    <div id="Ossberger" class="tabcontent">
-      <h3>Ossberger</h3>
-      <img src="/static/app/img/ossberger.png" alt="">
-    </div>
-    <div id="HydroWatt" class="tabcontent">
-        <h3>HydroWatt</h3>
-    </div>
-        
-    <div>
-      {% trans 'General formula of Turbine Efficiency:' %}
-        η = ⅹ
-    </div>
-    <form action="/tpfm/turbine_efficiency_modelling/" method="post" class="form">
-        {% csrf_token %}
-        <fieldset id="efficiencyForm" disabled >
-          <legend>{% trans 'Calculate turbine efficiency' %}</legend>
-            <h3>{% trans 'Selected turbine:' %}<span id="selectedTurbineName"></span></h3>
-            <div class="mb-3">
-              <label for="rho" class="form-label">{% trans 'ρ: Densitiy of water in kg/m³' %}</label>
-              <input type="number" id="rho" class="form-control" value="{{rho}}" name="rho" >
-            </div>
-            <div class="mb-3">
-                <label for="g" class="form-label">{% trans 'g: Acceleration due to gravity in m/s²' %}</label>
-                <input type="number" id="g" class="form-control" value="{{g}}" name="g">
-            </div>
-            <div class="mb-3">
-                <label for="Q" class="form-label">{% trans 'Q: Volumetric flow rate in m³/s' %}</label>
-                <input type="number" id="Q" class="form-control" value="{{Q}}" name="Q">
-            </div>
-            <div class="mb-3">
-                <label for="H" class="form-label">{% trans 'H: effective head in meter' %}</label>
-                <input type="number" id="H" class="form-control" value="{{H}}" name="H">
-            </div>
-            <div class="mb-3">
-                <label for="P_out" class="form-label">{% trans 'Output power in Kw' %}</label>
-                <input type="number" id="P_out" class="form-control" value="{{P_out}}" name="P_out">
-            </div>
-            <div class="mb-3">
-                <label for="P_in" class="form-label">{% trans 'Input power in watts:' %}</label>
-                <input type="number" id="inputPower" class="form-control" value="{{P_in}}" name="input_power" disabled>
-            </div>
-            <button type="submit" class="btn btn-primary">{% trans 'Calculate' %}</button>
-          </fieldset>
-    </form>
-    <label for="efficiency" class="form-label">{% trans 'Calculated efficiency' %}</label>
-    <div name="efficiency">{{efficiency}} %</div>         
   </div>
   <script>
     function selectTurbine(row) {
