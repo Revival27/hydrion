@@ -12,5 +12,6 @@ class Efficiency(models.Model):
     efficiency = models.FloatField(db_column='efficiency')
     class Meta:
         verbose_name = ('Efficiency')
+        verbose_name_plural = 'Efficiencies'
         db_table = 'turbine_efficiency'
         managed = True

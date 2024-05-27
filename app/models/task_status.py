@@ -13,5 +13,6 @@ class TaskStatus(models.Model):
     
     class Meta:
         verbose_name = ('Task Status')
+        verbose_name_plural = 'Task Stasuses'
         db_table = 'task_status'
         managed = True

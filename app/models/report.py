@@ -25,6 +25,6 @@ class Report(models.Model):
         return(task_names, completion_ratios)
 
     class Meta:
-        verbose_name = ('Reports')
+        verbose_name = ('Report')
         db_table = 'report'
         managed = True

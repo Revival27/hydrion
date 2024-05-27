@@ -13,5 +13,6 @@ class ProjectStatus(models.Model):
     
     class Meta:
         verbose_name = ('Project Status')
+        verbose_name_plural = 'Project Statuses'
         db_table = 'project_status'
         managed = True
