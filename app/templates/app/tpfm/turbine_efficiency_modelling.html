@@ -80,7 +80,7 @@
                       </li>
                     </ul>
                   </div>
-                  <input type="number" id="rho" class="form-control" value="{{rho}}" name="rho" >
+                  <input type="number" step="0.01" id="rho" class="form-control" value="{{rho}}" name="rho" >
                 </div>
                 <div class="mb-3">
                     <label for="g" class="form-label">{% trans 'g: Acceleration due to gravity in m/s²' %}</label>
@@ -97,7 +97,7 @@
                         </li>
                       </ul>
                     </div>
-                    <input type="number" id="g" class="form-control" value="{{g}}" name="g">
+                    <input type="number" step="0.01" id="g" class="form-control" value="{{g}}" name="g">
                 </div>
                 <div class="mb-3">
                     <label for="Q" class="form-label">{% trans 'Q: Volumetric flow rate in m³/s' %}</label>
@@ -114,7 +114,7 @@
                         </li>
                       </ul>
                     </div>
-                    <input type="number" id="Q" class="form-control" value="{{Q}}" name="Q">
+                    <input type="number" step="0.01" id="Q" class="form-control" value="{{Q}}" name="Q">
                 </div>
                 <div class="mb-3">
                     <label for="H" class="form-label">{% trans 'H: effective head in meter' %}</label>
@@ -131,7 +131,7 @@
                         </li>
                       </ul>
                     </div>
-                    <input type="number" id="H" class="form-control" value="{{H}}" name="H">
+                    <input type="number" step="0.01" id="H" class="form-control" value="{{H}}" name="H">
                 </div>
                 <div class="mb-3">
                     <label for="P_out" class="form-label">{% trans 'Output power in Kw' %}</label>
@@ -148,7 +148,7 @@
                         </li>
                       </ul>
                     </div>
-                    <input type="number" id="P_out" class="form-control" value="{{P_out}}" name="P_out">
+                    <input type="number" step="0.01" id="P_out" class="form-control" value="{{P_out}}" name="P_out">
                 </div>
                 <div class="mb-3">
                     <label for="P_in" class="form-label">{% trans 'Input power in watts:' %}</label>
