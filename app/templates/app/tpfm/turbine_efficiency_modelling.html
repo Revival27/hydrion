@@ -102,7 +102,7 @@
                 <div class="mb-3">
                     <label for="Q" class="form-label">{% trans 'Q: Volumetric flow rate in m³/s' %}</label>
                     <div class="dropdown">
-                      <button id="info-gravity" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <button id="info-volumetric-flow-rate" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa-solid fa-circle-info"></i>
                         <span class="caret"></span>
                       </button>
@@ -119,7 +119,7 @@
                 <div class="mb-3">
                     <label for="H" class="form-label">{% trans 'H: effective head in meter' %}</label>
                     <div class="dropdown">
-                      <button id="info-gravity" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <button id="info-effective-head" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa-solid fa-circle-info"></i>
                         <span class="caret"></span>
                       </button>
@@ -136,7 +136,7 @@
                 <div class="mb-3">
                     <label for="P_out" class="form-label">{% trans 'Output power in Kw' %}</label>
                     <div class="dropdown">
-                      <button id="info-gravity" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <button id="info-output-power" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa-solid fa-circle-info"></i>
                         <span class="caret"></span>
                       </button>
@@ -152,6 +152,19 @@
                 </div>
                 <div class="mb-3">
                     <label for="P_in" class="form-label">{% trans 'Input power in watts:' %}</label>
+                    <div class="dropdown">
+                      <button id="info-input-power" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu alert alert-info" aria-labelledby="dLabel">
+                        <li class="dropdown-item">
+                          <p>
+                            {% trans 'The input power is derived from the potential energy of the water flowing through the turbine. It can be calculated using the following formula: 𝑃ᵢₙ = 𝜌 ⋅ 𝑔 ⋅ 𝑄 ⋅ 𝐻' %}
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
                     <input type="number" id="inputPower" class="form-control" value="{{P_in}}" name="input_power" disabled>
                 </div>
                 <button type="submit" class="btn btn-primary">{% trans 'Calculate' %}</button>
