@@ -156,30 +156,39 @@ def pressure_analysis(request):
     T2 = 300  # Temperature at point 2 (K)
     gamma = 1.4  # Ratio of specific heats for air
     k_to_c = 273.15
+    turbines = Turbine.objects.all()
     
     if request.method == 'POST':       
         
         P1 = float(request.POST.get('pressure_point_1'))
         T1 = float(request.POST.get('temperature_1')) + k_to_c
         T2 = float(request.POST.get('temperature_2')) + k_to_c
-        
+        gamma = float(request.POST.get('gamma'))
         # Using isentropic relations to solve for P2
         if P1 and T1 and T2:
             P2 = P1 * (T2 / T1) ** (gamma / (gamma - 1))
-        return render(request, 'app/tpfm/pressure_analysis.html', {'title': _('Pressure Analysis'), 'P2':P2,
+            print('post P2: ', P2, 'rest:', P1, T2, T1, gamma)
+        return render(request, 'app/tpfm/pressure_analysis.html', {'title': _('Pressure Analysis'),
+                                                                   'P2':P2,
+                                                                   'turbines':turbines,
                                                                    'P1':P1,
                                                                    'T1':T1 - k_to_c,
                                                                    'T2':T2 - k_to_c,
+                                                                   'gamma': gamma,
                                                                    })
     
     if request.method == 'GET':
         P2 = P1 * (T2 / T1) ** (gamma / (gamma - 1))
-        return render(request, 'app/tpfm/pressure_analysis.html', {'title': _('Pressure Analysis'), 'P2': P2,
+        print('get P2: ', P2)
+        return render(request, 'app/tpfm/pressure_analysis.html', {'title': _('Pressure Analysis'),
+                                                                   'P2': P2,
+                                                                   'turbines':turbines,
                                                                    'P1':P1,
                                                                    'T1':T1 - k_to_c,
                                                                    'T2':T2 - k_to_c,
+                                                                   'gamma': gamma,
                                                                    })
-    
+        
     return render(request, 'app/tpfm/pressure_analysis.html', {'title': _('Pressure Analysis')})
 
 @login_required

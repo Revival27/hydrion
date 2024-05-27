@@ -2,6 +2,12 @@
 {% load i18n static settings %}
 {% block content %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/tpfm_dashboard.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'app/css/turbine_efficiency_modelling.css' %}">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!--
 <div class="container" style="padding: 0; margin-left: 0;">
     <h1 style="font-size:400; margin-bottom: 20px"><b>{% trans 'Pressure Analysis' %}</b></h1>
     <div class="row-sm justify-content-start" style="max-width: 60%;">
@@ -33,4 +39,157 @@
         </div>
     </div>
 </div>
+
+-->
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-col-md-8 col-lg-9">
+        <h2 class="h2">{% trans 'Pressure analysis' %}</h2>
+
+        <div class="tab">
+          <button class="tablinks" onclick="openTurbine(event, 'Turbulent')">{% trans 'Isentropic Flow Relations' %}</button>
+          <button class="tablinks" onclick="openTurbine(event, 'Lucid Energy')">Example</button>
+          <button class="tablinks" onclick="openTurbine(event, 'Ossberger')">Navier-Stokes</button>
+          <button class="tablinks" onclick="openTurbine(event, 'HydroWatt')">Compressible Flow</button>
+        </div>        
+        <div id="Turbulent" class="tabcontent">
+
+
+        </div>
+
+        <div id="Lucid Energy" class="tabcontent">
+          <img src="/static/app/img/kaplan-pressure-a.png" alt="kaplan-pressure-a" class="img-responsive">
+          <!-- Image source: https://doi.org/10.3390/jmse12020241 -->
+        </div>
+        <div id="Ossberger" class="tabcontent">
+          <img src="/static/app/img/kaplan-2.jpg" alt="Kaplan diagram" class="img-responsive">
+        </div>
+        <div id="HydroWatt" class="tabcontent">
+            <img src="/static/app/img/kaplan-4.png" alt="Kaplan model" class="img-responsive">
+        </div>
+        <div id="calculator">
+          <form action="/tpfm/pressure_analysis/" method="post" class="form">
+            {% csrf_token %}
+            <fieldset id="efficiencyForm" >
+              <legend>{% trans 'Calculate pressure inside turbine' %}</legend>
+                <!--<h3>{% trans 'Selected turbine:' %}<span id="selectedTurbineName"></span></h3>-->
+                <div class="mb-3">
+                  <label for="rho" class="form-label">{% trans 'P1: Pressure at point 1 in kPa' %}</label>
+                  <div class="dropdown">
+                    <button id="info-rho" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa-solid fa-circle-info"></i>
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu alert alert-info" aria-labelledby="dLabel">
+                      <li class="dropdown-item">
+                        <p>
+                          {% trans 'For many turbine components where the flow can be assumed to be isentropic (adiabatic and reversible), the isentropic relations can be used. These relations connect pressure, temperature, and density changes to the Mach number.' %}
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                  <input id="rho" class="form-control" type="number" step="0.01"  value={% language 'en'%}{{P1|floatformat:0}}{% endlanguage %} name="pressure_point_1" >
+                </div>
+                <div class="mb-3">
+                    <label for="g" class="form-label">{% trans 'T1: Temperature at point 1 in C' %}</label>
+                    <div class="dropdown">
+                      <button id="info-gravity" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu alert alert-info" aria-labelledby="dLabel">
+                        <li class="dropdown-item">
+                          <p>
+                            {% trans 'Temperature at the first point in Celsius' %}
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                    <input type="number" step="0.01"  id="g" class="form-control" value={% language 'en'%}{{T1|floatformat:2}}{% endlanguage %} name="temperature_1">
+                </div>
+                <div class="mb-3">
+                    <label for="Q" class="form-label">{% trans 'T2: Temperature at point 1 in C' %}</label>
+                    <div class="dropdown">
+                      <button id="info-gravity" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu alert alert-info" aria-labelledby="dLabel">
+                        <li class="dropdown-item">
+                          <p>
+                            {% trans 'Temperature at the second point in Celsius' %}
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                    <input type="number" step="0.01" id="Q" class="form-control" value={% language 'en'%}{{T2|floatformat:2}}{% endlanguage %} name="temperature_2">
+                </div>
+                <div class="mb-3">
+                    <label for="H" class="form-label">{% trans 'γ: Heat capacity ratio' %}</label>
+                    <div class="dropdown">
+                      <button id="info-gravity" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu alert alert-info" aria-labelledby="dLabel">
+                        <li class="dropdown-item">
+                          <p>
+                            {% trans 'In the isentropic flow relations used to calculate the pressure within a turbine engine, γ determines how temperature changes with pressure during an adiabatic process. For air, with γ around 1.4, these relations provide the basis for many calculations in aerodynamics and thermodynamics involving compressible flow' %}
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                    <input type="number" step="0.01" id="H" class="form-control" value={% language 'en'%}{{gamma|floatformat:2}}{% endlanguage %} name="gamma">
+                </div>
+                <button type="submit" class="btn btn-primary">{% trans 'Calculate' %}</button>
+              </fieldset>
+        </form>
+      </div>
+      <br><br>
+      <div class="col-md-4 col-lg-3">
+        <label for="efficiency" class="form-label">{% trans 'Calculated pressure' %}</label>
+        <div name="efficiency">{{P2|floatformat:2}} kPa</div>     
+      </div>
+      </div>
+      
+
+    </div>
+  </div>
+  <script>
+    function selectTurbine(row) {
+        // Deselect previously selected row
+        var selected = document.querySelectorAll(".selected");
+        selected.forEach(function(row) {
+            row.classList.remove("selected");
+        });
+
+        // Select the clicked row
+        row.classList.add("selected");
+
+        // Enable the form and set selected turbine name
+        var form = document.getElementById("efficiencyForm");
+        form.removeAttribute("disabled");
+
+        var selectedTurbineName = row.cells[0].innerText;
+        document.getElementById("selectedTurbineName").innerText = selectedTurbineName;
+
+        // Set values for inputs if needed (example with placeholder input)
+        document.getElementById("disabledTextInput").value = selectedTurbineName; // Or other relevant data
+    }
+    function openTurbine(evt, turbineName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(turbineName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
 {% endblock %}
