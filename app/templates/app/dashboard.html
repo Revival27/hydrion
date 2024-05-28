@@ -3,6 +3,7 @@
 {% load settings %}
 
 {% block content %}
+
 	{% load render_bundle from webpack_loader %}
 	{% render_bundle 'Dashboard' attrs='async' %}
 
