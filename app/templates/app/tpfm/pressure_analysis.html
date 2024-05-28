@@ -7,41 +7,6 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<!--
-<div class="container" style="padding: 0; margin-left: 0;">
-    <h1 style="font-size:400; margin-bottom: 20px"><b>{% trans 'Pressure Analysis' %}</b></h1>
-    <div class="row-sm justify-content-start" style="max-width: 60%;">
-        <div class="col">
-            
-            <form action="/tpfm/pressure_analysis/" method="post">
-                {% csrf_token %}
-                <div class="mb-3">
-                    <label class="form-label" for="pressure_point_1">{% trans 'Pressure at point 1 (kPa)' %}</label>
-                    <input class="form-control" type="text" name="pressure_point_1" id="pressure_point_1" value={% language 'en'%}{{P1|floatformat:3}}{% endlanguage %} required>
-                </div>
-                <div class="mb-3">
-                    <label for="temperature_1" class="form-label">{% trans 'Temperature at point 1 (C)' %}</label>
-                    <input type="text" class="form-control" name="temperature_1" id="temperature_1" value={% language 'en'%}{{T1|floatformat:2}}{% endlanguage %} required>
-                </div>
-                <div class="mb-3">
-                    <label for="temperature_2" class="form-label">{% trans 'Temperature at point 2 (C)' %}</label>
-                    <input type="text" class="form-control" name="temperature_2" id="temperature_2" value={% language 'en'%}{{T2|floatformat:2}}{% endlanguage %} required>
-                </div>
-                
-
-                <input type="submit" name="" id="" class="btn btn-primary" style="margin-top: 20px;">
-            </form>
-
-            {% if P2 %}
-                <h1 style="font-size:400; margin-bottom: 20px"><b>{{P2|floatformat:4}} kPa</b></h1>
-            {% endif %}
-
-        </div>
-    </div>
-</div>
-
--->
-
 
   <div class="container">
     <div class="row">
@@ -144,17 +109,13 @@
                     <input type="number" step="0.01" id="H" class="form-control" value={% language 'en'%}{{gamma|floatformat:2}}{% endlanguage %} name="gamma">
                 </div>
                 <button type="submit" class="btn btn-primary">{% trans 'Calculate' %}</button>
+                <br><br>                
+                <h2 class="h2"> {% trans 'Calculated pressure: ' %} {{P2|floatformat:2}} kPa</h2>
               </fieldset>
         </form>
       </div>
       <br><br>
-      <div class="col-md-4 col-lg-3">
-        <label for="efficiency" class="form-label">{% trans 'Calculated pressure' %}</label>
-        <div name="efficiency">{{P2|floatformat:2}} kPa</div>     
       </div>
-      </div>
-      
-
     </div>
   </div>
   <script>
