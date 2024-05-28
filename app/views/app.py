@@ -250,9 +250,9 @@ def planning_scenario_modelling(request):
 def report(request, report_id=None):
     if report_id:
         report = Report.objects.get(id=report_id)
-        tasks,completion_ratios = report.tasks_completion()
+        task_names, completion_ratios = report.tasks_completion()
         plt.figure(figsize=(8, 6))
-        plt.bar(tasks, completion_ratios, color='skyblue')
+        plt.bar(task_names, completion_ratios, color='skyblue')
         plt.xlabel('Tasks')
         plt.ylabel('Completion Ratio')
         plt.title('Task Completion Ratio')

@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from app.models import HydroTask
+from app.models import HydroTask, TaskStatus
 
 #feladatok teljesítési arányáról, a csapat termelékenységéről és a projekt ütemezéséről
 class Report(models.Model):
@@ -15,15 +15,14 @@ class Report(models.Model):
     
     def tasks_completion(self):
         tasks = HydroTask.objects.filter(project=self.project)
-        completion_statuses = []
         task_names = []
+        completion_statuses = []
         for task in tasks:
-            completion_statuses.append(task.status.name)
-            task_names.append(task.name)
-        status_to_value = {completion_statuses[0]: 0, completion_statuses[1]: 0.5, completion_statuses[2]: 1}
-        completion_ratios = [status_to_value[status] for status in completion_statuses]
-        return(task_names, completion_ratios)
-
+           task_status = TaskStatus.objects.get(pk=task.status_id)
+           task_names.append(task.name)
+           completion_statuses.append(task_status.completion_value)
+        return (task_names, completion_statuses)
+    
     class Meta:
         verbose_name = ('Report')
         db_table = 'report'

@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 class TaskStatus(models.Model):
     id = models.BigAutoField(db_column='id', primary_key=True)
     name = models.CharField(db_column='name', max_length=250)
-    
+    completion_value = models.FloatField(db_column='completion_value', default=0)
     def __str__(self):
         return self.name
     
