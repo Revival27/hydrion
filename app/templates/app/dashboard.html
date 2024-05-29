@@ -1,6 +1,6 @@
 {% extends "app/logged_in_base.html" %}
 {% load i18n %}
-{% load settings %}
+{% load settings static %}
 
 {% block content %}
 
@@ -47,4 +47,64 @@
 		<div id="dashboard-app" data-dashboard></div>
 
 	{% endif %}
+
+	
+<style>
+    #gallery img {
+        max-width: 640px;
+        max-height: 480px;
+        display: block;
+        margin: 0 auto;
+    }
+    .navigation {
+        margin: 20px 0;
+    }
+    .navigation button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div id="gallery">
+        <img id="currentImage" src="" alt="Image Gallery">
+        <div class="navigation">
+            <button id="prevButton">Previous</button>
+            <button id="nextButton">Next</button>
+        </div>
+    </div>
+    <script>
+        const images = [
+            // List your image files here
+
+        ];
+
+        let currentIndex = 0;
+
+        const currentImage = document.getElementById('currentImage');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+
+        function showImage(index) {
+            if (index >= 0 && index < images.length) {
+                currentImage.src = images[index];
+                currentIndex = index;
+            }
+        }
+
+        prevButton.addEventListener('click', () => {
+            const newIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1;
+            showImage(newIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+            const newIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0;
+            showImage(newIndex);
+        });
+
+        // Initial display
+        showImage(currentIndex);
+    </script>
+</body>
 {% endblock %}
