@@ -57,12 +57,12 @@
 
 <div id="videos" hidden>
     <video width="960" height="640" controls loop>
-        <source src="{% static 'app/video/0001-0170.mp4' %}"; type="video/mp4">
-    </video>
-    <video width="960" height="640" controls loop>
         <source src="{% static 'app/video/170-2.mp4' %}"; type="video/mp4">
     </video>
 </div>
+<video width="960" height="640" hidden controls loop>
+    <source src="{% static 'app/video/0001-0170.mp4' %}"; type="video/mp4">
+</video>
 
 <style>
     datalist {

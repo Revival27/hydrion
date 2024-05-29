@@ -4,6 +4,61 @@
 
 {% block content %}
 
+<div class="container" style="padding: 0; margin-left: 0;">
+    <h1 style="font-size:400; margin-bottom: 20px"><b>{% trans 'Set parameters' %}</b></h1>
+    <div class="row-sm justify-content-start" style="max-width: 60%;">
+        <div class="col">
+            <form id='parameter-form'>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label" for="deadline">{% trans 'Runner Diameter (m)' %}</label>
+                    <input class="form-control" type="text" name="deadline" id="deadline" value="2" required>
+                </div>
+                <div class="mb-3">
+                    <label for="status" class="form-label">{% trans 'Number of Blades' %}</label>
+                    <input type="range" min="0" max="4" class="form-control" name="status" id="status" list="values">
+                    <datalist id="values">
+                      <option value="1" label="One "></option>
+                      <option value="2" label="Twoo"></option>
+                      <option value="3" label="Three"></option>
+                      <option value="4" label="Four"></option>
+                      <option value="5" label="Five"></option>
+                    </datalist>
+                </div>
+                <div class="mb-3">
+                    <label for="water_surface" class="form-label">{% trans 'Material' %}</label>
+                    <input type="text" class="form-control" name="water_surface" id="water_surface" value='steel' required>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">{% trans 'Blade Length (m)' %}</label>
+                    <input type="text" class="form-control" name="location" value="2" required>
+                </div>
+                <div class="mb-3">
+                    <label for="flow_direction_speed" class="form-label">{% trans 'Blade Width (m)' %}</label>
+                    <input type="text" class="form-control" name="flow_direction_speed" id="flow_direction_speed" value="1" required>
+                </div>
+                <div class="mb-3">
+                    <label for="segment_width" class="form-label">{% trans 'Blade Thickness (m)' %}</label>
+                    <input type="text" class="form-control" name="segment_width" id="segment_width" value="0.1" required>
+                </div>
+                <div class="mb-3">
+                    <label for="segment_depth" class="form-label">{% trans 'Rotational Speed (RPM)' %}</label>
+                    <input type="text" class="form-control" name="segment_depth" id="segment_depth" value="50" required>
+                </div>
+                <div class="mb-3">
+                    <label for="estimated_waterflow" class="form-label">{% trans 'Flow Rate (m³/s)' %}</label>
+                    <input type="text" class="form-control" name="estimated_waterflow" id="estimated_waterflow" value="20" required>
+                </div>
+                <input type="submit" name="" id="" onclick="showVideo(event)" class="btn btn-primary" style="margin-top: 20px;">
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div id="three-container" hidden>
 <script type="importmap">
     {
         "imports": {
@@ -27,6 +82,8 @@
     let scene, camera, renderer;
 
     async function init() {
+
+        const container = document.getElementById('three-container');
 
         //Scene
         scene = new THREE.Scene();
@@ -83,7 +140,7 @@
         renderer.setSize( window.innerWidth/2, window.innerHeight/2 );
         renderer.setPixelRatio( window.devicePixelRatio );
         document.getElementsByClassName('content')[0].appendChild(renderer.domElement);
-
+        container.append(renderer.domElement)
         //Controls
         const controls = new OrbitControls( camera, renderer.domElement );
         controls.addEventListener( 'change', render );
@@ -112,5 +169,36 @@
 
     init();
 </script>
-    
+</div>
+
+<style>
+    datalist {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        writing-mode: vertical-lr;
+        width: 200px;
+      }
+      
+      option {
+        padding: 0;
+      }
+      
+      input[type="range"] {
+        width: 200px;
+        margin: 0;
+      }
+      
+</style>
+<script>
+    function showVideo(event) {
+        event.preventDefault(); // Prevent form submission
+        var threeDiv = document.getElementById("three-container");
+        var pf = document.getElementById("parameter-form");
+        if (threeDiv) {
+            threeDiv.removeAttribute("hidden");
+            pf.setAttribute("hidden", "");
+        }
+    }
+</script>
 {% endblock %}
