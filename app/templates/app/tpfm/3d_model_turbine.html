@@ -16,7 +16,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="status" class="form-label">{% trans 'Number of Blades' %}</label>
-                    <input type="range" min="0" max="4" class="form-control" name="status" id="status" list="values">
+                    <input type="range" min="0" max="4" class="form-control" name="status" id="status" value='3' list="values">
                     <datalist id="values">
                       <option value="1" label="One "></option>
                       <option value="2" label="Twoo"></option>
@@ -49,6 +49,27 @@
                     <label for="estimated_waterflow" class="form-label">{% trans 'Flow Rate (m³/s)' %}</label>
                     <input type="text" class="form-control" name="estimated_waterflow" id="estimated_waterflow" value="20" required>
                 </div>
+                <div class="mb-3">
+                    <label for="estimated_waterflow" class="form-label">{% trans 'Water Density (kg/m³)' %}</label>
+                    <input type="text" class="form-control" name="water_density" id="water_density" value="1000" required>
+                </div>
+                <div class="mb-3">
+                    <label for="estimated_waterflow" class="form-label">{% trans 'Generator Capacity (MW)' %}</label>
+                    <input type="text" class="form-control" name="generator_capacity" id="generator_capacity" value="15" required>
+                </div>
+                <div class="mb-3">
+                    <label for="estimated_waterflow" class="form-label">{% trans 'Inlet Pressure (Pa)' %}</label>
+                    <input type="text" class="form-control" name="inlet_pressure" id="inlet_pressure" value="500000" required>
+                </div>
+                <div class="mb-3">
+                    <label for="estimated_waterflow" class="form-label">{% trans 'Outlet Pressure (Pa)' %}</label>
+                    <input type="text" class="form-control" name="outlet_pressure" id="outlet_pressure" value="100000" required>
+                </div>
+                <div class="mb-3">
+                    <label for="estimated_waterflow" class="form-label">{% trans 'Discharge Diameter (m)' %}</label>
+                    <input type="text" class="form-control" name="discharge_diameter" id="discharge_diameter" value="1.5" required>
+                </div>
+            
                 <input type="submit" name="" id="" onclick="showVideo(event)" class="btn btn-primary" style="margin-top: 20px;">
             </form>
 

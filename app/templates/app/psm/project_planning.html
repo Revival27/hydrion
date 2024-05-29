@@ -180,6 +180,106 @@
             </div>
         </div>
     </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .container {
+            display: flex;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+        }
+        canvas {
+            max-width: 350px;
+            max-height: 300px;
+            margin-left: 25px;
+            margin-top: 25px;
+        }
+    </style>
+    <div class="chart-container">
+        <canvas id="projectCompletionBarChart"></canvas>
+        <canvas id="taskCompletionRateLineChart"></canvas>
+    </div>
+    <script>
+        // Data for project tasks completion (bar chart)
+        const projectNames = [
+        {% for project in projects %}
+            '{{ project.name }}'{% if not forloop.last %},{% endif %}
+        {% endfor %}
+        ];
+        
+        const barData = {
+            
+            //labels: ['Project1', 'Project2', 'Project3', 'Project4', 'Project5'],
+            labels: projectNames,
+            
+            
+            datasets: [{
+                label: 'Tasks Completed',
+                data: [42, 75, 34, 23, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        // Data for task completion rate (line chart)
+        const lineData = {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
+            datasets: [{
+                label: 'Completion Rate',
+                data: [15, 25, 40, 60, 80], 
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                fill: false,
+                tension: 0.1 // smoothness of the line
+            }]
+        };
+
+        // Configuration for the bar chart
+        const barConfig = {
+            type: 'bar',
+            data: barData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Configuration for the line chart
+        const lineConfig = {
+            type: 'line',
+            data: lineData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Render the bar chart
+        const barCtx = document.getElementById('projectCompletionBarChart').getContext('2d');
+        new Chart(barCtx, barConfig);
+
+        // Render the line chart
+        const lineCtx = document.getElementById('taskCompletionRateLineChart').getContext('2d');
+        new Chart(lineCtx, lineConfig);
+    </script>
 </div>
 {% endif %}
 {% endblock %}
