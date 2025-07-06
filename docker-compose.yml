@@ -19,10 +19,11 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: webapp
-    entrypoint: /bin/bash -c "chmod +x /webodm/*.sh && /bin/bash -c \"/webodm/wait-for-postgres.sh db /webodm/wait-for-it.sh -t 0 broker:6379 -- bash -c 'source /webodm/venv/bin/activate && python /webodm/manage.py runserver 0.0.0.0:${WO_PORT}'\""
+    entrypoint: /bin/bash -c "chmod +x /webodm/*.sh && chmod -R +x /webodm/venv/bin/ && /bin/bash -c \"/webodm/wait-for-postgres.sh db /webodm/wait-for-it.sh -t 0 broker:6379 -- ./venv/bin/activate && python3 /webodm/manage.py migrate && python3 /webodm/manage.py collectstatic --noinput && python3 /webodm/manage.py runserver 0.0.0.0:${WO_PORT}\""
     volumes:
-      #- ${WO_MEDIA_DIR}:/webodm/app/media:z
-      - .:/webodm
+      - ${WO_MEDIA_DIR}:/webodm/media/CACHE:z
+      #- .:/webodm
+      - ./staticfiles:/webodm/staticfiles
     ports:
       - "${WO_PORT}:8008"
     depends_on:
