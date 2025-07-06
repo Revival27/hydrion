@@ -97,8 +97,9 @@ RUN <<EOT
     chmod +x ./nginx/letsencrypt-autogen.sh
     chmod +x ./nodeodm/cleanup.sh
     chmod +x ./nodeodm/setup.sh
-    ./nodeodm/setup.sh
-    ./nodeodm/cleanup.sh
+    ln -s ./nodeodm/cleanup.sh /usr/local/bin/nodeodm-cleanup
+    webodm/nodeodm/setup.sh
+    webodm/nodeodm/cleanup.sh
     # Run webpack build, Django setup and final cleanup
     webpack --mode production
     # Django setup
