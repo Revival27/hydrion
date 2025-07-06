@@ -15,13 +15,16 @@ services:
     restart: unless-stopped
     oom_score_adj: -100
   webapp:
-    image: opendronemap/webodm_webapp
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: webapp
-    entrypoint: /bin/bash -c "chmod +x /webodm/*.sh && /bin/bash -c \"/webodm/wait-for-postgres.sh db /webodm/wait-for-it.sh -t 0 broker:6379 -- /webodm/start.sh\""
+    entrypoint: /bin/bash -c "chmod +x /webodm/*.sh && /bin/bash -c \"/webodm/wait-for-postgres.sh db /webodm/wait-for-it.sh -t 0 broker:6379 -- bash -c 'source /webodm/venv/bin/activate && python /webodm/manage.py runserver 0.0.0.0:${WO_PORT}'\""
     volumes:
-      - ${WO_MEDIA_DIR}:/webodm/app/media:z
+      #- ${WO_MEDIA_DIR}:/webodm/app/media:z
+      - .:/webodm
     ports:
-      - "${WO_PORT}:8000"
+      - "${WO_PORT}:8008"
     depends_on:
       - db
       - broker
@@ -44,7 +47,7 @@ services:
   worker:
     image: opendronemap/webodm_webapp
     container_name: worker
-    entrypoint: /bin/bash -c "/webodm/wait-for-postgres.sh db /webodm/wait-for-it.sh -t 0 broker:6379 -- /webodm/wait-for-it.sh -t 0 webapp:8000 -- /webodm/worker.sh start"
+    entrypoint: /bin/bash -c "/webodm/wait-for-postgres.sh db /webodm/wait-for-it.sh -t 0 broker:6379 -- /webodm/wait-for-it.sh -t 0 webapp:8008 -- /webodm/worker.sh start"
     volumes:
       - ${WO_MEDIA_DIR}:/webodm/app/media:z
     depends_on:
