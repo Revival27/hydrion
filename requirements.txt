@@ -9,6 +9,7 @@ django-appconf==1.0.2
 django-codemirror2==0.2
 django-colorfield==0.1.15
 django-cors-headers==3.0.2
+django-crispy-forms==1.14.0
 django-filter==2.4.0
 django-guardian==1.4.9
 django-imagekit==4.0.1
@@ -25,9 +26,10 @@ gunicorn==19.7.1
 itypes==1.1.0
 kombu==4.6.7
 Markdown==3.3.4
+matplotlib==3.5.1
 olefile==0.44
 openapi-codec==1.1.7
-packaging==16.8
+packaging>=20.0
 piexif==1.0.13
 pilkit==2.0
 Pillow==8.3.2
@@ -51,6 +53,7 @@ tzlocal==1.3
 uritemplate==3.0.0
 vine==1.3.0
 webcolors==1.5
+whitenoise==6.6.0
 rio-tiler==2.1.2
 rio-color==1.0.4
 rio-cogeo==2.3.1
